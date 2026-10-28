@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Thanksgiving at Home — Notting Grill | Turkey Feast Delivered in Notting Hill</title>
+<meta name="description" content="Thanksgiving dinner from the Notting Grill kitchen, cooked by Justin Horne and delivered to your door in Notting Hill, Kensington and St John's Wood, 25–28 November. Order online.">
+<meta name="theme-color" content="#0c0907">
+<link rel="canonical" href="https://nottinggrill.com/thanksgiving/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Notting Grill">
+<meta property="og:title" content="Thanksgiving at Home — Notting Grill">
+<meta property="og:description" content="Justin's Thanksgiving feast, delivered to your door in Notting Hill, Kensington and St John's Wood. Order online.">
+<meta property="og:url" content="https://nottinggrill.com/thanksgiving/">
+<meta property="og:image" content="https://nottinggrill.com/thanksgiving/img/hero.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/assets/ng/c830c882-09c7-4915-b455-c79cb9f22b27.png">
+<link rel="apple-touch-icon" href="/assets/ng/c830c882-09c7-4915-b455-c79cb9f22b27.png">
+<link rel="stylesheet" href="/assets/ng/ng-fonts.css">
+<link rel="stylesheet" href="/assets/ng/ng.css">
+<style>
+/* ============================================================
+   NOTTING GRILL — Thanksgiving at home
+   Built on the site system above (ng.css): same tokens, type, grounds,
+   header and footer. Only the shop components are defined here.
+   ============================================================ */
+[hidden]{ display:none !important; }
+button{ font:inherit; color:inherit; }
+:focus-visible{ outline:2px solid var(--orange); outline-offset:3px; }
+
+/* header: always solid on this page, active link, order button */
+.site-header.solid, .site-header.solid.scrolled{ background:var(--ink); border-bottom-color:var(--soot); backdrop-filter:none; -webkit-backdrop-filter:none; }
+.nav a[aria-current="page"]{ color:var(--orange); }
+.nav .btn b{ display:inline-grid; place-items:center; min-width:22px; height:22px; margin-left:8px; padding:0 6px;
+  border-radius:99px; background:var(--ink); color:var(--orange); font-size:12px; letter-spacing:0; }
+
+/* ---------- hero ---------- */
+.tg-hero{ padding:calc(84px + clamp(28px,5vh,64px)) var(--gutter) clamp(48px,7vh,90px); position:relative; overflow:hidden; }
+.tg-hero::before{ content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(60% 70% at 85% 60%, color-mix(in oklch,var(--orange) 22%, transparent), transparent 70%); }
+.tg-hero .inner{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(32px,5vw,80px); align-items:center; position:relative; }
+.tg-hero h1{ font-family:var(--display); font-weight:400; letter-spacing:-0.03em; line-height:.9; text-transform:lowercase;
+  font-size:clamp(46px,7.2vw,104px); margin:18px 0 22px; text-wrap:balance; }
+.tg-hero h1 em{ font-style:normal; color:var(--orange); }
+.tg-hero .lede{ font-size:clamp(17px,1.5vw,21px); color:color-mix(in oklch,var(--bone) 84%, transparent); max-width:44ch; margin:0 0 26px; }
+.ticks{ list-style:none; margin:0 0 34px; padding:0; display:grid; gap:10px; }
+.ticks li{ font-family:var(--mono); font-size:13.5px; letter-spacing:.06em; text-transform:uppercase; padding-top:10px; border-top:1px solid var(--soot);
+  color:color-mix(in oklch,var(--bone) 88%, transparent); }
+.cta-row{ display:flex; flex-wrap:wrap; gap:16px 22px; align-items:center; }
+.cta-note{ font-family:var(--mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ash); }
+.tg-hero figure{ margin:0; position:relative; justify-self:end; width:fit-content; max-width:100%; }
+.tg-hero figure img{ height:auto; border-radius:4px; border:1px solid var(--soot); max-height:min(76vh,720px); width:auto; max-width:100%;
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.8); }
+.count{ position:absolute; top:16px; right:16px; background:var(--orange); color:var(--ink); padding:10px 14px 9px; text-align:center; border-radius:2px; }
+.count b{ display:block; font-family:var(--display); font-weight:400; font-size:34px; line-height:.9; font-variant-numeric:tabular-nums; }
+.count span{ font-family:var(--label); font-weight:700; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+.badge{ position:absolute; left:-18px; bottom:26px; background:var(--forest); color:var(--cream); padding:16px 20px; max-width:250px; border-radius:2px; }
+.badge small{ display:block; font-family:var(--label); font-weight:700; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--sage); margin-bottom:6px; }
+.badge span{ font-family:var(--serif); font-style:italic; font-weight:600; font-size:19px; line-height:1.2; }
+@media (max-width:900px){
+  .tg-hero .inner{ grid-template-columns:1fr; }
+  .tg-hero figure{ justify-self:stretch; width:100%; }
+  .tg-hero figure img{ width:100%; max-height:none; aspect-ratio:4/3; object-fit:cover; object-position:center 45%; }
+  .badge{ left:12px; bottom:12px; }
+}
+
+/* ---------- shop ---------- */
+.shop-grid{ display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:clamp(28px,3vw,48px); align-items:start; }
+@media (max-width:1100px){ .shop-grid{ grid-template-columns:1fr; } }
+.step + .step{ margin-top:clamp(56px,7vw,88px); }
+.stephead{ display:flex; align-items:baseline; justify-content:space-between; gap:14px 24px; flex-wrap:wrap; margin-bottom:26px; }
+.stephead h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.02em; line-height:.95;
+  font-size:clamp(28px,3.2vw,42px); margin:10px 0 0; }
+.stephead .note{ font-family:var(--mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:color-mix(in oklch,var(--ink) 58%, transparent); }
+
+/* feast cards: pillar language (bone card, coloured top rule) */
+.feasts{ display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--bone-2); border:2px solid var(--bone-2); }
+@media (max-width:760px){ .feasts{ grid-template-columns:1fr; } }
+.feast{ background:var(--bone); display:flex; flex-direction:column; min-width:0; position:relative; }
+.feast::before{ content:""; position:absolute; top:0; left:0; right:0; height:5px; background:var(--pc,var(--orange)); z-index:2; }
+.feast > .ph{ aspect-ratio:16/10; min-height:0; border-radius:0; background-size:cover; background-position:center; }
+.feast .tag{ position:absolute; left:14px; top:18px; background:var(--ink); color:var(--bone); font-family:var(--mono); font-size:11px;
+  letter-spacing:.16em; text-transform:uppercase; padding:7px 10px; border-radius:2px; }
+.feast .body{ padding:clamp(22px,2.4vw,30px); display:grid; gap:14px; flex:1; align-content:start; }
+.feast .pn{ font-family:var(--mono); font-size:13px; letter-spacing:.2em; color:var(--pc); }
+.feast h4{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.02em; line-height:1;
+  font-size:clamp(26px,2.4vw,32px); margin:0; }
+.feast .sub{ margin:0; font-size:16px; line-height:1.5; color:color-mix(in oklch,var(--ink) 78%, transparent); }
+.feast details{ font-size:15px; color:color-mix(in oklch,var(--ink) 78%, transparent); }
+.feast ul{ margin:10px 0 0; padding-left:18px; line-height:1.55; }
+
+.pick{ margin:0; font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; color:color-mix(in oklch,var(--ink) 58%, transparent); }
+.pick.on{ color:var(--pine); font-weight:500; }
+
+
+/* what's in the box: always visible */
+.incl{ border-top:1px solid var(--bone-2); padding-top:14px; }
+.incl-h{ margin:0 0 8px; font-family:var(--label); font-weight:700; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--orange-deep); }
+.sides{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:0 18px; font-size:14.5px; line-height:1.35; color:color-mix(in oklch,var(--ink) 82%, transparent); }
+.sides li{ padding:6px 0; border-bottom:1px solid var(--bone-2); }
+@media (max-width:420px){ .sides{ grid-template-columns:1fr; } }
+
+/* table sizes */
+.sizes{ display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:8px; }
+.size{ appearance:none; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; padding:11px 12px; text-align:left; cursor:pointer; display:grid; gap:2px; color:var(--ink); transition:border-color .2s, background .2s, color .2s; }
+.size:hover{ border-color:var(--ink); }
+.size[aria-pressed="true"]{ background:var(--ink); border-color:var(--ink); color:var(--bone); }
+.size .ppl{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; opacity:.75; }
+.size .pr{ font-family:var(--display); font-size:24px; line-height:1.05; font-variant-numeric:tabular-nums; }
+.size .kg{ font-family:var(--mono); font-size:11px; color:var(--orange-deep); margin-top:4px; }
+.size[aria-pressed="true"] .kg{ color:var(--orange); }
+.elsewhere{ margin:14px 0 0; font-size:15px; color:color-mix(in oklch,var(--bone) 78%, transparent); }
+.elsewhere a{ color:var(--orange); border-bottom:1px solid currentColor; }
+.size .phd{ font-family:var(--mono); font-size:11px; opacity:.7; }
+.size--more{ border-style:dashed; background:transparent; }
+.size--more .pr{ font-size:18px; color:var(--orange-deep); }
+.size--more:hover{ background:var(--orange); border-color:var(--orange); }
+.size--more:hover .pr{ color:var(--ink); }
+.gf{ display:flex; align-items:center; gap:12px; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; padding:11px 14px; cursor:pointer; }
+.gf:has(input:checked){ border-color:var(--forest); background:color-mix(in oklch,var(--sage) 22%, var(--cream)); }
+.gf input{ width:20px; height:20px; accent-color:var(--forest); margin:0; flex:none; }
+.gf span{ display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline; }
+.gf b{ font-family:var(--sans); font-weight:700; font-size:15px; }
+.gf em{ font-style:normal; font-family:var(--mono); font-size:12.5px; color:var(--pine); }
+
+/* item cards (pies, extras, platters) */
+.items{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.items.two{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+.sublabel{ margin:30px 0 14px; font-family:var(--label); font-weight:700; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--orange-deep); }
+@media (max-width:900px){ .items{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:560px){ .items, .items.two{ grid-template-columns:1fr; } }
+.item{ background:var(--cream); border:1px solid var(--bone-2); border-radius:4px; overflow:hidden; display:grid; grid-template-columns:96px minmax(0,1fr); grid-template-rows:1fr auto; gap:10px 14px; align-items:start; padding:10px; transition:transform .25s, box-shadow .25s; }
+.item:hover{ transform:translateY(-3px); box-shadow:0 16px 30px -22px rgba(24,18,16,.5); }
+.item .ph-img{ width:96px; height:96px; border-radius:2px; background-size:cover; background-position:center; grid-row:1/3; align-self:start; }
+.item-row{ grid-column:2; }
+.item-body h5{ margin:0; font-family:var(--sans); font-weight:700; font-size:16.5px; line-height:1.2; }
+.item-body .desc{ margin:6px 0 0; font-size:13.5px; line-height:1.45; color:color-mix(in oklch,var(--ink) 74%, transparent); }
+.item-body .allergens{ margin:4px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--pink-deep); }
+.item-body .meta{ font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; color:color-mix(in oklch,var(--ink) 55%, transparent); }
+.item-row{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.price{ font-family:var(--display); font-size:19px; font-variant-numeric:tabular-nums; }
+.qty{ display:inline-flex; align-items:center; border:1.5px solid var(--ink); border-radius:2px; }
+.qty button{ appearance:none; border:0; background:transparent; width:32px; height:32px; font-size:17px; cursor:pointer; color:inherit; }
+.qty button:hover{ background:var(--ink); color:var(--bone); }
+.qty output{ min-width:22px; text-align:center; font-family:var(--mono); font-weight:500; font-size:13.5px; }
+
+
+/* order panel */
+.panel{ position:sticky; top:96px; background:var(--ink); color:var(--bone); padding:26px; display:grid; gap:16px; border-radius:4px; border-top:5px solid var(--orange); }
+@media (max-width:1100px){ .panel{ position:static; } }
+.panel h4{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.01em; font-size:26px; line-height:1; margin:0; }
+.lines{ list-style:none; margin:0; padding:0; display:grid; gap:9px; font-size:15px; }
+.lines li{ display:flex; justify-content:space-between; gap:12px; }
+.lines li span:last-child{ font-family:var(--mono); font-size:13.5px; white-space:nowrap; }
+.lines li.disc{ color:var(--orange); }
+.empty{ margin:0; font-family:var(--serif); font-style:italic; font-weight:600; font-size:19px; opacity:.75; }
+.total{ display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid var(--soot); padding-top:14px; }
+.total span{ font-family:var(--label); font-weight:700; font-size:13px; letter-spacing:.16em; text-transform:uppercase; }
+.total b{ font-family:var(--display); font-weight:400; font-size:34px; font-variant-numeric:tabular-nums; }
+.panel small{ font-family:var(--mono); font-size:11.5px; line-height:1.5; color:var(--ash); }
+.panel .btn{ width:100%; text-align:center; }
+
+/* kitchen / events band */
+.kitchen{ display:grid; grid-template-columns:200px minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; }
+.kitchen .polaroid{ width:100%; height:auto; transform:rotate(-2deg); box-shadow:0 22px 44px -22px rgba(0,0,0,.7); }
+.kitchen h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.02em; line-height:.95; font-size:clamp(28px,3vw,40px); margin:12px 0 16px; }
+.kitchen p{ margin:0 0 12px; font-size:17px; color:color-mix(in oklch,var(--cream) 86%, transparent); }
+.creds{ font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--sage); }
+.eventcard{ position:relative; min-height:300px; border-radius:4px; overflow:hidden; background-size:cover; background-position:center; display:flex; align-items:flex-end; color:var(--cream); }
+.eventcard::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(12,9,7,.05),rgba(12,9,7,.86)); }
+.eventcard div{ position:relative; padding:24px; display:grid; gap:10px; }
+.eventcard h4{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:26px; line-height:1; margin:0; }
+.eventcard p{ margin:0; font-size:15.5px; opacity:.9; }
+.eventcard .btn{ justify-self:start; }
+@media (max-width:1000px){ .kitchen{ grid-template-columns:160px minmax(0,1fr); } .eventcard{ grid-column:1/-1; } }
+@media (max-width:560px){ .kitchen{ grid-template-columns:1fr; } .kitchen .polaroid{ max-width:190px; } }
+
+/* faq: same language as the homepage "why" toggle */
+.faq-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); }
+@media (max-width:760px){ .faq-grid{ grid-template-columns:1fr; } }
+.faq-grid details{ border-top:1px solid var(--soot); padding:20px 0; }
+.faq-grid summary{ cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:16px; font-family:var(--sans); font-weight:700; font-size:19px; }
+.faq-grid summary::-webkit-details-marker{ display:none; }
+.faq-grid summary::after{ content:"Open"; flex:none; color:var(--ash); font-family:var(--mono); font-weight:400; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding-top:6px; }
+.faq-grid details[open] summary::after{ content:"Close"; }
+.faq-grid p{ margin:10px 0 0; font-size:16.5px; color:color-mix(in oklch,var(--bone) 78%, transparent); }
+
+/* mobile order bar */
+.mbar{ position:fixed; left:0; right:0; bottom:0; z-index:90; background:var(--ink); border-top:1px solid var(--soot); color:var(--bone); display:none; align-items:center; justify-content:space-between; gap:12px;
+  padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom,0px)); }
+.mbar small{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ash); display:block; }
+.mbar b{ font-family:var(--display); font-weight:400; font-size:24px; font-variant-numeric:tabular-nums; }
+@media (max-width:1100px){ .mbar.show{ display:flex; } .site-footer{ padding-bottom:110px; } }
+
+/* checkout drawer */
+.scrim{ position:fixed; inset:0; background:rgba(12,9,7,.62); z-index:130; opacity:0; pointer-events:none; transition:opacity .25s; }
+.scrim.on{ opacity:1; pointer-events:auto; }
+.drawer{ position:fixed; top:0; right:0; bottom:0; width:min(580px,100%); background:var(--bone); color:var(--ink); z-index:140; transform:translateX(100%); transition:transform .32s ease; display:flex; flex-direction:column; }
+.drawer.on{ transform:none; }
+@media (prefers-reduced-motion:reduce){ .drawer,.scrim{ transition:none; } }
+.dhead{ display:flex; align-items:center; justify-content:space-between; padding:18px 22px; background:var(--ink); color:var(--bone); }
+.dhead h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:26px; margin:0; }
+@media (max-width:480px){ .dhead h3{ font-size:21px; } }
+.x{ appearance:none; border:1.5px solid var(--soot); background:transparent; color:var(--bone); border-radius:2px; padding:10px 14px; cursor:pointer; font-family:var(--label); font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
+.x:hover{ border-color:var(--orange); color:var(--orange); }
+.dbody{ overflow-y:auto; padding:22px; flex:1; display:grid; gap:24px; align-content:start; }
+.dfoot{ border-top:1px solid var(--bone-2); padding:16px 22px calc(16px + env(safe-area-inset-bottom,0px)); display:grid; gap:12px; background:var(--cream); }
+.dfoot .total{ border:0; padding:0; }
+.dfoot .total b{ font-size:30px; }
+.dfoot .btn{ width:100%; text-align:center; }
+.stage h4{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:22px; margin:0 0 12px; }
+.stage h4 span{ font-family:var(--mono); font-size:13px; letter-spacing:.18em; color:var(--orange-deep); margin-right:10px; }
+.chips{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.chip,.day{ appearance:none; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; padding:12px; text-align:left; cursor:pointer; display:grid; gap:3px; color:var(--ink); }
+.chip:hover,.day:hover{ border-color:var(--ink); }
+.chip[aria-pressed="true"], .day[aria-pressed="true"]{ background:var(--ink); color:var(--bone); border-color:var(--ink); }
+.chip b{ font-family:var(--sans); font-weight:700; font-size:16px; line-height:1.15; }
+.chip em{ font-style:normal; font-family:var(--label); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); }
+.chip[aria-pressed="true"] em{ color:var(--orange); }
+.chip--else{ border-style:dashed; background:transparent; }
+.else-note{ background:var(--cream); border:1.5px dashed var(--orange-deep); border-radius:2px; padding:14px 16px; font-size:15.5px; }
+.else-note p{ margin:0; }
+.else-note a{ color:var(--orange-deep); font-weight:700; border-bottom:1px solid currentColor; }
+.chip span{ font-family:var(--mono); font-size:11px; opacity:.7; }
+.days{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+.day .dow{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.7; }
+.day .dnum{ font-family:var(--display); font-size:34px; line-height:.9; }
+.day .mon{ display:none; }
+.day .lab{ font-family:var(--label); font-size:12px; line-height:1.3; margin-top:4px; }
+.day.feat:not([aria-pressed="true"]) .dnum{ color:var(--orange-deep); }
+@media (max-width:480px){ .days{ grid-template-columns:1fr 1fr; } }
+.slots{ display:grid; grid-template-columns:repeat(auto-fill,minmax(108px,1fr)); gap:8px; margin-top:10px; }
+.slot{ appearance:none; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; padding:10px 6px; cursor:pointer; font-family:var(--mono); font-size:13px; color:var(--ink); }
+.slot:hover{ border-color:var(--ink); }
+.slot[aria-pressed="true"]{ background:var(--orange); border-color:var(--orange); }
+.slot small{ display:block; font-size:10.5px; color:var(--orange-deep); }
+.slot[aria-pressed="true"] small{ color:var(--ink); }
+.btn[disabled]{ opacity:.45; cursor:not-allowed; transform:none; }
+.slot[disabled]{ opacity:.35; text-decoration:line-through; cursor:not-allowed; }
+.hint{ font-family:var(--mono); font-size:12px; color:color-mix(in oklch,var(--ink) 58%, transparent); margin:8px 0 0; }
+.form{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.form .full{ grid-column:1/-1; }
+.field{ display:grid; gap:5px; }
+.field label{ font-family:var(--label); font-weight:700; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:color-mix(in oklch,var(--ink) 62%, transparent); }
+.field input,.field textarea{ font-family:var(--label); font-size:16px; padding:13px 14px; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; color:var(--ink); width:100%; }
+.field input:focus,.field textarea:focus{ outline:none; border-color:var(--orange); }
+.field textarea{ min-height:76px; resize:vertical; }
+@media (max-width:480px){ .form{ grid-template-columns:1fr; } }
+.sum{ background:var(--cream); border:1px solid var(--bone-2); border-radius:4px; padding:16px; display:grid; gap:10px; }
+.sum .lines{ font-size:14.5px; }
+.sum .lines li.disc{ color:var(--orange-deep); font-weight:600; }
+.sum .empty{ font-size:17px; }
+.err{ background:color-mix(in oklch,var(--coral) 18%, var(--bone)); color:var(--pink-deep); padding:12px 14px; border-radius:2px; font-size:14.5px; }
+.secure{ font-family:var(--mono); font-size:11.5px; color:color-mix(in oklch,var(--ink) 55%, transparent); text-align:center; margin:0; }
+
+.toast{ position:fixed; left:50%; top:96px; max-width:calc(100% - 32px); text-align:center; transform:translateX(-50%); background:var(--orange); color:var(--ink); padding:12px 18px; border-radius:2px; font-family:var(--label); font-weight:700; font-size:14px; letter-spacing:.04em; z-index:160; opacity:0; transition:opacity .25s; pointer-events:none; }
+.toast.on{ opacity:1; }
+.modal{ position:fixed; inset:0; z-index:170; background:rgba(12,9,7,.7); display:grid; place-items:center; padding:20px; }
+.modal-card{ background:var(--bone); color:var(--ink); max-width:500px; width:100%; padding:32px; display:grid; gap:14px; border-top:5px solid var(--orange); border-radius:4px; }
+.modal-card h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:32px; line-height:1; margin:0; }
+.modal-card p{ margin:0; font-size:16.5px; color:color-mix(in oklch,var(--ink) 80%, transparent); }
+.modal-card .btn{ justify-self:start; }
+
+</style>
+</head>
+<body>
+  <!-- ============ HEADER (same as nottinggrill.com) ============ -->
+  <header class="site-header solid" id="header">
+    <a class="site-header__logo" href="/" aria-label="Notting Grill home">
+      <img src="/assets/ng/05701e49-5b90-43ae-a8fc-57099117e6e6.png" alt="Notting Grill">
+    </a>
+    <nav class="nav" id="nav">
+      <a href="/#watch">Watch</a>
+      <a href="/#pillars">The Channel</a>
+      <a href="/#story">Story</a>
+      <a href="/#studio">Studio</a>
+      <a href="/#ethos">Ethos</a>
+      <a href="/thanksgiving/" aria-current="page">Thanksgiving</a>
+      <a href="/#partners">Contact</a>
+      <button class="btn btn--orange" type="button" data-checkout>Order <b id="navCount">0</b></button>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="tg-hero on-ink">
+    <div class="inner">
+      <div>
+        <p class="eyebrow">Thanksgiving at home · 25–28 November</p>
+        <h1>justin's thanksgiving. <em>your table.</em></h1>
+        <p class="lede">Cooked by Justin and team in Notting Hill and delivered to your door, 25–28 November. You warm the bird and sit down.</p>
+        <ul class="ticks">
+          <li>Herb-fed turkey, brined 24 hours</li>
+          <li>Free-range birds from a British farm in the Cotswolds</li>
+          <li>Organic British vegetables &amp; wild herbs from the Cotswolds</li>
+          <li>Gravies made with British &amp; European wines</li>
+          <li>Organic American pecans &amp; organic Charlbury apples</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn--orange" href="#order">Order your feast</a>
+          <span class="cta-note">Turkey for 8 from £600 · Kensington · Notting Hill · St John's Wood</span>
+        </div>
+        <p class="elsewhere">Anywhere else? Please <a href="mailto:justin@nottinggrill.com?subject=Thanksgiving%20delivery">reach out</a> and we'll see how we can help.</p>
+      </div>
+      <figure>
+        <img src="img/hero.jpg" alt="A Thanksgiving table from above: roast turkey, cranberry sauce, mashed potatoes, sprouts with pomegranate and pies." width="1000" height="1500">
+        <div class="count"><b id="daysLeft">31</b><span>days to go</span></div>
+        <div class="badge"><small>Cooked by Justin &amp; team</small><span>Brined, roasted and delivered ready for your oven.</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ ORDER ============ -->
+  <section class="section on-bone" id="order">
+    <div class="inner">
+      <div class="sechead">
+        <span class="knum">01</span>
+        <div>
+          <p class="eyebrow">Order online · pay securely</p>
+          <h2 class="sectitle">build your table.</h2>
+        </div>
+      </div>
+      <div class="shop-grid">
+        <div>
+          <div class="step">
+            <div class="stephead"><div><p class="eyebrow">Step one</p><h3>choose your feast.</h3></div><span class="note">Priced per table · add both for a mixed table</span></div>
+            <div class="feasts">
+              <article class="feast" id="feast-turkey" style="--pc:#FF8300;">
+                <div class="ph" style="background-image:url('img/turkey.jpg')" role="img" aria-label="A roast turkey being carved."><span class="tag">The classic</span></div>
+                <div class="body">
+                  <span class="pn">01</span>
+                  <h4>turkey feast</h4>
+                  <p class="sub">Free-range Cotswolds turkey, herb-fed and brined for 24 hours, with every side.</p>
+                  <div class="incl"><p class="incl-h">In the box</p><ul class="sides"><li>Roast turkey</li><li>Roast potatoes, rosemary &amp; goose fat</li><li>Brussels sprouts, cranberry &amp; oregano (V)</li><li>Cranberry sauce (V)</li><li>Stuffing ×2</li><li>Turkey &amp; Chablis gravy</li></ul></div>
+                  <div class="sizes" role="group" aria-label="Turkey feast table size" data-group="turkey"></div>
+                  <p class="pick" id="turkeyNote">Tap your table size to add it.</p>
+                </div>
+              </article>
+              <article class="feast" id="feast-veg" style="--pc:#1E3D2F;">
+                <div class="ph" style="background-image:url('img/veg.jpg')" role="img" aria-label="A golden lattice puff-pastry Wellington."><span class="tag">Vegetarian</span></div>
+                <div class="body">
+                  <span class="pn">02</span>
+                  <h4>veggie wellington</h4>
+                  <p class="sub">Veggie Wellington in golden puff pastry, with the full table around it.</p>
+                  <div class="incl"><p class="incl-h">In the box</p><ul class="sides"><li>Veggie Wellington</li><li>Roast potatoes, olive oil &amp; rosemary (V)</li><li>Brussels sprouts, cranberry &amp; oregano (V)</li><li>Cranberry sauce (V)</li><li>Stuffing ×2</li><li>Vegetable gravy</li></ul></div>
+                  <div class="sizes" role="group" aria-label="Veggie Wellington table size" data-group="veg"></div>
+                  <label class="gf"><input type="checkbox" id="vegGf"><span><b>Make it gluten free</b><em id="gfNote">+£5 a head</em></span></label>
+                  <p class="pick" id="vegNote">Tap your table size to add it.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="stephead"><div><p class="eyebrow">Step two</p><h3>pies &amp; extras.</h3></div><span class="note">All pies £29 · each serves 8</span></div>
+            <div class="items" id="pies"></div>
+            <p class="sublabel">Extras</p>
+            <div class="items two" id="extras"></div>
+            <p class="sublabel">Serving platters · 35 cm oval, yours to keep</p>
+            <div class="items two" id="platters"></div>
+                      </div>
+
+        </div>
+
+        <aside class="panel" aria-label="Your order">
+          <p class="eyebrow">Your order</p>
+          <h4>thanksgiving for <span id="sheetGuests">your table</span></h4>
+          <ul class="lines" id="sheetLines"></ul>
+          <p class="empty" id="sheetEmpty">Nothing yet. Start with your table size.</p>
+          <div class="total"><span>Total</span><b id="sheetTotal">£0</b></div>
+          <button class="btn btn--orange" type="button" data-checkout>Checkout</button>
+          <small>Card, Apple Pay, Google Pay via Worldpay. Delivery slot chosen at checkout.</small>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE KITCHEN / EVENTS ============ -->
+  <section class="section on-forest" id="kitchen">
+    <div class="inner">
+      <div class="sechead">
+        <span class="knum">02</span>
+        <div>
+          <p class="eyebrow">The kitchen</p>
+          <h2 class="sectitle">cooked by justin horne.</h2>
+        </div>
+      </div>
+      <div class="kitchen">
+        <img class="polaroid" src="img/justin.jpg" alt="Polaroid portrait of chef Justin Horne." loading="lazy" width="700" height="889">
+        <div>
+          <h3>the hands behind the world's most private tables.</h3>
+          <p>Royal residences, luxury goods brands, families who value privacy. He never says who. Discretion is part of the service.</p>
+          <p class="creds">Ecological chef · Forager · Soon to be sailor</p>
+        </div>
+        <a class="eventcard" href="mailto:justin@nottinggrill.com?subject=Private%20dinner%20%2F%20event%20enquiry" style="background-image:url('img/events.jpg')">
+          <div><h4>pop-ups, supper clubs &amp; private dinners</h4><p>Liked the turkey? Book Justin and the Notting Grill team in person.</p><span class="btn btn--orange">Book Justin</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section on-ink" id="faq">
+    <div class="inner">
+      <div class="sechead">
+        <span class="knum">03</span>
+        <div>
+          <p class="eyebrow">Good to know</p>
+          <h2 class="sectitle">before you order.</h2>
+        </div>
+      </div>
+      <div class="faq-grid">
+        <details><summary>Where and when do you deliver?</summary><p>Wednesday 25 to Saturday 28 November, in a one-hour slot: Kensington 9am–12pm, Notting Hill from 12pm, St John's Wood in the afternoon until 6pm (7pm on Wednesday and Friday). If you're anywhere else, please reach out and we'll see how we can help: <a href="mailto:justin@nottinggrill.com" style="color:var(--orange)">justin@nottinggrill.com</a>.</p></details>
+        <details><summary>How much cooking is there?</summary><p>Very little. Everything arrives fully cooked, so it just needs reheating: the turkey comes roasted and rested with Justin's card for reheating it in your oven, and the sides warm through alongside it. Pies are ready to serve.</p></details>
+        <details><summary>Allergies?</summary><p>The veggie Wellington can be made gluten free for £5 a head (tick the box under the Wellington sizes). Pie ingredients and allergens are listed under each pie; sides marked V are vegetarian. Add any allergies at checkout and the team will be in touch.</p></details>
+        <details><summary>How do I pay?</summary><p>In full when you book, securely through Worldpay. Your confirmation arrives by email.</p></details>
+        <details><summary>Cooking for 16 or more?</summary><p>Email <a href="mailto:justin@nottinggrill.com" style="color:var(--orange)">justin@nottinggrill.com</a> and we'll size the turkey and the Wellington for your table.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <!-- ============ FOOTER (same as nottinggrill.com) ============ -->
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="/assets/ng/05701e49-5b90-43ae-a8fc-57099117e6e6.png" alt="Notting Grill">
+          <p class="footer-tag"><span style="color:#ff6e00;">turning up the heat on a regenerative approach to food</span></p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="/#watch">Watch</a>
+            <a href="/#pillars">The Channel</a>
+            <a href="/#story">Story</a>
+            <a href="/#studio">Studio</a>
+            <a href="/#ethos">Ethos</a>
+            <a href="/thanksgiving/">Thanksgiving</a>
+          </div>
+          <div class="footer-col">
+            <h4>Follow</h4>
+            <a href="https://www.youtube.com/@nottinggrill" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://instagram.com/nottinggrill" target="_blank" rel="noopener">Instagram</a>
+            <a href="/#contact">Newsletter</a>
+          </div>
+          <div class="footer-col">
+            <h4>Work With Us</h4>
+            <a href="mailto:phil@nottinggrill.com">Partnerships</a>
+            <a href="mailto:justin@nottinggrill.com">Food &amp; Events</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© 2026 Notting Grill · Notting Hill, London W2</span>
+        <span>Website &amp; brand design, film &amp; photography by <a href="https://www.phix.film" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(245,240,232,.4);">PHIX</a></span>
+        <span>Food · Fire · Culture</span>
+      </div>
+    </div>
+  </footer>
+
+<div class="mbar" id="mbar"><div><small>Your order</small><b id="mTotal">£0</b></div><button class="btn btn--orange" type="button" data-checkout>Checkout</button></div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <div class="dhead"><h3 id="dTitle">delivery &amp; payment</h3><button class="x" type="button" id="dClose" aria-label="Close">Close</button></div>
+  <div class="dbody">
+    <form id="bookForm" novalidate style="display:grid;gap:24px">
+      <div class="stage"><h4><span>01</span>where?</h4><div class="chips" role="group" aria-label="Delivery area" id="areas"></div></div>
+      <div class="else-note" id="elseNote" hidden><p>If you're anywhere else, please reach out and we'll see how we can help: <a href="mailto:justin@nottinggrill.com?subject=Thanksgiving%20delivery">justin@nottinggrill.com</a></p></div>
+      <div class="stage" id="whenStage"><h4><span>02</span>when?</h4><div class="days" role="group" aria-label="Delivery day" id="days"></div>
+        <div class="slots" role="group" aria-label="Delivery hour" id="slots"></div><p class="hint" id="slotHint">Choose your area first: each area has its own delivery hours.</p></div>
+      <div class="stage"><h4><span>03</span>your details</h4>
+        <div class="form">
+          <div class="field"><label for="fName">Full name</label><input id="fName" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field full"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div>
+          <div class="field full"><label for="fAddress">Delivery address</label><input id="fAddress" name="address" autocomplete="street-address" required></div>
+          <div class="field full"><label for="fPostcode">Postcode</label><input id="fPostcode" name="postcode" autocomplete="postal-code" required></div>
+          <input type="hidden" id="fGuests" name="guests">
+          <div class="field full"><label for="fNotes">Allergies or notes</label><textarea id="fNotes" name="notes" maxlength="480"></textarea></div>
+        </div>
+      </div>
+      <div class="sum"><ul class="lines" id="sumLines"></ul><p class="empty" id="sumEmpty">Your order is empty.</p><ul class="lines" id="sumDelivery" style="border-top:1px solid var(--bone-2);padding-top:10px"></ul></div>
+    </form>
+  </div>
+  <div class="dfoot">
+    <div class="err" id="payErr" hidden></div>
+    <div class="total"><span>To pay</span><b id="sumTotal">£0</b></div>
+    <button class="btn btn--orange" type="button" id="payBtn">Pay securely</button>
+    <p class="secure">Card, Apple Pay, Google Pay · via Worldpay</p>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+<div class="modal" id="modal" hidden><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h3 id="modalTitle"></h3><div id="modalBody"></div><button class="btn btn--ink" type="button" id="modalClose">Close</button></div></div>
+
+<script src="/assets/ng/ng.js"></script>
+<script>
+(() => {
+  const CHECKOUT_URL = '/.netlify/functions/create-checkout';
+  const AVAIL_URL = '/.netlify/functions/availability';
+  const ORDERS_EMAIL = 'justin@nottinggrill.com';
+  const gbp = p => '£' + (p/100).toLocaleString('en-GB',{minimumFractionDigits: p%100 ? 2 : 0, maximumFractionDigits:2});
+
+  // Prices in pence. Keep in sync with netlify/lib/catalog.mjs (the server re-checks every price).
+  const FEASTS = {
+    turkey: { name:'Turkey Feast', sizes:[ {id:'turkey-8', guests:8, price:60000, bird:'4.5–5.5 kg bird'}, {id:'turkey-10', guests:10, price:70000, bird:'5.5–7 kg bird'}, {id:'turkey-12', guests:12, price:80000, bird:'7–8 kg bird'}, {id:'turkey-14', guests:14, price:90000, bird:'8–10 kg bird'} ], bigger:'16+' },
+    veg:    { name:'Veggie Wellington Feast', sizes:[ {id:'veg-6', guests:6, price:40000}, {id:'veg-8', guests:8, price:50000}, {id:'veg-10', guests:10, price:60000} ], bigger:'12+' },
+  };
+  const GF = {id:'wellington-gf', name:'Gluten-free Wellington', price:500}; // per head, follows the Wellington size
+  const PIES = [
+    {id:'pie-pecan', name:'Pecan pie', meta:'Serves 8', price:2900, img:'img/pecan.jpg',
+     desc:'American organic pecans, Devon butter &amp; eggs, Doves Farm organic wheat flour, Norfolk sugar, Kent honey, Madagascan vanilla.', allergens:'Gluten, dairy &amp; eggs'},
+    {id:'pie-pumpkin', name:'Pumpkin pie', meta:'Serves 8', price:2900, img:'img/pumpkin.jpg',
+     desc:'British pumpkin &amp; squash, Devon butter &amp; eggs, Doves Farm organic wheat flour, Norfolk sugar, organic Sri Lankan nutmeg &amp; cinnamon.', allergens:'Gluten, dairy &amp; eggs'},
+    {id:'pie-apple', name:'Apple pie', meta:'Serves 8', price:2900, img:'img/apple.jpg',
+     desc:'Organic apples, Devon butter &amp; eggs, Doves Farm organic wheat flour, Norfolk sugar, organic Sri Lankan cinnamon.', allergens:'Gluten, dairy &amp; eggs'},
+  ];
+  const EXTRAS = [
+    {id:'ham-1kg', name:'Honey-glazed smoked ham', meta:'Serves 6–8', price:6000, img:'img/ham.jpg', desc:'Smoked ham joint glazed with Kent honey.'},
+    {id:'roast-goose-1kg', name:'Roast potatoes in goose fat', meta:'1 kg · serves 4–5', price:2000, img:'img/potatoes-goose.jpg', desc:'Finished with rosemary salt.'},
+    {id:'mash-1kg', name:'Buttery mashed potatoes', meta:'Vegetarian · 1 kg · serves 4–5', price:2800, img:'img/mash.jpg', desc:'Organic potatoes, English butter, English cream, sea salt.', allergens:'Dairy'},
+    {id:'roast-olive-1kg', name:'Roast potatoes in olive oil', meta:'Vegetarian · 1 kg · serves 4–5', price:2000, img:'img/potatoes-olive.jpg', desc:'Finished with rosemary salt.'},
+  ];
+  const PLATTERS = [
+    {id:'platter-steel', name:'Serving platter, steel', meta:'Oval · 35 cm / 14 in', price:2000, img:'img/platter.jpg'},
+    {id:'platter-porcelain', name:'Serving platter, porcelain', meta:'Oval · 35 cm / 14 in', price:3000, img:'img/platter.jpg'},
+  ];
+  const ALL = {}; [...PIES,...EXTRAS,...PLATTERS].forEach(p => ALL[p.id] = p);
+  Object.entries(FEASTS).forEach(([k,f]) => f.sizes.forEach(s => ALL[s.id] = {...s, name:`${f.name} for ${s.guests}`, feast:k}));
+  ALL[GF.id] = {...GF, perHead:true};
+
+  // Delivery: each area has its own part of the day; 4 deliveries per hour (SLOT_CAPACITY on the server).
+  const AREAS = [
+    {id:'kensington', name:'Kensington', pc:'W8 · W14 · SW5 · SW7', when:'Mornings'},
+    {id:'notting-hill', name:'Notting Hill', pc:'W2 · W10 · W11', when:'Midday'},
+    {id:'st-johns-wood', name:"St John's Wood", pc:'NW8', when:'Afternoons'},
+    {id:'elsewhere', name:'Anywhere else', pc:'Reach out and we will help', when:''},
+  ];
+  const DAYS = [
+    {id:'2026-11-25', dow:'Wed', d:25, lab:'Day before Thanksgiving', late:true},
+    {id:'2026-11-26', dow:'Thu', d:26, lab:'Thanksgiving, on the day', feat:true},
+    {id:'2026-11-27', dow:'Fri', d:27, lab:'Day before the weekend feast', late:true},
+    {id:'2026-11-28', dow:'Sat', d:28, lab:'Deferred Thanksgiving'},
+  ];
+  // Same rule as hoursFor() in netlify/lib/catalog.mjs: Wed & Fri run to 19:00, Thu & Sat to 18:00.
+  const hoursFor = (day, area) => {
+    const end = day.late ? 19 : 18, mid = end - 3;
+    return { 'kensington':[9,12], 'notting-hill':[12,mid], 'st-johns-wood':[mid,end] }[area] || null;
+  };
+  const pad = n => String(n).padStart(2,'0');
+  const fmtH = h => `${pad(h)}:00`;
+
+  const state = { cart:{}, gf:false, area:null, day:null, slot:null, taken:{}, cap:4, live:false };
+  try { const s = JSON.parse(localStorage.getItem('ng-tg-v4') || 'null');
+    if (s && s.cart) { state.cart = Object.fromEntries(Object.entries(s.cart).filter(([k]) => ALL[k])); state.gf = !!s.gf; state.area = s.area||null; state.day = s.day||null; state.slot = s.slot||null; } } catch(e){}
+  const persist = () => { try { localStorage.setItem('ng-tg-v4', JSON.stringify({cart:state.cart, gf:state.gf, area:state.area, day:state.day, slot:state.slot})); } catch(e){} };
+
+  const $ = s => document.querySelector(s);
+  const el = (t, a={}, h='') => { const e = document.createElement(t); Object.entries(a).forEach(([k,v]) => e.setAttribute(k,v)); e.innerHTML = h; return e; };
+  const toast = msg => { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(()=>t.classList.remove('on'), 2200); };
+
+  // Countdown
+  const tgDay = new Date('2026-11-26T00:00:00'); const dl = Math.ceil((tgDay - new Date())/86400000);
+  $('#daysLeft').textContent = dl > 0 ? dl : '0';
+  if (dl <= 0) $('#daysLeft').parentElement.hidden = true;
+
+  // Feast sizes: one tap picks that table size, tap again to remove it
+  const pickedSize = k => FEASTS[k].sizes.find(s => state.cart[s.id]);
+  const syncGf = () => {
+    const v = pickedSize('veg');
+    if (state.gf && v) state.cart[GF.id] = v.guests; else delete state.cart[GF.id];
+    $('#vegGf').checked = state.gf;
+    $('#gfNote').textContent = v ? `+${gbp(GF.price * v.guests)} for ${v.guests}` : '+£5 a head';
+  };
+  const syncSizes = () => document.querySelectorAll('.sizes').forEach(g => {
+    const k = g.dataset.group, p = pickedSize(k);
+    g.querySelectorAll('.size[data-id]').forEach(x => x.setAttribute('aria-pressed', String(!!p && x.dataset.id === p.id)));
+    const n = $('#'+k+'Note');
+    n.textContent = p ? `In your order: table for ${p.guests}` : 'Tap your table size to add it.';
+    n.classList.toggle('on', !!p);
+  });
+  document.querySelectorAll('.sizes').forEach(g => {
+    const k = g.dataset.group, f = FEASTS[k];
+    f.sizes.forEach(s => {
+      const b = el('button', {type:'button', class:'size', 'aria-pressed':'false', 'data-id':s.id},
+        `<span class="ppl">${s.guests} guests</span><span class="pr">${gbp(s.price)}</span><span class="phd">${gbp(Math.round(s.price/s.guests/100)*100)} a head</span>${s.bird ? `<span class="kg">${s.bird}</span>` : ''}`);
+      b.addEventListener('click', () => {
+        const had = !!state.cart[s.id];
+        f.sizes.forEach(x => delete state.cart[x.id]);
+        if (!had) { state.cart[s.id] = 1; toast(`${f.name} for ${s.guests} added`); }
+        render();
+      });
+      g.appendChild(b);
+    });
+    g.appendChild(el('a', {class:'size size--more', href:`mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(`Thanksgiving ${f.name}, ${f.bigger} guests`)}`},
+      `<span class="ppl">${f.bigger} guests</span><span class="pr">Email us</span><span class="phd">We'll size it for you</span>`));
+  });
+  $('#vegGf').addEventListener('change', e => { state.gf = e.target.checked; render(); if (state.gf && !pickedSize('veg')) toast('Pick a Wellington size to add it'); });
+
+  // Qty controls
+  const qty = id => {
+    const w = el('div', {class:'qty'}); const minus = el('button', {type:'button','aria-label':'Remove one'}, '−');
+    const out = el('output', {'data-qty':id}, String(state.cart[id]||0)); const plus = el('button', {type:'button','aria-label':'Add one'}, '+');
+    minus.onclick = () => { if (state.cart[id]) { state.cart[id]--; if (!state.cart[id]) delete state.cart[id]; render(); } };
+    plus.onclick = () => { state.cart[id] = Math.min(20, (state.cart[id]||0)+1); render(); };
+    w.append(minus, out, plus); return w;
+  };
+  const card = p => {
+    const c = el('article', {class:'item'});
+    c.appendChild(el('div', {class:'ph-img', style:`background-image:url('${p.img}')`, role:'img','aria-label':p.name}));
+    c.appendChild(el('div', {class:'item-body'}, `<h5>${p.name}</h5><span class="meta">${p.meta}</span>${p.desc ? `<p class="desc">${p.desc}</p>` : ''}${p.allergens ? `<p class="allergens">Allergens: ${p.allergens}</p>` : ''}`));
+    const row = el('div', {class:'item-row'}, `<span class="price">${gbp(p.price)}</span>`); row.appendChild(qty(p.id)); c.appendChild(row); return c;
+  };
+  PIES.forEach(p => $('#pies').appendChild(card(p)));
+  EXTRAS.forEach(p => $('#extras').appendChild(card(p)));
+  PLATTERS.forEach(p => $('#platters').appendChild(card(p)));
+
+  // Delivery area, day, hour
+  AREAS.forEach(a => {
+    const b = el('button', {type:'button', class:'chip'+(a.id==='elsewhere'?' chip--else':''), 'aria-pressed': String(state.area===a.id), 'data-area':a.id},
+      `<b>${a.name}</b><span>${a.pc}</span>${a.when ? `<em>${a.when}</em>` : ''}`);
+    b.onclick = () => { state.area = a.id; state.slot = null; document.querySelectorAll('#areas .chip').forEach(x=>x.setAttribute('aria-pressed', String(x===b))); drawDays(); drawSlots(); render(); };
+    $('#areas').appendChild(b);
+  });
+  function drawDays(){
+    const box = $('#days'); box.innerHTML = '';
+    DAYS.forEach(d => {
+      const h = hoursFor(d, state.area);
+      const b = el('button', {type:'button', class:'day'+(d.feat?' feat':''), 'aria-pressed': String(state.day===d.id), 'data-day':d.id},
+        `<span class="dow">${d.dow}</span><span class="dnum">${d.d}</span><span class="lab">${d.lab}${h ? `<br>${fmtH(h[0])}–${fmtH(h[1])}` : ''}</span>`);
+      b.onclick = () => { state.day = d.id; state.slot = null; box.querySelectorAll('.day').forEach(x=>x.setAttribute('aria-pressed', String(x===b))); drawSlots(); render(); };
+      box.appendChild(b);
+    });
+  }
+  function drawSlots(){
+    const box = $('#slots'); box.innerHTML = '';
+    const elsewhere = state.area === 'elsewhere';
+    $('#whenStage').hidden = elsewhere; $('#elseNote').hidden = !elsewhere;
+    const d = DAYS.find(x => x.id === state.day), h = d && hoursFor(d, state.area);
+    if (!state.area) { $('#slotHint').textContent = 'Choose your area first: each area has its own delivery hours.'; return; }
+    if (!d || !h) { $('#slotHint').textContent = 'Choose a day to see the delivery windows.'; return; }
+    for (let t = h[0]; t < h[1]; t++) {
+      const w = `${fmtH(t)}–${fmtH(t+1)}`, key = `${d.id}_${pad(t)}`, left = Math.max(0, state.cap - (state.taken[key]||0));
+      const b = el('button', {type:'button', class:'slot', 'aria-pressed': String(state.slot===w)}, `${w}${state.live && left > 0 && left < state.cap ? `<small>${left} left</small>` : ''}`);
+      if (left <= 0) { b.disabled = true; b.title = 'Fully booked'; if (state.slot === w) state.slot = null; }
+      b.onclick = () => { state.slot = w; box.querySelectorAll('.slot').forEach(x=>x.setAttribute('aria-pressed', String(x===b))); render(); };
+      box.appendChild(b);
+    }
+    $('#slotHint').textContent = `${d.dow} ${d.d} November · ${AREAS.find(a=>a.id===state.area).name} deliveries run ${fmtH(h[0])}–${fmtH(h[1])}. Someone must be home to receive it.`;
+  }
+
+  // Render totals
+  function render(){
+    syncGf();
+    const ids = Object.keys(state.cart).filter(id => state.cart[id] > 0 && ALL[id]);
+    let total = 0, count = 0, guests = 0;
+    let lines = ids.map(id => { const p = ALL[id], q = state.cart[id];
+      total += p.price*q;
+      if (p.feast) guests += p.guests;
+      count += p.perHead ? 0 : q;
+      const label = p.feast ? p.name : p.perHead ? `${p.name} (${q} at ${gbp(p.price)})` : (q > 1 ? `${p.name} (${q})` : p.name);
+      return `<li><span>${label}</span><span>${gbp(p.price*q)}</span></li>`; }).join('');
+    ['#sheetLines','#sumLines'].forEach(s => $(s).innerHTML = lines);
+    $('#sheetEmpty').hidden = $('#sumEmpty').hidden = ids.length > 0;
+    ['#sheetTotal','#sumTotal','#mTotal'].forEach(s => $(s).textContent = gbp(total));
+    $('#navCount').textContent = count;
+    $('#sheetGuests').textContent = guests ? `${guests} guests` : 'your table';
+    $('#fGuests').value = guests || '';
+    $('#mbar').classList.toggle('show', count > 0);
+    document.querySelectorAll('[data-qty]').forEach(o => o.textContent = state.cart[o.dataset.qty] || 0);
+    const area = AREAS.find(a=>a.id===state.area), day = DAYS.find(d=>d.id===state.day);
+    $('#sumDelivery').innerHTML =
+      `<li><span>Area</span><span>${area ? area.name : '—'}</span></li>` +
+      `<li><span>Delivery</span><span>${day ? `${day.dow} ${day.d} Nov` : '—'}${state.slot ? ', ' + state.slot : ''}</span></li>`;
+    $('#payBtn').disabled = state.area === 'elsewhere';
+    syncSizes();
+    persist();
+    return {ids, total};
+  }
+
+  // Live slot availability (on the deployed site only)
+  fetch(AVAIL_URL).then(r => r.ok ? r.json() : Promise.reject()).then(j => {
+    state.live = true; state.taken = j.taken || {}; if (j.capacity != null) state.cap = j.capacity; drawSlots();
+  }).catch(() => { state.live = false; });
+
+  // Modal
+  const modal = (title, body) => { $('#modalTitle').textContent = title; $('#modalBody').innerHTML = body; $('#modal').hidden = false; $('#modalClose').focus(); };
+  $('#modalClose').onclick = () => { $('#modal').hidden = true; };
+  $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') $('#modal').hidden = true; });
+
+  // Pay
+  $('#payBtn').addEventListener('click', async () => {
+    const err = $('#payErr'); err.hidden = true;
+    const {ids, total} = render();
+    const f = $('#bookForm');
+    const v = n => f.elements[n].value.trim();
+    const problems = [];
+    if (!ids.length) problems.push('choose a table size or an item');
+    if (!state.area) problems.push('choose your delivery area');
+    if (!state.day || !state.slot) problems.push('choose a delivery day and hour');
+    ['name','phone','email','address','postcode'].forEach(n => { if (!v(n)) problems.push(`add your ${n === 'address' ? 'delivery address' : n}`); });
+    if (v('email') && !/^\S+@\S+\.\S+$/.test(v('email'))) problems.push('check your email address');
+    if (problems.length) { err.textContent = 'Almost there. Please ' + problems.join(', ') + '.'; err.hidden = false; return; }
+
+    const payload = { items: ids.map(id => ({id, qty: state.cart[id]})), area: state.area, day: state.day, window: state.slot,
+      customer: { name:v('name'), phone:v('phone'), email:v('email'), address:v('address'), postcode:v('postcode'), guests:v('guests'), notes:v('notes') } };
+
+    if (!state.live) {
+      const day = DAYS.find(d=>d.id===state.day);
+      modal('Ready for Worldpay', `<p>This is the preview, so no payment is taken. On nottinggrill.com this button opens Worldpay's secure payment page for <strong>${gbp(total)}</strong> with delivery on <strong>${day.dow} ${day.d} November, ${state.slot}</strong> in ${AREAS.find(a=>a.id===state.area).name}.</p>`);
+      return;
+    }
+    const btn = $('#payBtn'); btn.disabled = true; btn.textContent = 'Opening secure checkout…';
+    try {
+      const r = await fetch(CHECKOUT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+      const j = await r.json().catch(()=>({}));
+      if (!r.ok || !j.url) throw new Error(j.error || 'Checkout could not start. Please try again.');
+      location.href = j.url;
+    } catch (e) {
+      err.textContent = e.message; err.hidden = false; btn.disabled = false; btn.textContent = 'Pay securely';
+      fetch(AVAIL_URL).then(r => r.json()).then(j => { state.taken = j.taken || {}; drawSlots(); render(); }).catch(()=>{});
+    }
+  });
+
+  // Checkout drawer
+  const drawer = $('#drawer'), scrim = $('#scrim');
+  let lastFocus = null;
+  const openDrawer = () => { lastFocus = document.activeElement; drawer.classList.add('on'); scrim.classList.add('on'); drawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; render(); setTimeout(()=>$('#dClose').focus(), 50); };
+  const closeDrawer = () => { drawer.classList.remove('on'); scrim.classList.remove('on'); drawer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (lastFocus) lastFocus.focus(); };
+  document.querySelectorAll('[data-checkout]').forEach(b => b.addEventListener('click', () => {
+    const nav = $('#nav'); if (nav && nav.classList.contains('open')) $('#navToggle').click(); // close the mobile menu first
+    if (!Object.keys(state.cart).length) { toast('Start with your table size'); document.getElementById('order').scrollIntoView({behavior:'smooth'}); return; }
+    openDrawer();
+  }));
+  $('#dClose').onclick = closeDrawer; scrim.onclick = closeDrawer;
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('on')) closeDrawer(); });
+
+  // Return from Worldpay
+  const qs = new URLSearchParams(location.search), pay = qs.get('pay');
+  if (pay === 'done' || pay === 'pending' || qs.get('paid') === '1') {
+    state.cart = {}; state.gf = false; state.slot = null; persist();
+    modal('Your table is booked.', '<p>Thank you. Your payment went through and a confirmation is on its way to your inbox. Justin\'s team will be in touch before delivery. All that is left is to invite the people you love.</p>');
+    history.replaceState(null, '', location.pathname);
+  } else if (pay) {
+    const why = { failed: 'The payment didn\'t go through, so nothing has been charged.', cancelled: 'You cancelled the payment, so nothing has been charged.', expired: 'The payment page timed out, so nothing has been charged.' }[pay] || 'Nothing has been charged.';
+    modal('Payment not completed', '<p>' + why + ' Your basket is saved. Choose your delivery hour again and pay when you\'re ready.</p>');
+    history.replaceState(null, '', location.pathname + '#order');
+  }
+
+  drawDays(); drawSlots(); render();
+})();
+</script>
+</body>
+</html>

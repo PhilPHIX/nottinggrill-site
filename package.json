@@ -1,0 +1,11 @@
+{
+  "name": "nottinggrill-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/checkout.test.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
