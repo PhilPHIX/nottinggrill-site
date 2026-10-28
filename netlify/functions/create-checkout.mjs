@@ -56,23 +56,21 @@ export default async (req) => {
   const back = (state) => `${origin}/thanksgiving/?pay=${state}&ref=${ref}`;
   const [first, ...rest] = meta.name.split(/\s+/);
   let url;
+  const missing = ['WORLDPAY_USERNAME', 'WORLDPAY_PASSWORD', 'WORLDPAY_ENTITY'].filter((k) => !String(process.env[k] || '').trim());
+  if (missing.length) { console.error('Worldpay checkout error: missing', missing.join(', ')); return bad(process.env.WORLDPAY_DEBUG === 'on' ? `Setup: missing ${missing.join(', ')}` : 'Checkout could not start. Please try again in a moment.', 502); }
   try {
-    const auth = Buffer.from(`${process.env.WORLDPAY_USERNAME}:${process.env.WORLDPAY_PASSWORD}`).toString('base64');
+    const auth = Buffer.from(`${process.env.WORLDPAY_USERNAME.trim()}:${process.env.WORLDPAY_PASSWORD.trim()}`).toString('base64');
     const r = await fetch(`${worldpayBase()}/payment_pages`, {
       method: 'POST',
       headers: { Authorization: `Basic ${auth}`, 'Content-Type': WP_TYPE, Accept: WP_TYPE },
       body: JSON.stringify({
         transactionReference: ref,
-        merchant: { entity: process.env.WORLDPAY_ENTITY },
+        merchant: { entity: process.env.WORLDPAY_ENTITY.trim() },
         narrative: { line1: 'Notting Grill' },
         value: { currency: 'GBP', amount: total },
-        description: `Thanksgiving · ${meta.delivery_day} ${slot} · ${meta.area}`.slice(0, 128),
-        riskData: {
-          account: { type: 'guestUser', email: meta.email },
-          transaction: { firstName: first.slice(0, 22), lastName: (rest.join(' ') || first).slice(0, 22), phoneNumber: meta.phone, preOrderDate: day },
-        },
+        description: `Thanksgiving delivery ${meta.delivery_day} ${slot.replace('–', '-')} ${meta.area}`.replace(/[^\x20-\x7E]/g, '').slice(0, 128),
         resultURLs: { successURL: back('done'), pendingURL: back('pending'), failureURL: back('failed'), errorURL: back('failed'), cancelURL: back('cancelled'), expiryURL: back('expired') },
-        expiry: String(HOLD_MINUTES * 60),
+        expiry: HOLD_MINUTES * 60,
       }),
     });
     const j = await r.json().catch(() => ({}));
@@ -80,7 +78,7 @@ export default async (req) => {
     url = j.url;
   } catch (e) {
     console.error('Worldpay checkout error', e?.message);
-    return bad('Checkout could not start. Please try again in a moment.', 502);
+    return bad(process.env.WORLDPAY_DEBUG === 'on' ? `Worldpay said: ${e?.message}` : 'Checkout could not start. Please try again in a moment.', 502);
   }
 
   // Keep the order details until Worldpay confirms payment (its webhook only carries the reference and amount).
