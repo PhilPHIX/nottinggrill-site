@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Christmas at Home — Notting Grill | Christmas Feast Delivered in London &amp; England</title>
+<meta name="description" content="Christmas dinner from the Notting Grill kitchen, cooked by Justin Horne and delivered 21–24 December across London and England. Turkey for 8 from £660. Corporate volume pricing. Order by 18 December.">
+<meta name="theme-color" content="#0c0907">
+<link rel="canonical" href="https://nottinggrill.com/christmas/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Notting Grill">
+<meta property="og:title" content="Christmas at Home — Notting Grill">
+<meta property="og:description" content="Justin's Christmas feast, delivered to your door in London and across England. Order by 18 December.">
+<meta property="og:url" content="https://nottinggrill.com/christmas/">
+<meta property="og:image" content="https://nottinggrill.com/christmas/img/hero.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/assets/ng/c830c882-09c7-4915-b455-c79cb9f22b27.png">
+<link rel="apple-touch-icon" href="/assets/ng/c830c882-09c7-4915-b455-c79cb9f22b27.png">
+<link rel="stylesheet" href="/assets/ng/ng-fonts.css">
+<link rel="stylesheet" href="/assets/ng/ng.css">
+<style>
+/* ============================================================
+   NOTTING GRILL — Christmas at home
+   Built on the site system above (ng.css): same tokens, type, grounds,
+   header and footer. Only the shop components are defined here.
+   ============================================================ */
+[hidden]{ display:none !important; }
+button{ font:inherit; color:inherit; }
+:focus-visible{ outline:2px solid var(--orange); outline-offset:3px; }
+
+/* header: always solid on this page, active link, order button */
+.site-header.solid, .site-header.solid.scrolled{ background:var(--ink); border-bottom-color:var(--soot); backdrop-filter:none; -webkit-backdrop-filter:none; }
+.nav a[aria-current="page"]{ color:var(--orange); }
+.nav .btn b{ display:inline-grid; place-items:center; min-width:22px; height:22px; margin-left:8px; padding:0 6px;
+  border-radius:99px; background:var(--ink); color:var(--orange); font-size:12px; letter-spacing:0; }
+
+/* ---------- hero ---------- */
+.tg-hero{ padding:calc(84px + clamp(28px,5vh,64px)) var(--gutter) clamp(48px,7vh,90px); position:relative; overflow:hidden; }
+.tg-hero::before{ content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(60% 70% at 85% 60%, color-mix(in oklch,var(--orange) 22%, transparent), transparent 70%); }
+.tg-hero .inner{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(32px,5vw,80px); align-items:center; position:relative; }
+.tg-hero h1{ font-family:var(--display); font-weight:400; letter-spacing:-0.03em; line-height:.9; text-transform:lowercase;
+  font-size:clamp(46px,7.2vw,104px); margin:18px 0 22px; text-wrap:balance; }
+.tg-hero h1 em{ font-style:normal; color:var(--orange); }
+.tg-hero .lede{ font-size:clamp(17px,1.5vw,21px); color:color-mix(in oklch,var(--bone) 84%, transparent); max-width:44ch; margin:0 0 26px; }
+.ticks{ list-style:none; margin:0 0 34px; padding:0; display:grid; gap:10px; }
+.ticks li{ font-family:var(--mono); font-size:13.5px; letter-spacing:.06em; text-transform:uppercase; padding-top:10px; border-top:1px solid var(--soot);
+  color:color-mix(in oklch,var(--bone) 88%, transparent); }
+.cta-row{ display:flex; flex-wrap:wrap; gap:16px 22px; align-items:center; }
+.cta-note{ font-family:var(--mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ash); }
+.tg-hero figure{ margin:0; position:relative; justify-self:end; width:fit-content; max-width:100%; }
+.tg-hero figure img{ height:auto; border-radius:4px; border:1px solid var(--soot); max-height:min(76vh,720px); width:auto; max-width:100%;
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.8); }
+.count{ position:absolute; top:16px; right:16px; background:var(--orange); color:var(--ink); padding:10px 14px 9px; text-align:center; border-radius:2px; }
+.count b{ display:block; font-family:var(--display); font-weight:400; font-size:34px; line-height:.9; font-variant-numeric:tabular-nums; }
+.count span{ font-family:var(--label); font-weight:700; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+.badge{ position:absolute; left:-18px; bottom:26px; background:var(--forest); color:var(--cream); padding:16px 20px; max-width:250px; border-radius:2px; }
+.badge small{ display:block; font-family:var(--label); font-weight:700; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--sage); margin-bottom:6px; }
+.badge span{ font-family:var(--serif); font-style:italic; font-weight:600; font-size:19px; line-height:1.2; }
+@media (max-width:900px){
+  .tg-hero .inner{ grid-template-columns:1fr; }
+  .tg-hero figure{ justify-self:stretch; width:100%; }
+  .tg-hero figure img{ width:100%; max-height:none; aspect-ratio:4/3; object-fit:cover; object-position:center 45%; }
+  .badge{ left:12px; bottom:12px; }
+}
+
+/* ---------- shop ---------- */
+.shop-grid{ display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:clamp(28px,3vw,48px); align-items:start; }
+@media (max-width:1100px){ .shop-grid{ grid-template-columns:1fr; } }
+.step + .step{ margin-top:clamp(56px,7vw,88px); }
+.stephead{ display:flex; align-items:baseline; justify-content:space-between; gap:14px 24px; flex-wrap:wrap; margin-bottom:26px; }
+.stephead h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.02em; line-height:.95;
+  font-size:clamp(28px,3.2vw,42px); margin:10px 0 0; }
+.stephead .note{ font-family:var(--mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:color-mix(in oklch,var(--ink) 58%, transparent); }
+
+/* feast cards: pillar language (bone card, coloured top rule) */
+.feasts{ display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--bone-2); border:2px solid var(--bone-2); }
+@media (max-width:760px){ .feasts{ grid-template-columns:1fr; } }
+.feast{ background:var(--bone); display:flex; flex-direction:column; min-width:0; position:relative; }
+.feast::before{ content:""; position:absolute; top:0; left:0; right:0; height:5px; background:var(--pc,var(--orange)); z-index:2; }
+.feast > .ph{ aspect-ratio:16/10; min-height:0; border-radius:0; background-size:cover; background-position:center; }
+.feast .tag{ position:absolute; left:14px; top:18px; background:var(--ink); color:var(--bone); font-family:var(--mono); font-size:11px;
+  letter-spacing:.16em; text-transform:uppercase; padding:7px 10px; border-radius:2px; }
+.feast .body{ padding:clamp(22px,2.4vw,30px); display:grid; gap:14px; flex:1; align-content:start; }
+.feast .pn{ font-family:var(--mono); font-size:13px; letter-spacing:.2em; color:var(--pc); }
+.feast h4{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.02em; line-height:1;
+  font-size:clamp(26px,2.4vw,32px); margin:0; }
+.feast .sub{ margin:0; font-size:16px; line-height:1.5; color:color-mix(in oklch,var(--ink) 78%, transparent); }
+.feast details{ font-size:15px; color:color-mix(in oklch,var(--ink) 78%, transparent); }
+.feast ul{ margin:10px 0 0; padding-left:18px; line-height:1.55; }
+
+.pick{ margin:0; font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; color:color-mix(in oklch,var(--ink) 58%, transparent); }
+.pick.on{ color:var(--pine); font-weight:500; }
+
+
+/* what's in the box: always visible */
+.incl{ border-top:1px solid var(--bone-2); padding-top:14px; }
+.incl-h{ margin:0 0 8px; font-family:var(--label); font-weight:700; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--orange-deep); }
+.sides{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:0 18px; font-size:14.5px; line-height:1.35; color:color-mix(in oklch,var(--ink) 82%, transparent); }
+.sides li{ padding:6px 0; border-bottom:1px solid var(--bone-2); }
+@media (max-width:420px){ .sides{ grid-template-columns:1fr; } }
+
+/* table sizes */
+.sizes{ display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:8px; }
+.size{ appearance:none; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; padding:11px 12px; text-align:left; cursor:pointer; display:grid; gap:2px; color:var(--ink); transition:border-color .2s, background .2s, color .2s; }
+.size:hover{ border-color:var(--ink); }
+.size[aria-pressed="true"]{ background:var(--ink); border-color:var(--ink); color:var(--bone); }
+.size .ppl{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; opacity:.75; }
+.size .pr{ font-family:var(--display); font-size:24px; line-height:1.05; font-variant-numeric:tabular-nums; }
+.size .kg{ font-family:var(--mono); font-size:11px; color:var(--orange-deep); margin-top:4px; }
+.size[aria-pressed="true"] .kg{ color:var(--orange); }
+.elsewhere{ margin:14px 0 0; font-size:15px; color:color-mix(in oklch,var(--bone) 78%, transparent); }
+.elsewhere a{ color:var(--orange); border-bottom:1px solid currentColor; }
+.size .phd{ font-family:var(--mono); font-size:11px; opacity:.7; }
+.size--more{ border-style:dashed; background:transparent; }
+.size--more .pr{ font-size:18px; color:var(--orange-deep); }
+.size--more:hover{ background:var(--orange); border-color:var(--orange); }
+.size--more:hover .pr{ color:var(--ink); }
+.gf{ display:flex; align-items:center; gap:12px; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; padding:11px 14px; cursor:pointer; }
+.gf:has(input:checked){ border-color:var(--forest); background:color-mix(in oklch,var(--sage) 22%, var(--cream)); }
+.gf input{ width:20px; height:20px; accent-color:var(--forest); margin:0; flex:none; }
+.gf span{ display:flex; flex-wrap:wrap; gap:4px 10px; align-items:baseline; }
+.gf b{ font-family:var(--sans); font-weight:700; font-size:15px; }
+.optin{ align-items:flex-start; }
+.optin span{ display:grid; gap:2px; }
+.optin em{ font-family:var(--label) !important; font-size:13.5px !important; color:color-mix(in oklch,var(--ink) 70%, transparent) !important; }
+.gf em{ font-style:normal; font-family:var(--mono); font-size:12.5px; color:var(--pine); }
+
+/* item cards (pies, extras, platters) */
+.items{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.items.two{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+.sublabel{ margin:30px 0 14px; font-family:var(--label); font-weight:700; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--orange-deep); }
+@media (max-width:900px){ .items{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:560px){ .items, .items.two{ grid-template-columns:1fr; } }
+.item{ background:var(--cream); border:1px solid var(--bone-2); border-radius:4px; overflow:hidden; display:grid; grid-template-columns:96px minmax(0,1fr); grid-template-rows:1fr auto; gap:10px 14px; align-items:start; padding:10px; transition:transform .25s, box-shadow .25s; }
+.item:hover{ transform:translateY(-3px); box-shadow:0 16px 30px -22px rgba(24,18,16,.5); }
+.item .ph-img{ width:96px; height:96px; border-radius:2px; background-size:cover; background-position:center; grid-row:1/3; align-self:start; }
+.item-row{ grid-column:2; }
+.item-body h5{ margin:0; font-family:var(--sans); font-weight:700; font-size:16.5px; line-height:1.2; }
+.item-body .desc{ margin:6px 0 0; font-size:13.5px; line-height:1.45; color:color-mix(in oklch,var(--ink) 74%, transparent); }
+.item-body .allergens{ margin:4px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--pink-deep); }
+.item-body .meta{ font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; color:color-mix(in oklch,var(--ink) 55%, transparent); }
+.item-row{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.price{ font-family:var(--display); font-size:19px; font-variant-numeric:tabular-nums; }
+.qty{ display:inline-flex; align-items:center; border:1.5px solid var(--ink); border-radius:2px; }
+.qty button{ appearance:none; border:0; background:transparent; width:32px; height:32px; font-size:17px; cursor:pointer; color:inherit; }
+.qty button:hover{ background:var(--ink); color:var(--bone); }
+.qty output{ min-width:22px; text-align:center; font-family:var(--mono); font-weight:500; font-size:13.5px; }
+
+
+/* order panel */
+.panel{ position:sticky; top:96px; background:var(--ink); color:var(--bone); padding:26px; display:grid; gap:16px; border-radius:4px; border-top:5px solid var(--orange); }
+@media (max-width:1100px){ .panel{ position:static; } }
+.panel h4{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.01em; font-size:26px; line-height:1; margin:0; }
+.lines{ list-style:none; margin:0; padding:0; display:grid; gap:9px; font-size:15px; }
+.lines li{ display:flex; justify-content:space-between; gap:12px; }
+.lines li span:last-child{ font-family:var(--mono); font-size:13.5px; white-space:nowrap; }
+.lines li.disc{ color:var(--orange); }
+.empty{ margin:0; font-family:var(--serif); font-style:italic; font-weight:600; font-size:19px; opacity:.75; }
+.total{ display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid var(--soot); padding-top:14px; }
+.total span{ font-family:var(--label); font-weight:700; font-size:13px; letter-spacing:.16em; text-transform:uppercase; }
+.total b{ font-family:var(--display); font-weight:400; font-size:34px; font-variant-numeric:tabular-nums; }
+.panel small{ font-family:var(--mono); font-size:11.5px; line-height:1.5; color:var(--ash); }
+.panel .btn{ width:100%; text-align:center; }
+
+/* kitchen / events band */
+.kitchen{ display:grid; grid-template-columns:200px minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:center; }
+.kitchen .polaroid{ width:100%; height:auto; transform:rotate(-2deg); box-shadow:0 22px 44px -22px rgba(0,0,0,.7); }
+.kitchen h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.02em; line-height:.95; font-size:clamp(28px,3vw,40px); margin:12px 0 16px; }
+.kitchen p{ margin:0 0 12px; font-size:17px; color:color-mix(in oklch,var(--cream) 86%, transparent); }
+.creds{ font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--sage); }
+.eventcard{ position:relative; min-height:300px; border-radius:4px; overflow:hidden; background-size:cover; background-position:center; display:flex; align-items:flex-end; color:var(--cream); }
+.eventcard::before{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(12,9,7,.05),rgba(12,9,7,.86)); }
+.eventcard div{ position:relative; padding:24px; display:grid; gap:10px; }
+.eventcard h4{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:26px; line-height:1; margin:0; }
+.eventcard p{ margin:0; font-size:15.5px; opacity:.9; }
+.eventcard .btn{ justify-self:start; }
+@media (max-width:1000px){ .kitchen{ grid-template-columns:160px minmax(0,1fr); } .eventcard{ grid-column:1/-1; } }
+@media (max-width:560px){ .kitchen{ grid-template-columns:1fr; } .kitchen .polaroid{ max-width:190px; } }
+
+/* faq: same language as the homepage "why" toggle */
+.faq-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 clamp(28px,4vw,56px); }
+@media (max-width:760px){ .faq-grid{ grid-template-columns:1fr; } }
+.faq-grid details{ border-top:1px solid var(--soot); padding:20px 0; }
+.faq-grid summary{ cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:16px; font-family:var(--sans); font-weight:700; font-size:19px; }
+.faq-grid summary::-webkit-details-marker{ display:none; }
+.faq-grid summary::after{ content:"Open"; flex:none; color:var(--ash); font-family:var(--mono); font-weight:400; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding-top:6px; }
+.faq-grid details[open] summary::after{ content:"Close"; }
+.faq-grid p{ margin:10px 0 0; font-size:16.5px; color:color-mix(in oklch,var(--bone) 78%, transparent); }
+
+/* mobile order bar */
+.mbar{ position:fixed; left:0; right:0; bottom:0; z-index:90; background:var(--ink); border-top:1px solid var(--soot); color:var(--bone); display:none; align-items:center; justify-content:space-between; gap:12px;
+  padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom,0px)); }
+.mbar small{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ash); display:block; }
+.mbar b{ font-family:var(--display); font-weight:400; font-size:24px; font-variant-numeric:tabular-nums; }
+@media (max-width:1100px){ .mbar.show{ display:flex; } .site-footer{ padding-bottom:110px; } }
+
+/* checkout drawer */
+.scrim{ position:fixed; inset:0; background:rgba(12,9,7,.62); z-index:130; opacity:0; pointer-events:none; transition:opacity .25s; }
+.scrim.on{ opacity:1; pointer-events:auto; }
+.drawer{ position:fixed; top:0; right:0; bottom:0; width:min(580px,100%); background:var(--bone); color:var(--ink); z-index:140; transform:translateX(100%); transition:transform .32s ease; display:flex; flex-direction:column; }
+.drawer.on{ transform:none; }
+@media (prefers-reduced-motion:reduce){ .drawer,.scrim{ transition:none; } }
+.dhead{ display:flex; align-items:center; justify-content:space-between; padding:18px 22px; background:var(--ink); color:var(--bone); }
+.dhead h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:26px; margin:0; }
+@media (max-width:480px){ .dhead h3{ font-size:21px; } }
+.x{ appearance:none; border:1.5px solid var(--soot); background:transparent; color:var(--bone); border-radius:2px; padding:10px 14px; cursor:pointer; font-family:var(--label); font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }
+.x:hover{ border-color:var(--orange); color:var(--orange); }
+.dbody{ overflow-y:auto; padding:22px; flex:1; display:grid; gap:24px; align-content:start; }
+.dfoot{ border-top:1px solid var(--bone-2); padding:16px 22px calc(16px + env(safe-area-inset-bottom,0px)); display:grid; gap:12px; background:var(--cream); }
+.dfoot .total{ border:0; padding:0; }
+.dfoot .total b{ font-size:30px; }
+.dfoot .btn{ width:100%; text-align:center; }
+.stage h4{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:22px; margin:0 0 12px; }
+.stage h4 span{ font-family:var(--mono); font-size:13px; letter-spacing:.18em; color:var(--orange-deep); margin-right:10px; }
+.chips{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.chip,.day{ appearance:none; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; padding:12px; text-align:left; cursor:pointer; display:grid; gap:3px; color:var(--ink); }
+.chip:hover,.day:hover{ border-color:var(--ink); }
+.chip[aria-pressed="true"], .day[aria-pressed="true"]{ background:var(--ink); color:var(--bone); border-color:var(--ink); }
+.chip b{ font-family:var(--sans); font-weight:700; font-size:16px; line-height:1.15; }
+.chip em{ font-style:normal; font-family:var(--label); font-weight:700; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); }
+.chip[aria-pressed="true"] em{ color:var(--orange); }
+.chip--else{ border-style:dashed; background:transparent; }
+.else-note{ background:var(--cream); border:1.5px dashed var(--orange-deep); border-radius:2px; padding:14px 16px; font-size:15.5px; }
+.else-note p{ margin:0; }
+.else-note a{ color:var(--orange-deep); font-weight:700; border-bottom:1px solid currentColor; }
+.chip span{ font-family:var(--mono); font-size:11px; opacity:.7; }
+.days{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+.day .dow{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.7; }
+.day .dnum{ font-family:var(--display); font-size:34px; line-height:.9; }
+.day .mon{ display:none; }
+.day .lab{ font-family:var(--label); font-size:12px; line-height:1.3; margin-top:4px; }
+.day.feat:not([aria-pressed="true"]) .dnum{ color:var(--orange-deep); }
+@media (max-width:480px){ .days{ grid-template-columns:1fr 1fr; } }
+.slots{ display:grid; grid-template-columns:repeat(auto-fill,minmax(108px,1fr)); gap:8px; margin-top:10px; }
+.slot{ appearance:none; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; padding:10px 6px; cursor:pointer; font-family:var(--mono); font-size:13px; color:var(--ink); }
+.slot:hover{ border-color:var(--ink); }
+.slot[aria-pressed="true"]{ background:var(--orange); border-color:var(--orange); }
+.slot small{ display:block; font-size:10.5px; color:var(--orange-deep); }
+.slot[aria-pressed="true"] small{ color:var(--ink); }
+.btn[disabled]{ opacity:.45; cursor:not-allowed; transform:none; }
+.slot[disabled]{ opacity:.35; text-decoration:line-through; cursor:not-allowed; }
+.hint{ font-family:var(--mono); font-size:12px; color:color-mix(in oklch,var(--ink) 58%, transparent); margin:8px 0 0; }
+.form{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.form .full{ grid-column:1/-1; }
+.field{ display:grid; gap:5px; }
+.field label{ font-family:var(--label); font-weight:700; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:color-mix(in oklch,var(--ink) 62%, transparent); }
+.field input,.field textarea{ font-family:var(--label); font-size:16px; padding:13px 14px; border:1.5px solid color-mix(in oklch,var(--ink) 18%, transparent); background:var(--cream); border-radius:2px; color:var(--ink); width:100%; }
+.field input:focus,.field textarea:focus{ outline:none; border-color:var(--orange); }
+.field textarea{ min-height:76px; resize:vertical; }
+@media (max-width:480px){ .form{ grid-template-columns:1fr; } }
+.sum{ background:var(--cream); border:1px solid var(--bone-2); border-radius:4px; padding:16px; display:grid; gap:10px; }
+.sum .lines{ font-size:14.5px; }
+.sum .lines li.disc{ color:var(--orange-deep); font-weight:600; }
+.sum .empty{ font-size:17px; }
+.err{ background:color-mix(in oklch,var(--coral) 18%, var(--bone)); color:var(--pink-deep); padding:12px 14px; border-radius:2px; font-size:14.5px; }
+.secure{ font-family:var(--mono); font-size:11.5px; color:color-mix(in oklch,var(--ink) 55%, transparent); text-align:center; margin:0; }
+
+.toast{ position:fixed; left:50%; top:96px; max-width:calc(100% - 32px); text-align:center; transform:translateX(-50%); background:var(--orange); color:var(--ink); padding:12px 18px; border-radius:2px; font-family:var(--label); font-weight:700; font-size:14px; letter-spacing:.04em; z-index:160; opacity:0; transition:opacity .25s; pointer-events:none; }
+.toast.on{ opacity:1; }
+.modal{ position:fixed; inset:0; z-index:170; background:rgba(12,9,7,.7); display:grid; place-items:center; padding:20px; }
+.modal-card{ background:var(--bone); color:var(--ink); max-width:500px; width:100%; padding:32px; display:grid; gap:14px; border-top:5px solid var(--orange); border-radius:4px; }
+.modal-card h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:32px; line-height:1; margin:0; }
+.modal-card p{ margin:0; font-size:16.5px; color:color-mix(in oklch,var(--ink) 80%, transparent); }
+.modal-card .btn{ justify-self:start; }
+
+/* ---------- Christmas additions ---------- */
+.tg-hero.xm::before{ background:radial-gradient(60% 70% at 85% 60%, color-mix(in oklch,var(--orange) 18%, transparent), transparent 70%); }
+.closes{ display:inline-block; margin:0 0 22px; font-family:var(--mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; background:var(--forest); color:var(--cream); padding:8px 12px; border-radius:2px; }
+.btn--line{ background:transparent; border:1.5px solid currentColor; color:var(--bone); }
+.btn--line:hover{ background:var(--bone); color:var(--ink); }
+.item--noimg{ grid-template-columns:minmax(0,1fr); }
+.item--noimg .item-row{ grid-column:1; }
+.chip .fee{ font-family:var(--mono); font-size:12px; opacity:1; font-weight:500; }
+.closed-note{ background:var(--forest); color:var(--cream); padding:16px 18px; border-radius:4px; margin:0 0 26px; font-size:16px; }
+.closed-note a{ color:var(--orange); border-bottom:1px solid currentColor; }
+
+/* corporate */
+.corp-grid{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(28px,4vw,64px); align-items:start; }
+@media (max-width:980px){ .corp-grid{ grid-template-columns:1fr; } }
+.corp-lede{ font-size:clamp(17px,1.5vw,20px); max-width:46ch; margin:0 0 26px; color:color-mix(in oklch,var(--ink) 84%, transparent); }
+.tiers{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:0 0 26px; }
+.tier{ background:var(--ink); color:var(--bone); padding:16px 14px; border-radius:2px; display:grid; gap:4px; transition:background .2s, color .2s; }
+.tier b{ font-family:var(--display); font-weight:400; font-size:clamp(30px,3vw,40px); line-height:.95; color:var(--orange); }
+.tier span{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+.tier.on{ background:var(--cream); color:var(--ink); }
+.tier.on b{ color:var(--orange-deep); }
+.corp-list{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.corp-list li{ font-family:var(--mono); font-size:13px; letter-spacing:.05em; text-transform:uppercase; padding-top:10px; border-top:1px solid color-mix(in oklch,var(--ink) 25%, transparent); }
+.calc{ background:var(--ink); color:var(--bone); border-radius:4px; padding:clamp(22px,2.6vw,32px); display:grid; gap:18px; border-top:5px solid var(--forest); }
+.calc h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:clamp(26px,2.4vw,32px); line-height:1; margin:0; }
+.crow{ display:grid; grid-template-columns:minmax(0,1fr) auto auto; gap:12px 16px; align-items:center; padding:12px 0; border-top:1px solid var(--soot); }
+.crow h5{ margin:0; font-family:var(--sans); font-weight:700; font-size:16px; line-height:1.2; }
+.crow small{ display:block; font-family:var(--mono); font-size:11.5px; color:#B3A89E; margin-top:3px; }
+.crow .each{ font-family:var(--mono); font-size:13px; text-align:right; white-space:nowrap; }
+.crow .each s{ color:#9C9188; margin-right:6px; }
+.calc .qty{ border-color:var(--bone); }
+.calc .qty button:hover{ background:var(--bone); color:var(--ink); }
+.calc .lines{ border-top:1px solid var(--soot); padding-top:14px; }
+.calc .lines li.disc{ color:var(--orange); }
+.calc .total{ border-color:var(--soot); }
+.calc .note{ margin:0; font-family:var(--mono); font-size:11.5px; line-height:1.5; color:#B3A89E; }
+.calc .form{ grid-template-columns:1fr 1fr; }
+.calc .field label{ color:#C9BFB4; }
+.calc .field input, .calc .field textarea{ background:var(--ink-2); border-color:#4a4038; color:var(--bone); }
+.calc .field input::placeholder, .calc .field textarea::placeholder{ color:#9C9188; }
+.calc .btn{ justify-self:start; }
+@media (max-width:480px){ .crow{ grid-template-columns:minmax(0,1fr) auto; } .crow .each{ grid-column:1; text-align:left; } .calc .form{ grid-template-columns:1fr; } }
+</style>
+<style id="ng-holidays">
+/* Holidays dropdown in the main menu (Christmas / Thanksgiving) */
+.hol{ position:relative; }
+.hol__btn{ appearance:none; background:none; border:0; padding:0; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--label); font-weight:600; font-size:14px; letter-spacing:.06em; text-transform:uppercase;
+  color:color-mix(in oklch,var(--bone) 78%, transparent); transition:color .2s; }
+.hol__btn:hover, .hol.open .hol__btn, .hol--current .hol__btn{ color:var(--orange); }
+.hol__chev{ width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; transition:transform .2s; }
+.hol.open .hol__chev{ transform:rotate(180deg); }
+.hol__menu{ display:none; position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%); min-width:330px; z-index:130;
+  background:var(--ink); border:1px solid var(--soot); border-top:3px solid var(--orange); border-radius:2px; padding:6px;
+  box-shadow:0 24px 48px -24px rgba(0,0,0,.8); gap:2px; }
+.hol__menu::before{ content:""; position:absolute; left:0; right:0; top:-19px; height:19px; }
+.hol.open .hol__menu{ display:grid; }
+@media (hover:hover) and (min-width:1001px){ .hol:hover .hol__menu{ display:grid; } .hol:hover .hol__chev{ transform:rotate(180deg); } }
+.nav .hol__menu a{ display:grid; gap:3px; padding:12px 14px; border-radius:2px; text-transform:none; letter-spacing:0; color:var(--bone); }
+.nav .hol__menu a:hover, .nav .hol__menu a:focus-visible{ background:var(--ink-2, #221b16); color:var(--bone); }
+.hol__menu b{ font-family:var(--label); font-weight:700; font-size:14px; letter-spacing:.08em; text-transform:uppercase; }
+.hol__menu a[data-season="christmas"] b{ color:var(--sage); }
+.hol__menu a[data-season="thanksgiving"] b{ color:var(--orange); }
+.hol__menu span{ font-family:var(--mono); font-size:12px; letter-spacing:.02em; color:#B3A89E; }
+.hol__menu a[aria-current="page"]{ background:var(--soot); }
+@media (max-width:1000px){
+  .hol{ width:100%; }
+  .hol__btn{ font-size:18px; padding:10px 0; }
+  .hol__menu{ position:static; transform:none; min-width:0; width:100%; border:0; border-left:2px solid var(--orange); box-shadow:none; padding:2px 0 6px 12px; margin:0 0 6px; background:transparent; }
+  .hol__menu::before{ display:none; }
+  .nav .hol__menu a{ padding:8px 0; }
+}
+</style>
+</head>
+<body>
+  <!-- ============ HEADER (same as nottinggrill.com) ============ -->
+  <header class="site-header solid" id="header">
+    <a class="site-header__logo" href="/" aria-label="Notting Grill home">
+      <img src="/assets/ng/05701e49-5b90-43ae-a8fc-57099117e6e6.png" alt="Notting Grill">
+    </a>
+    <nav class="nav" id="nav">
+      <a href="/#watch">Watch</a>
+      <a href="/#pillars">The Channel</a>
+      <a href="/#story">Story</a>
+      <a href="/#ethos">Ethos</a>
+      <div class="hol hol--current" id="hol">
+        <button class="hol__btn" type="button" aria-expanded="false" aria-controls="holMenu">Holidays<span class="hol__chev" aria-hidden="true"></span></button>
+        <div class="hol__menu" id="holMenu">
+          <a href="/christmas/" data-season="christmas" aria-current="page"><b>Christmas</b><span>Delivered 21–24 Dec · order by 18 Dec</span></a>
+          <a href="/christmas/#corporate" data-season="christmas"><b>Corporate Christmas</b><span>Volume pricing from 10 feasts</span></a>
+          <a href="/thanksgiving/" data-season="thanksgiving"><b>Thanksgiving</b><span>Delivered 25–28 Nov · order by 21 Nov</span></a>
+        </div>
+      </div>
+      <a href="/#partners">Contact</a>
+      <button class="btn btn--orange" type="button" data-checkout>Order <b id="navCount">0</b></button>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="tg-hero xm on-ink">
+    <div class="inner">
+      <div>
+        <p class="eyebrow">Christmas at home · Delivered 21–24 December</p>
+        <h1><em>Notting Grill Christmas Feast</em> for your home table.</h1>
+        <p class="lede">This year we do the heavy lifting. No 6am turkey, no timings to juggle, no last-minute dash for bread sauce. Justin and team cook the whole feast and deliver it to your door in London and across England. You warm it through and sit down with the people you love.</p>
+        <ul class="ticks">
+          <li>Free-range Cotswolds turkey, brined 24 hours</li>
+          <li>Pigs in blankets, bread sauce &amp; two stuffings</li>
+          <li>Every side made from scratch</li>
+          <li>London delivery or next-day courier across England</li>
+        </ul>
+        <span class="closes">Order by Fri 18 December</span>
+        <div class="cta-row">
+          <a class="btn btn--orange" href="#order">Order your feast</a>
+          <a class="btn btn--line" href="#corporate">Corporate orders</a>
+        </div>
+        <p class="elsewhere">Turkey for 8 from £660 · Veggie Wellington for 6 from £440 · Ordering for your team? <a href="#corporate">Volume pricing from 10 feasts</a></p>
+      </div>
+      <figure>
+        <img src="img/hero.jpg" alt="A candlelit Christmas table outdoors by a fire: roast turkey, cranberries, roast vegetables and charred sprouts in cast-iron pans." width="830" height="1245">
+        <div class="count"><b id="daysLeft">31</b><span>days to order</span></div>
+        <div class="badge"><small>Cooked by Justin &amp; team</small><span>Roasted, rested and delivered ready for your oven.</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ ORDER ============ -->
+  <section class="section on-bone" id="order">
+    <div class="inner">
+      <div class="sechead">
+        <span class="knum">01</span>
+        <div>
+          <p class="eyebrow">Order online · pay securely</p>
+          <h2 class="sectitle">build your table.</h2>
+        </div>
+      </div>
+      <p class="closed-note" id="closedNote" hidden>Christmas orders have now closed. Still need a feast? Email <a href="mailto:justin@nottinggrill.com?subject=Christmas%20order">justin@nottinggrill.com</a> and we'll see what we can do.</p>
+      <div class="shop-grid">
+        <div>
+          <div class="step">
+            <div class="stephead"><div><p class="eyebrow">Step one</p><h3>choose your feast.</h3></div><span class="note">Priced per table · add both for a mixed table</span></div>
+            <div class="feasts">
+              <article class="feast" id="feast-turkey" style="--pc:#FF8300;">
+                <div class="ph" style="background-image:url('/thanksgiving/img/turkey.jpg')" role="img" aria-label="A roast turkey being carved."><span class="tag">The classic</span></div>
+                <div class="body">
+                  <span class="pn">01</span>
+                  <h4>turkey feast</h4>
+                  <p class="sub">Free-range Cotswolds turkey, brined for 24 hours, with all the Christmas trimmings.</p>
+                  <div class="incl"><p class="incl-h">In the box</p><ul class="sides"><li>Roast turkey</li><li>Pigs in blankets</li><li>Roast potatoes</li><li>Brussels sprouts</li><li>Bread sauce</li><li>Cranberry sauce</li><li>Stuffing ×2</li><li>Gravy</li></ul></div>
+                  <div class="sizes" role="group" aria-label="Turkey feast table size" data-group="turkey"></div>
+                  <p class="pick" id="turkeyNote">Tap your table size to add it.</p>
+                </div>
+              </article>
+              <article class="feast" id="feast-veg" style="--pc:#1E3D2F;">
+                <div class="ph" style="background-image:url('/thanksgiving/img/veg.jpg')" role="img" aria-label="A golden lattice puff-pastry Wellington."><span class="tag">Vegetarian</span></div>
+                <div class="body">
+                  <span class="pn">02</span>
+                  <h4>veggie wellington</h4>
+                  <p class="sub">Veggie Wellington in golden puff pastry, with the full Christmas table around it.</p>
+                  <div class="incl"><p class="incl-h">In the box</p><ul class="sides"><li>Veggie Wellington</li><li>Roast potatoes</li><li>Brussels sprouts</li><li>Bread sauce</li><li>Cranberry sauce</li><li>Stuffing ×2</li><li>Vegetable gravy</li></ul></div>
+                  <div class="sizes" role="group" aria-label="Veggie Wellington table size" data-group="veg"></div>
+                  <label class="gf"><input type="checkbox" id="vegGf"><span><b>Make it gluten free</b><em id="gfNote">+£5 a head</em></span></label>
+                  <p class="pick" id="vegNote">Tap your table size to add it.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="stephead"><div><p class="eyebrow">Step two</p><h3>pudding, pies &amp; extras.</h3></div><span class="note">All pies £29 · each serves 8</span></div>
+            <div class="items" id="pies"></div>
+            <p class="sublabel">More for the table</p>
+            <div class="items two" id="extras"></div>
+            <p class="sublabel">Extra sauces</p>
+            <div class="items" id="sauces"></div>
+            <p class="sublabel">Serveware · yours to keep</p>
+            <div class="items" id="serveware"></div>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Your order">
+          <p class="eyebrow">Your order</p>
+          <h4>christmas for <span id="sheetGuests">your table</span></h4>
+          <ul class="lines" id="sheetLines"></ul>
+          <p class="empty" id="sheetEmpty">Nothing yet. Start with your table size.</p>
+          <div class="total"><span>Total</span><b id="sheetTotal">£0</b></div>
+          <button class="btn btn--orange" type="button" data-checkout>Checkout</button>
+          <small>Card, Apple Pay, Google Pay via Worldpay. Delivery from £10, added at checkout with your delivery day.</small>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CORPORATE ============ -->
+  <section class="section on-orange" id="corporate">
+    <div class="inner">
+      <div class="sechead">
+        <span class="knum">02</span>
+        <div>
+          <p class="eyebrow">Corporate package</p>
+          <h2 class="sectitle">christmas for the whole team.</h2>
+        </div>
+      </div>
+      <div class="corp-grid">
+        <div>
+          <p class="corp-lede">Send a Christmas feast to your team, your clients or your best suppliers. Order 10 or more and the price per feast drops. We deliver to one office or to every home on your list.</p>
+          <div class="tiers" aria-label="Volume pricing">
+            <div class="tier" data-min="10"><b>10%</b><span>10–19 feasts</span></div>
+            <div class="tier" data-min="20"><b>15%</b><span>20–39 feasts</span></div>
+            <div class="tier" data-min="40"><b>20%</b><span>40+ feasts</span></div>
+          </div>
+          <ul class="corp-list">
+            <li>Mix turkey and Wellington feasts</li>
+            <li>One address or many, London &amp; England</li>
+            <li>Extras &amp; delivery at standard prices</li>
+            <li>Order by 18 December</li>
+          </ul>
+        </div>
+
+        <form class="calc" id="corpForm" novalidate>
+          <h3>build your quote</h3>
+          <div id="corpRows"></div>
+          <ul class="lines" id="corpLines"></ul>
+          <div class="total"><span>Feasts total</span><b id="corpTotal">£0</b></div>
+          <p class="note" id="corpNote">Add 10 or more feasts to unlock volume pricing.</p>
+          <div class="form">
+            <div class="field"><label for="cCompany">Company</label><input id="cCompany" name="company" autocomplete="organization" required></div>
+            <div class="field"><label for="cName">Your name</label><input id="cName" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="cPhone">Phone</label><input id="cPhone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field full"><label for="cNotes">Delivery &amp; notes</label><textarea id="cNotes" name="notes" placeholder="One office or individual addresses? Preferred days, dietary needs, other table sizes."></textarea></div>
+          </div>
+          <div class="err" id="corpErr" hidden></div>
+          <button class="btn btn--orange" type="submit">Request this quote</button>
+          <p class="note">Opens an email to Justin with your quote filled in. Nothing is charged now: we confirm the details and invoice you.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE KITCHEN / EVENTS ============ -->
+  <section class="section on-forest" id="kitchen">
+    <div class="inner">
+      <div class="sechead">
+        <span class="knum">03</span>
+        <div>
+          <p class="eyebrow">The kitchen</p>
+          <h2 class="sectitle">cooked by justin horne.</h2>
+        </div>
+      </div>
+      <div class="kitchen">
+        <img class="polaroid" src="/thanksgiving/img/justin.jpg" alt="Polaroid portrait of chef Justin Horne." loading="lazy" width="700" height="889">
+        <div>
+          <h3>the hands behind the world's most private tables.</h3>
+          <p>Royal residences, luxury goods brands, families who value privacy. He never says who. Discretion is part of the service.</p>
+          <p class="creds">Ecological chef · Forager · Soon to be sailor</p>
+        </div>
+        <a class="eventcard" href="mailto:justin@nottinggrill.com?subject=Private%20dinner%20%2F%20event%20enquiry" style="background-image:url('/thanksgiving/img/events.jpg')">
+          <div><h4>christmas parties &amp; private dinners</h4><p>Want Justin and the Notting Grill team cooking over fire at your party? Book them in person.</p><span class="btn btn--orange">Book Justin</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section on-ink" id="faq">
+    <div class="inner">
+      <div class="sechead">
+        <span class="knum">04</span>
+        <div>
+          <p class="eyebrow">Good to know</p>
+          <h2 class="sectitle">before you order.</h2>
+        </div>
+      </div>
+      <div class="faq-grid">
+        <details><summary>When is the last day to order?</summary><p>Friday 18 December. Kitchen slots are limited, so earlier is better.</p></details>
+        <details><summary>Where and when do you deliver?</summary><p>London: Monday 21 to Thursday 24 December, in a three-hour window you choose at checkout. Notting Hill £10, Kensington £15, Central London £20, Greater London £35. Across England: next-day courier for £45, arriving on 21, 22 or 23 December. Someone needs to be home to receive it.</p></details>
+        <details><summary>How much cooking is there?</summary><p>Very little. Everything arrives fully cooked and just needs reheating: the turkey comes roasted and rested with Justin's card for warming it through, and the sides go in alongside it.</p></details>
+        <details><summary>Allergies?</summary><p>The veggie Wellington can be made gluten free for £5 a head (tick the box under the Wellington sizes). Pie allergens are listed under each pie. Add any allergies at checkout and the team will be in touch.</p></details>
+        <details><summary>How do I pay?</summary><p>In full when you book, securely through Worldpay. Your confirmation arrives by email.</p></details>
+        <details><summary>Cooking for 16 or more?</summary><p>Email <a href="mailto:justin@nottinggrill.com" style="color:var(--orange)">justin@nottinggrill.com</a> and we'll size the turkey and the Wellington for your table.</p></details>
+        <details><summary>Ordering for a company?</summary><p>Use the <a href="#corporate" style="color:var(--orange)">corporate quote</a> above. 10–19 feasts are 10% off, 20–39 are 15% off and 40 or more are 20% off. We deliver to one address or to each person's home.</p></details>
+        <details><summary>Can I order Thanksgiving too?</summary><p>Yes, until 21 November: <a href="/thanksgiving/" style="color:var(--orange)">order Thanksgiving here</a>.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <!-- ============ FOOTER (same as nottinggrill.com) ============ -->
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img src="/assets/ng/05701e49-5b90-43ae-a8fc-57099117e6e6.png" alt="Notting Grill">
+          <p class="footer-tag"><span style="color:#ff6e00;">seasonal celebrations made easy</span></p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="/#watch">Watch</a>
+            <a href="/#pillars">The Channel</a>
+            <a href="/#story">Story</a>
+            <a href="/#studio">Studio</a>
+            <a href="/#ethos">Ethos</a>
+            <a href="/thanksgiving/">Thanksgiving</a>
+            <a href="/christmas/">Christmas</a>
+          </div>
+          <div class="footer-col">
+            <h4>Follow</h4>
+            <a href="https://www.youtube.com/@nottinggrill" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://instagram.com/nottinggrill" target="_blank" rel="noopener">Instagram</a>
+            <a href="/#contact">Newsletter</a>
+          </div>
+          <div class="footer-col">
+            <h4>Work With Us</h4>
+            <a href="mailto:phil@nottinggrill.com">Partnerships</a>
+            <a href="mailto:justin@nottinggrill.com">Food &amp; Events</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© 2026 Notting Grill · Notting Hill, London W2</span>
+        <span>Website &amp; brand design, film &amp; photography by <a href="https://www.phix.film" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(245,240,232,.4);">PHIX</a></span>
+        <span>Food · Fire · Culture</span>
+      </div>
+    </div>
+  </footer>
+
+<div class="mbar" id="mbar"><div><small>Your order</small><b id="mTotal">£0</b></div><button class="btn btn--orange" type="button" data-checkout>Checkout</button></div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <div class="dhead"><h3 id="dTitle">delivery &amp; payment</h3><button class="x" type="button" id="dClose" aria-label="Close">Close</button></div>
+  <div class="dbody">
+    <form id="bookForm" novalidate style="display:grid;gap:24px">
+      <div class="stage"><h4><span>01</span>where?</h4><div class="chips" role="group" aria-label="Delivery area" id="areas"></div></div>
+      <div class="stage" id="whenStage"><h4><span>02</span>when?</h4><div class="days" role="group" aria-label="Delivery day" id="days"></div>
+        <div class="slots" role="group" aria-label="Delivery window" id="slots"></div><p class="hint" id="slotHint">Choose your area first.</p></div>
+      <div class="stage"><h4><span>03</span>your details</h4>
+        <div class="form">
+          <div class="field"><label for="fName">Full name</label><input id="fName" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field full"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div>
+          <div class="field full"><label for="fAddress">Delivery address</label><input id="fAddress" name="address" autocomplete="street-address" required></div>
+          <div class="field full"><label for="fPostcode">Postcode</label><input id="fPostcode" name="postcode" autocomplete="postal-code" required></div>
+          <input type="hidden" id="fGuests" name="guests">
+          <div class="field full"><label for="fNotes">Allergies or notes</label><textarea id="fNotes" name="notes" maxlength="480"></textarea></div>
+          <label class="gf full optin" for="fNews"><input type="checkbox" id="fNews" name="news" checked><span><b>Keep me posted</b><em>Seasonal menus and Notting Grill news by email. Untick if you'd rather not. Unsubscribe any time.</em></span></label>
+        </div>
+      </div>
+      <div class="sum"><ul class="lines" id="sumLines"></ul><p class="empty" id="sumEmpty">Your order is empty.</p><ul class="lines" id="sumDelivery" style="border-top:1px solid var(--bone-2);padding-top:10px"></ul></div>
+    </form>
+  </div>
+  <div class="dfoot">
+    <div class="err" id="payErr" hidden></div>
+    <div class="total"><span>To pay</span><b id="sumTotal">£0</b></div>
+    <button class="btn btn--orange" type="button" id="payBtn">Pay securely</button>
+    <p class="secure">Card, Apple Pay, Google Pay · via Worldpay</p>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+<div class="modal" id="modal" hidden><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h3 id="modalTitle"></h3><div id="modalBody"></div><button class="btn btn--ink" type="button" id="modalClose">Close</button></div></div>
+
+<script src="/assets/ng/ng.js"></script>
+<script>
+(() => {
+  const CHECKOUT_URL = '/.netlify/functions/create-checkout';
+  const AVAIL_URL = '/.netlify/functions/availability';
+  const ORDERS_EMAIL = 'justin@nottinggrill.com';
+  const ORDER_BY = new Date('2026-12-18T23:59:59Z');
+  const gbp = p => '£' + (p/100).toLocaleString('en-GB',{minimumFractionDigits: p%100 ? 2 : 0, maximumFractionDigits:2});
+
+  // Prices in pence. Keep in sync with XMAS_CATALOG in netlify/lib/catalog.mjs (the server re-checks every price).
+  const FEASTS = {
+    turkey: { name:'Turkey Feast', sizes:[ {id:'xmas-turkey-8', guests:8, price:66000, bird:'4.5–5.5 kg bird'}, {id:'xmas-turkey-10', guests:10, price:77000, bird:'5.5–7 kg bird'}, {id:'xmas-turkey-12', guests:12, price:88000, bird:'7–8 kg bird'}, {id:'xmas-turkey-14', guests:14, price:99000, bird:'8–10 kg bird'} ], bigger:'16+' },
+    veg:    { name:'Veggie Wellington Feast', sizes:[ {id:'xmas-veg-6', guests:6, price:44000}, {id:'xmas-veg-8', guests:8, price:55000}, {id:'xmas-veg-10', guests:10, price:66000} ], bigger:'12+' },
+  };
+  const GF = {id:'xmas-wellington-gf', name:'Gluten-free Wellington', price:500};
+  const PIES = [
+    {id:'xmas-pudding', name:'Christmas pudding &amp; brandy cream', meta:'The finale', price:4500, desc:'Rich, dark pudding with brandy cream to pour over.'},
+    {id:'xmas-pie-pecan', name:'Pecan pie', meta:'Serves 8', price:2900, img:'/thanksgiving/img/pecan.jpg',
+     desc:'American organic pecans, Devon butter &amp; eggs, Doves Farm organic wheat flour, Norfolk sugar, Kent honey, Madagascan vanilla.', allergens:'Gluten, dairy, eggs &amp; nuts'},
+    {id:'xmas-pie-apple', name:'Apple pie', meta:'Serves 8', price:2900, img:'/thanksgiving/img/apple.jpg',
+     desc:'Organic apples, Devon butter &amp; eggs, Doves Farm organic wheat flour, Norfolk sugar, organic Sri Lankan cinnamon.', allergens:'Gluten, dairy &amp; eggs'},
+    {id:'xmas-pie-pumpkin', name:'Pumpkin pie', meta:'Serves 8', price:2900, img:'/thanksgiving/img/pumpkin.jpg',
+     desc:'British pumpkin &amp; squash, Devon butter &amp; eggs, Doves Farm organic wheat flour, Norfolk sugar, organic nutmeg &amp; cinnamon.', allergens:'Gluten, dairy &amp; eggs'},
+  ];
+  const EXTRAS = [
+    {id:'xmas-ham', name:'Honey-glazed ham', meta:'Serves 6–8', price:6000, img:'/thanksgiving/img/ham.jpg', desc:'Smoked ham joint glazed with Kent honey.'},
+    {id:'xmas-roast-goose', name:'Roast potatoes in goose fat', meta:'1 kg · serves 4–5', price:2000, img:'/thanksgiving/img/potatoes-goose.jpg', desc:'Finished with rosemary salt.'},
+    {id:'xmas-roast-olive', name:'Roast potatoes in olive oil', meta:'Vegetarian · 1 kg · serves 4–5', price:2000, img:'/thanksgiving/img/potatoes-olive.jpg', desc:'Finished with rosemary salt.'},
+    {id:'xmas-mash', name:'Buttery mashed potatoes', meta:'Vegetarian · 1 kg · serves 4–5', price:2800, img:'/thanksgiving/img/mash.jpg', desc:'Organic potatoes, English butter, English cream, sea salt.', allergens:'Dairy'},
+  ];
+  const SAUCES = [
+    {id:'xmas-bread-sauce', name:'Extra bread sauce', meta:'For seconds', price:2000},
+    {id:'xmas-gravy', name:'Extra gravy', meta:'Nobody ever has enough', price:2000},
+    {id:'xmas-cranberry', name:'Extra cranberry sauce', meta:'Vegetarian', price:1000},
+  ];
+  const SERVEWARE = [
+    {id:'xmas-dish-porcelain', name:'Oval dish, porcelain', meta:'35 cm / 14 in', price:3000, img:'/thanksgiving/img/platter.jpg'},
+    {id:'xmas-dish-steel', name:'Oval dish, stainless', meta:'35 cm / 14 in', price:2000, img:'/thanksgiving/img/platter.jpg'},
+    {id:'xmas-gravy-boat', name:'Porcelain gravy boat', meta:'For the table', price:3000},
+    {id:'xmas-set-steel', name:'Serving set, steel', meta:'Carving &amp; serving', price:3000},
+    {id:'xmas-set-gold', name:'Serving set, gold', meta:'Carving &amp; serving', price:3000},
+  ];
+  const ALL = {}; [...PIES,...EXTRAS,...SAUCES,...SERVEWARE].forEach(p => ALL[p.id] = p);
+  Object.entries(FEASTS).forEach(([k,f]) => f.sizes.forEach(s => ALL[s.id] = {...s, name:`${f.name} for ${s.guests}`, feast:k}));
+  ALL[GF.id] = {...GF, perHead:true};
+
+  // Delivery zones (fee per order) and days. London books a 3-hour window; England is next-day courier, 21–23 Dec.
+  const ZONES = [
+    {id:'notting-hill', name:'Notting Hill', pc:'W2 · W10 · W11', fee:1000},
+    {id:'kensington', name:'Kensington', pc:'W8 · W14 · SW5 · SW7', fee:1500},
+    {id:'central', name:'Central London', pc:'Zone 1 & 2', fee:2000},
+    {id:'greater', name:'Greater London', pc:'Inside the M25', fee:3500},
+    {id:'england', name:'England, next day', pc:'Courier, mainland England', fee:4500, courier:true},
+  ];
+  const DAYS = [
+    {id:'2026-12-21', dow:'Mon', d:21, lab:'Plenty of time', courier:true},
+    {id:'2026-12-22', dow:'Tue', d:22, lab:'Early in the week', courier:true},
+    {id:'2026-12-23', dow:'Wed', d:23, lab:'Day before Christmas Eve', courier:true, feat:true},
+    {id:'2026-12-24', dow:'Thu', d:24, lab:'Christmas Eve', courier:false, feat:true},
+  ];
+  const WINDOWS = [9, 12, 15];
+  const COURIER = 'Courier, during the day';
+  const pad = n => String(n).padStart(2,'0');
+  const winLabel = h => `${pad(h)}:00–${pad(h+3)}:00`;
+
+  const state = { cart:{}, gf:false, area:null, day:null, slot:null, taken:{}, cap:{window:12, courier:15}, live:false, corp:{} };
+  try { const s = JSON.parse(localStorage.getItem('ng-xmas-v1') || 'null');
+    if (s && s.cart) { state.cart = Object.fromEntries(Object.entries(s.cart).filter(([k]) => ALL[k])); state.gf = !!s.gf; state.area = s.area||null; state.day = s.day||null; state.slot = s.slot||null; } } catch(e){}
+  const persist = () => { try { localStorage.setItem('ng-xmas-v1', JSON.stringify({cart:state.cart, gf:state.gf, area:state.area, day:state.day, slot:state.slot})); } catch(e){} };
+
+  const $ = s => document.querySelector(s);
+  const el = (t, a={}, h='') => { const e = document.createElement(t); Object.entries(a).forEach(([k,v]) => e.setAttribute(k,v)); e.innerHTML = h; return e; };
+  const toast = msg => { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(()=>t.classList.remove('on'), 2200); };
+  const closed = new Date() > ORDER_BY;
+
+  // Countdown to the order deadline
+  const dl = Math.ceil((ORDER_BY - new Date())/86400000);
+  $('#daysLeft').textContent = dl > 0 ? dl : '0';
+  if (dl <= 0) $('#daysLeft').parentElement.hidden = true;
+  if (closed) $('#closedNote').hidden = false;
+
+  // Feast sizes: one tap picks that table size, tap again to remove it
+  const pickedSize = k => FEASTS[k].sizes.find(s => state.cart[s.id]);
+  const syncGf = () => {
+    const v = pickedSize('veg');
+    if (state.gf && v) state.cart[GF.id] = v.guests; else delete state.cart[GF.id];
+    $('#vegGf').checked = state.gf;
+    $('#gfNote').textContent = v ? `+${gbp(GF.price * v.guests)} for ${v.guests}` : '+£5 a head';
+  };
+  const syncSizes = () => document.querySelectorAll('.sizes').forEach(g => {
+    const k = g.dataset.group, p = pickedSize(k);
+    g.querySelectorAll('.size[data-id]').forEach(x => x.setAttribute('aria-pressed', String(!!p && x.dataset.id === p.id)));
+    const n = $('#'+k+'Note');
+    n.textContent = p ? `In your order: table for ${p.guests}` : 'Tap your table size to add it.';
+    n.classList.toggle('on', !!p);
+  });
+  document.querySelectorAll('.sizes').forEach(g => {
+    const k = g.dataset.group, f = FEASTS[k];
+    f.sizes.forEach(s => {
+      const b = el('button', {type:'button', class:'size', 'aria-pressed':'false', 'data-id':s.id},
+        `<span class="ppl">${s.guests} guests</span><span class="pr">${gbp(s.price)}</span><span class="phd">${gbp(Math.round(s.price/s.guests/100)*100)} a head</span>${s.bird ? `<span class="kg">${s.bird}</span>` : ''}`);
+      b.addEventListener('click', () => {
+        const had = !!state.cart[s.id];
+        f.sizes.forEach(x => delete state.cart[x.id]);
+        if (!had) { state.cart[s.id] = 1; toast(`${f.name} for ${s.guests} added`); }
+        render();
+      });
+      g.appendChild(b);
+    });
+    g.appendChild(el('a', {class:'size size--more', href:`mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(`Christmas ${f.name}, ${f.bigger} guests`)}`},
+      `<span class="ppl">${f.bigger} guests</span><span class="pr">Email us</span><span class="phd">We'll size it for you</span>`));
+  });
+  $('#vegGf').addEventListener('change', e => { state.gf = e.target.checked; render(); if (state.gf && !pickedSize('veg')) toast('Pick a Wellington size to add it'); });
+
+  // Qty controls
+  const qty = (id, get, set, max=20) => {
+    const w = el('div', {class:'qty'}); const minus = el('button', {type:'button','aria-label':'Remove one'}, '−');
+    const out = el('output', {'data-qty':id}, String(get()||0)); const plus = el('button', {type:'button','aria-label':'Add one'}, '+');
+    minus.onclick = () => { if (get()) set(get()-1); };
+    plus.onclick = () => set(Math.min(max, (get()||0)+1));
+    w.append(minus, out, plus); return w;
+  };
+  const cartQty = id => qty(id, () => state.cart[id], v => { if (v) state.cart[id] = v; else delete state.cart[id]; render(); });
+  const card = p => {
+    const c = el('article', {class:'item' + (p.img ? '' : ' item--noimg')});
+    if (p.img) c.appendChild(el('div', {class:'ph-img', style:`background-image:url('${p.img}')`, role:'img','aria-label':p.name.replace(/&amp;/g,'&')}));
+    c.appendChild(el('div', {class:'item-body'}, `<h5>${p.name}</h5><span class="meta">${p.meta}</span>${p.desc ? `<p class="desc">${p.desc}</p>` : ''}${p.allergens ? `<p class="allergens">Allergens: ${p.allergens}</p>` : ''}`));
+    const row = el('div', {class:'item-row'}, `<span class="price">${gbp(p.price)}</span>`); row.appendChild(cartQty(p.id)); c.appendChild(row); return c;
+  };
+  PIES.forEach(p => $('#pies').appendChild(card(p)));
+  EXTRAS.forEach(p => $('#extras').appendChild(card(p)));
+  SAUCES.forEach(p => $('#sauces').appendChild(card(p)));
+  SERVEWARE.forEach(p => $('#serveware').appendChild(card(p)));
+
+  // Delivery zone, day, window
+  const zone = () => ZONES.find(z => z.id === state.area);
+  ZONES.forEach(z => {
+    const b = el('button', {type:'button', class:'chip', 'aria-pressed': String(state.area===z.id), 'data-area':z.id},
+      `<b>${z.name}</b><span>${z.pc}</span><em class="fee">Delivery ${gbp(z.fee)}</em>`);
+    b.onclick = () => { state.area = z.id; state.slot = null; if (z.courier && state.day && !DAYS.find(d=>d.id===state.day).courier) state.day = null;
+      document.querySelectorAll('#areas .chip').forEach(x=>x.setAttribute('aria-pressed', String(x===b))); drawDays(); drawSlots(); render(); };
+    $('#areas').appendChild(b);
+  });
+  const windowsFor = (d, z) => !d || !z ? [] : z.courier ? (d.courier ? [{label:COURIER, key:`${d.id}_courier`}] : []) : WINDOWS.map(h => ({label:winLabel(h), key:`${d.id}_w${pad(h)}`}));
+  function drawDays(){
+    const box = $('#days'); box.innerHTML = ''; const z = zone();
+    DAYS.forEach(d => {
+      const off = z && z.courier && !d.courier;
+      const b = el('button', {type:'button', class:'day'+(d.feat?' feat':''), 'aria-pressed': String(state.day===d.id), 'data-day':d.id},
+        `<span class="dow">${d.dow}</span><span class="dnum">${d.d}</span><span class="lab">${off ? 'No courier on Christmas Eve' : d.lab}</span>`);
+      if (off) b.disabled = true;
+      b.onclick = () => { state.day = d.id; state.slot = null; box.querySelectorAll('.day').forEach(x=>x.setAttribute('aria-pressed', String(x===b))); drawSlots(); render(); };
+      box.appendChild(b);
+    });
+  }
+  function drawSlots(){
+    const box = $('#slots'); box.innerHTML = '';
+    const z = zone(), d = DAYS.find(x => x.id === state.day);
+    if (!z) { $('#slotHint').textContent = 'Choose your area first.'; return; }
+    if (!d) { $('#slotHint').textContent = z.courier ? 'Choose the day it should arrive (21–23 December).' : 'Choose a day to see the delivery windows.'; return; }
+    windowsFor(d, z).forEach(w => {
+      const cap = z.courier ? state.cap.courier : state.cap.window, left = Math.max(0, cap - (state.taken[w.key]||0));
+      const b = el('button', {type:'button', class:'slot', 'aria-pressed': String(state.slot===w.label)}, `${w.label}${state.live && left > 0 && left <= 3 ? `<small>${left} left</small>` : ''}`);
+      if (left <= 0) { b.disabled = true; b.title = 'Fully booked'; if (state.slot === w.label) state.slot = null; }
+      b.onclick = () => { state.slot = w.label; box.querySelectorAll('.slot').forEach(x=>x.setAttribute('aria-pressed', String(x===b))); render(); };
+      box.appendChild(b);
+    });
+    if (z.courier && !state.slot && box.firstChild && !box.firstChild.disabled) { state.slot = COURIER; box.firstChild.setAttribute('aria-pressed','true'); }
+    $('#slotHint').textContent = z.courier
+      ? `${d.dow} ${d.d} December · tracked next-day courier. We dispatch the day before and email you the tracking link.`
+      : `${d.dow} ${d.d} December · ${z.name}. Choose a three-hour window. Someone must be home to receive it.`;
+  }
+
+  // Render totals
+  function render(){
+    syncGf();
+    const ids = Object.keys(state.cart).filter(id => state.cart[id] > 0 && ALL[id]);
+    let total = 0, count = 0, guests = 0;
+    const lines = ids.map(id => { const p = ALL[id], q = state.cart[id];
+      total += p.price*q;
+      if (p.feast) guests += p.guests;
+      count += p.perHead ? 0 : q;
+      const label = p.feast ? p.name : p.perHead ? `${p.name} (${q} at ${gbp(p.price)})` : (q > 1 ? `${p.name} (${q})` : p.name);
+      return `<li><span>${label}</span><span>${gbp(p.price*q)}</span></li>`; }).join('');
+    const z = zone(), day = DAYS.find(d=>d.id===state.day), fee = z && ids.length ? z.fee : 0;
+    $('#sheetLines').innerHTML = lines;
+    $('#sumLines').innerHTML = lines + (fee ? `<li><span>Delivery, ${z.name}</span><span>${gbp(fee)}</span></li>` : '');
+    $('#sheetEmpty').hidden = $('#sumEmpty').hidden = ids.length > 0;
+    ['#sheetTotal','#mTotal'].forEach(s => $(s).textContent = gbp(total));
+    $('#sumTotal').textContent = gbp(total + fee);
+    $('#navCount').textContent = count;
+    $('#sheetGuests').textContent = guests ? `${guests} guests` : 'your table';
+    $('#fGuests').value = guests || '';
+    $('#mbar').classList.toggle('show', count > 0);
+    document.querySelectorAll('#order [data-qty]').forEach(o => o.textContent = state.cart[o.dataset.qty] || 0);
+    $('#sumDelivery').innerHTML =
+      `<li><span>Area</span><span>${z ? z.name : '—'}</span></li>` +
+      `<li><span>Delivery</span><span>${day ? `${day.dow} ${day.d} Dec` : '—'}${state.slot ? ', ' + state.slot : ''}</span></li>`;
+    $('#payBtn').disabled = closed;
+    syncSizes();
+    persist();
+    return {ids, total: total + fee};
+  }
+
+  // Live slot availability (on the deployed site only)
+  const loadAvail = () => fetch(AVAIL_URL).then(r => r.ok ? r.json() : Promise.reject()).then(j => {
+    state.live = true; state.taken = j.taken || {}; if (j.xmas) state.cap = j.xmas; drawSlots(); render();
+  });
+  loadAvail().catch(() => { state.live = false; });
+
+  // Modal
+  const modal = (title, body) => { $('#modalTitle').textContent = title; $('#modalBody').innerHTML = body; $('#modal').hidden = false; $('#modalClose').focus(); };
+  $('#modalClose').onclick = () => { $('#modal').hidden = true; };
+  $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') $('#modal').hidden = true; });
+
+  // Pay
+  $('#payBtn').addEventListener('click', async () => {
+    const err = $('#payErr'); err.hidden = true;
+    const {ids, total} = render();
+    const f = $('#bookForm');
+    const v = n => f.elements[n].value.trim();
+    const problems = [];
+    if (!ids.length) problems.push('choose a table size or an item');
+    if (!state.area) problems.push('choose your delivery area');
+    if (!state.day || !state.slot) problems.push(zone() && zone().courier ? 'choose a delivery day' : 'choose a delivery day and window');
+    ['name','phone','email','address','postcode'].forEach(n => { if (!v(n)) problems.push(`add your ${n === 'address' ? 'delivery address' : n}`); });
+    if (v('email') && !/^\S+@\S+\.\S+$/.test(v('email'))) problems.push('check your email address');
+    if (problems.length) { err.textContent = 'Almost there. Please ' + problems.join(', ') + '.'; err.hidden = false; return; }
+
+    const payload = { season:'christmas', items: ids.map(id => ({id, qty: state.cart[id]})), area: state.area, day: state.day, window: state.slot,
+      customer: { name:v('name'), phone:v('phone'), email:v('email'), address:v('address'), postcode:v('postcode'), guests:v('guests'), notes:v('notes'), news: f.elements.news.checked } };
+
+    if (!state.live) {
+      const day = DAYS.find(d=>d.id===state.day);
+      modal('Ready for Worldpay', `<p>This is the preview, so no payment is taken. On nottinggrill.com this button opens Worldpay's secure payment page for <strong>${gbp(total)}</strong> with delivery on <strong>${day.dow} ${day.d} December, ${state.slot}</strong> to ${zone().name}.</p>`);
+      return;
+    }
+    const btn = $('#payBtn'); btn.disabled = true; btn.textContent = 'Opening secure checkout…';
+    try {
+      const r = await fetch(CHECKOUT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+      const j = await r.json().catch(()=>({}));
+      if (!r.ok || !j.url) throw new Error(j.error || 'Checkout could not start. Please try again.');
+      location.href = j.url;
+    } catch (e) {
+      err.textContent = e.message; err.hidden = false; btn.disabled = false; btn.textContent = 'Pay securely';
+      loadAvail().catch(()=>{});
+    }
+  });
+
+  // Checkout drawer
+  const drawer = $('#drawer'), scrim = $('#scrim');
+  let lastFocus = null;
+  const openDrawer = () => { lastFocus = document.activeElement; drawer.classList.add('on'); scrim.classList.add('on'); drawer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; render(); setTimeout(()=>$('#dClose').focus(), 50); };
+  const closeDrawer = () => { drawer.classList.remove('on'); scrim.classList.remove('on'); drawer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if (lastFocus) lastFocus.focus(); };
+  document.querySelectorAll('[data-checkout]').forEach(b => b.addEventListener('click', () => {
+    const nav = $('#nav'); if (nav && nav.classList.contains('open')) $('#navToggle').click();
+    if (!Object.keys(state.cart).length) { toast('Start with your table size'); document.getElementById('order').scrollIntoView({behavior:'smooth'}); return; }
+    openDrawer();
+  }));
+  $('#dClose').onclick = closeDrawer; scrim.onclick = closeDrawer;
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('on')) closeDrawer(); });
+
+  // ---------- Corporate quote: volume pricing per feast ----------
+  const CORP = [FEASTS.turkey.sizes[0], FEASTS.turkey.sizes[2], FEASTS.veg.sizes[0], FEASTS.veg.sizes[2]];
+  const TIERS = [{min:40, off:20}, {min:20, off:15}, {min:10, off:10}];
+  const corpTier = n => TIERS.find(t => n >= t.min);
+  CORP.forEach(s => {
+    const f = s.id.includes('turkey') ? 'Turkey feast' : 'Veggie Wellington feast';
+    const row = el('div', {class:'crow'}, `<div><h5>${f} for ${s.guests}</h5><small>${gbp(s.price)} each before discount</small></div><span class="each" data-each="${s.id}">${gbp(s.price)}</span>`);
+    row.appendChild(qty('c-'+s.id, () => state.corp[s.id], v => { state.corp[s.id] = v; renderCorp(); }, 200));
+    $('#corpRows').appendChild(row);
+  });
+  function renderCorp(){
+    const n = CORP.reduce((a, s) => a + (state.corp[s.id]||0), 0), t = corpTier(n), off = t ? t.off : 0;
+    let sub = 0;
+    const lines = CORP.filter(s => state.corp[s.id]).map(s => {
+      const q = state.corp[s.id], each = Math.round(s.price * (100 - off) / 100); sub += s.price * q;
+      return `<li><span>${q} × ${s.id.includes('turkey') ? 'Turkey' : 'Wellington'} for ${s.guests}</span><span>${gbp(each * q)}</span></li>`;
+    });
+    const total = CORP.reduce((a, s) => a + Math.round(s.price * (100 - off) / 100) * (state.corp[s.id]||0), 0);
+    if (off) lines.push(`<li class="disc"><span>Volume saving, ${off}% off ${n} feasts</span><span>−${gbp(sub - total)}</span></li>`);
+    $('#corpLines').innerHTML = lines.join('');
+    $('#corpTotal').textContent = gbp(total);
+    CORP.forEach(s => { const e = document.querySelector(`[data-each="${s.id}"]`); const each = Math.round(s.price * (100 - off) / 100);
+      e.innerHTML = off ? `<s>${gbp(s.price)}</s>${gbp(each)}` : gbp(s.price); });
+    document.querySelectorAll('[data-qty^="c-"]').forEach(o => o.textContent = state.corp[o.dataset.qty.slice(2)] || 0);
+    document.querySelectorAll('.tier').forEach(x => x.classList.toggle('on', !!t && +x.dataset.min === t.min));
+    const next = TIERS.slice().reverse().find(x => n < x.min);
+    $('#corpNote').textContent = !n ? 'Add 10 or more feasts to unlock volume pricing.'
+      : next ? `${n} feast${n>1?'s':''}. Add ${next.min - n} more for ${next.off}% off every feast.` : `${n} feasts at our best rate, 20% off.`;
+    return {n, off, total, lines};
+  }
+  renderCorp();
+  $('#corpForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, v = n => f.elements[n].value.trim(), err = $('#corpErr'); err.hidden = true;
+    const q = renderCorp(), problems = [];
+    if (!q.n) problems.push('add at least one feast');
+    if (!v('company')) problems.push('add your company');
+    if (!v('name')) problems.push('add your name');
+    if (!/^\S+@\S+\.\S+$/.test(v('email'))) problems.push('add a valid email');
+    if (problems.length) { err.textContent = 'Almost there. Please ' + problems.join(', ') + '.'; err.hidden = false; return; }
+    const strip = s => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+    const body = [`Company: ${v('company')}`, `Contact: ${v('name')}`, `Email: ${v('email')}`, `Phone: ${v('phone') || '-'}`, '',
+      `Feasts (${q.n}${q.off ? `, ${q.off}% volume pricing` : ''}):`, ...q.lines.map(strip), `Feasts total: ${gbp(q.total)}`, '(Extras and delivery at standard prices)', '',
+      `Delivery & notes: ${v('notes') || '-'}`].join('\n');
+    location.href = `mailto:${ORDERS_EMAIL}?cc=phil@nottinggrill.com&subject=${encodeURIComponent(`Corporate Christmas quote: ${v('company')}, ${q.n} feasts`)}&body=${encodeURIComponent(body)}`;
+    toast('Opening your email…');
+  });
+
+  // Return from Worldpay
+  const qs = new URLSearchParams(location.search), pay = qs.get('pay');
+  if (pay === 'done' || pay === 'pending') {
+    state.cart = {}; state.gf = false; state.slot = null; persist();
+    modal('Your christmas is booked.', '<p>Thank you. Your payment went through and a confirmation is on its way to your inbox. Justin\'s team will be in touch before delivery. All that is left is to invite the people you love.</p>');
+    history.replaceState(null, '', location.pathname);
+  } else if (pay) {
+    const why = { failed: 'The payment didn\'t go through, so nothing has been charged.', cancelled: 'You cancelled the payment, so nothing has been charged.', expired: 'The payment page timed out, so nothing has been charged.' }[pay] || 'Nothing has been charged.';
+    modal('Payment not completed', '<p>' + why + ' Your basket is saved. Choose your delivery slot again and pay when you\'re ready.</p>');
+    history.replaceState(null, '', location.pathname + '#order');
+  }
+
+  drawDays(); drawSlots(); render();
+})();
+</script>
+<script>
+(() => { // Holidays dropdown: click/tap to open, Escape or a click elsewhere closes it
+  const hol = document.getElementById('hol'); if (!hol) return;
+  const btn = hol.querySelector('.hol__btn');
+  const set = (open) => { hol.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+  btn.addEventListener('click', (e) => { e.stopPropagation(); set(!hol.classList.contains('open')); });
+  document.addEventListener('click', (e) => { if (!hol.contains(e.target)) set(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hol.classList.contains('open')) { set(false); btn.focus(); } });
+  hol.addEventListener('focusout', (e) => { if (!hol.contains(e.relatedTarget)) set(false); });
+})();
+</script>
+</body>
+</html>

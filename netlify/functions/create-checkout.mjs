@@ -1,21 +1,49 @@
 import { getStore } from '@netlify/blobs';
-import { CATALOG, MAX_QTY, AREAS, DAYS, windowsFor, capacity, HOLD_MINUTES, readHolds, liveHolds } from '../lib/catalog.mjs';
+import { CATALOG, MAX_QTY, AREAS, DAYS, windowsFor, capacity, HOLD_MINUTES, readHolds, liveHolds,
+  XMAS_CATALOG, XMAS_ZONES, XMAS_DAYS, xmasWindowsFor, xmasCapacity, xmasOpen } from '../lib/catalog.mjs';
 
 const bad = (error, status = 400) => Response.json({ error }, { status });
 const clip = (s, n = 450) => String(s || '').trim().slice(0, n);
 const WP_TYPE = 'application/vnd.worldpay.payment_pages-v1.hal+json';
 export const worldpayBase = () => (process.env.WORLDPAY_ENV === 'live' ? 'https://access.worldpay.com' : 'https://try.access.worldpay.com');
 
+// Each season: its catalogue, how delivery is checked, where the customer comes back to.
+const SEASONS = {
+  thanksgiving: {
+    title: 'Thanksgiving', path: '/thanksgiving/', catalog: CATALOG,
+    delivery(area, day, slot) {
+      if (area === 'elsewhere') return 'Outside Kensington, Notting Hill and St John\'s Wood we arrange delivery by email: justin@nottinggrill.com';
+      if (!AREAS[area]) return 'Please choose a delivery area.';
+      const win = windowsFor(day, area).find((w) => w.label === slot);
+      if (!DAYS[day] || !win) return 'Please choose a delivery day and hour.';
+      return { win, cap: capacity(), dayLabel: DAYS[day].label, areaLabel: AREAS[area], fee: 0 };
+    },
+  },
+  christmas: {
+    title: 'Christmas', path: '/christmas/', catalog: XMAS_CATALOG,
+    delivery(zone, day, slot) {
+      if (!xmasOpen()) return 'Christmas orders closed on 18 December. Please email justin@nottinggrill.com and we\'ll see what we can do.';
+      const z = XMAS_ZONES[zone];
+      if (!z) return 'Please choose a delivery area.';
+      const win = xmasWindowsFor(day, zone).find((w) => w.label === slot);
+      if (!XMAS_DAYS[day] || !win) return z.courier ? 'Please choose a courier delivery day (21–23 December).' : 'Please choose a delivery day and time.';
+      return { win, cap: xmasCapacity(win.key), dayLabel: XMAS_DAYS[day].label, areaLabel: z.name, fee: z.fee };
+    },
+  },
+};
+
 export default async (req) => {
   if (req.method !== 'POST') return bad('Method not allowed', 405);
   let body; try { body = await req.json(); } catch { return bad('Invalid request.'); }
-  const { items = [], area, day, window: slot, customer = {} } = body;
+  const { items = [], area, day, window: slot, customer = {}, season: seasonId = 'thanksgiving' } = body;
+  const season = SEASONS[seasonId];
+  if (!season) return bad('Invalid request.');
   if (!Array.isArray(items) || !items.length) return bad('Your order is empty.');
 
-  // 1. Price every line from the catalogue.
+  // 1. Price every line from that season's catalogue.
   const lines = []; const feasts = {}; let gfQty = 0;
   for (const it of items) {
-    const p = CATALOG[it?.id];
+    const p = season.catalog[it?.id];
     if (!p) return bad('One of the items is no longer available. Please refresh the page.');
     const qty = parseInt(it.qty, 10);
     if (!Number.isInteger(qty) || qty < 1 || qty > MAX_QTY) return bad('Please check the quantities in your order.');
@@ -28,33 +56,33 @@ export default async (req) => {
   }
   if (gfQty && (!feasts.veg || gfQty !== feasts.veg.guests)) return bad('The gluten-free option needs a Wellington table size.');
 
-  // 2. Delivery area, day and hour.
-  if (area === 'elsewhere') return bad('Outside Kensington, Notting Hill and St John\'s Wood we arrange delivery by email: justin@nottinggrill.com');
-  if (!AREAS[area]) return bad('Please choose a delivery area.');
-  const win = windowsFor(day, area).find((w) => w.label === slot);
-  if (!DAYS[day] || !win) return bad('Please choose a delivery day and hour.');
+  // 2. Delivery area, day and hour/window.
+  const dlv = season.delivery(area, day, slot);
+  if (typeof dlv === 'string') return bad(dlv);
+  const { win } = dlv;
   for (const f of ['name', 'email', 'phone', 'address', 'postcode']) if (!clip(customer[f])) return bad('Please complete your details.');
   if (!/^\S+@\S+\.\S+$/.test(clip(customer.email))) return bad('Please check your email address.');
+  if (dlv.fee) lines.push({ id: 'delivery', p: { name: `Delivery, ${dlv.areaLabel}`, price: dlv.fee }, qty: 1 });
 
   const paid = getStore({ name: 'thanksgiving-slots', consistency: 'strong' }), holdsStore = getStore({ name: 'thanksgiving-holds', consistency: 'strong' });
   const holds = await readHolds(holdsStore, win.key);
   const taken = (Number(await paid.get(win.key)) || 0) + liveHolds(holds);
-  if (taken >= capacity()) return bad('That delivery hour has just been taken. Please choose another.', 409);
+  if (taken >= dlv.cap) return bad(seasonId === 'christmas' ? 'That delivery slot has just filled up. Please choose another.' : 'That delivery hour has just been taken. Please choose another.', 409);
 
   // 3. Worldpay Hosted Payment Page.
   const total = lines.reduce((a, l) => a + l.p.price * l.qty, 0);
   const guests = Object.values(feasts).reduce((a, f) => a + f.guests, 0);
-  const summary = lines.map((l) => (l.p.feast ? l.p.name : `${l.qty}x ${l.p.name}`)).join('; ');
+  const summary = lines.map((l) => (l.p.feast || l.id === 'delivery' ? l.p.name : `${l.qty}x ${l.p.name}`)).join('; ');
   const ref = `NG-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`.toUpperCase();
   const meta = {
-    delivery_day: DAYS[day].label, delivery_window: slot, slot_key: win.key, area: AREAS[area],
+    season: seasonId, delivery_day: dlv.dayLabel, delivery_window: slot, slot_key: win.key, area: dlv.areaLabel,
     name: clip(customer.name, 120), email: clip(customer.email, 200), phone: clip(customer.phone, 40), address: clip(customer.address), postcode: clip(customer.postcode, 12),
     guests: String(guests), notes: clip(customer.notes), order: summary.slice(0, 480),
+    news: customer.news === true || customer.news === 'yes' ? 'yes' : 'no', // mailing-list opt-in from the checkout tick box
   };
   const origin = new URL(req.url).origin;
   const expiresAt = Date.now() + HOLD_MINUTES * 60 * 1000;
-  const back = (state) => `${origin}/thanksgiving/?pay=${state}&ref=${ref}`;
-  const [first, ...rest] = meta.name.split(/\s+/);
+  const back = (state) => `${origin}${season.path}?pay=${state}&ref=${ref}`;
   let url;
   const missing = ['WORLDPAY_USERNAME', 'WORLDPAY_PASSWORD', 'WORLDPAY_ENTITY'].filter((k) => !String(process.env[k] || '').trim());
   if (missing.length) { console.error('Worldpay checkout error: missing', missing.join(', ')); return bad(process.env.WORLDPAY_DEBUG === 'on' ? `Setup: missing ${missing.join(', ')}` : 'Checkout could not start. Please try again in a moment.', 502); }
@@ -68,7 +96,7 @@ export default async (req) => {
         merchant: { entity: process.env.WORLDPAY_ENTITY.trim() },
         narrative: { line1: 'Notting Grill' },
         value: { currency: 'GBP', amount: total },
-        description: `Thanksgiving delivery ${meta.delivery_day} ${slot.replace('–', '-')} ${meta.area}`.replace(/[^\x20-\x7E]/g, '').slice(0, 128),
+        description: `${season.title} delivery ${meta.delivery_day} ${slot.replace(/–/g, '-')} ${meta.area}`.replace(/[^\x20-\x7E]/g, '').slice(0, 128),
         resultURLs: { successURL: back('done'), pendingURL: back('pending'), failureURL: back('failed'), errorURL: back('failed'), cancelURL: back('cancelled'), expiryURL: back('expired') },
         expiry: HOLD_MINUTES * 60,
       }),

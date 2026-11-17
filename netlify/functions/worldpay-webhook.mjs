@@ -9,6 +9,9 @@ export const WORLDPAY_IPS = new Set(['34.246.73.11', '52.215.22.123', '52.31.61.
   '3.125.11.252', '3.126.98.120', '3.139.153.185', '3.139.255.63', '13.200.51.10', '13.200.56.25', '13.232.151.127', '34.236.63.10', '34.253.172.98', '35.170.209.108',
   '35.177.246.6', '52.4.68.25', '52.51.12.88', '108.129.30.203']);
 const PAID = new Set(['authorized', 'sentForSettlement']);
+// The same Google Sheet the homepage newsletter form uses. Override with MAILING_LIST_URL in Netlify, or set it to "off".
+const DEFAULT_LIST = 'https://script.google.com/macros/s/AKfycbxKVIe9sJl85UcxFrO8Gdv6cKhB3ETxmwW7iQ5BmHVsQ5J0dBDxb4jcOre_4EcJ-Vwwnw/exec';
+const MAILING_LIST_URL = () => { const u = process.env.MAILING_LIST_URL ?? DEFAULT_LIST; return u === 'off' ? '' : u; };
 const FAILED = new Set(['refused', 'cancelled', 'error', 'expired']);
 
 export default async (req, context) => {
@@ -50,6 +53,15 @@ export default async (req, context) => {
       } catch (e) { console.error('Sheet push failed', e?.message); }
       if (!ok) return new Response('sheet not updated', { status: 500 });
       rec.sheeted = true; await orders.set(ref, JSON.stringify(rec));
+    }
+    // Add the customer to the newsletter list if they left "Keep me posted" ticked. Best effort: never blocks the order.
+    if (rec.news === 'yes' && !rec.listed && MAILING_LIST_URL()) {
+      try {
+        const season = rec.season === 'christmas' ? 'Christmas' : 'Thanksgiving';
+        await fetch(MAILING_LIST_URL(), { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ email: rec.email, name: rec.name, source: `${season} order`, ts: new Date().toISOString() }) });
+        rec.listed = true; await orders.set(ref, JSON.stringify(rec));
+      } catch (e) { console.error('Mailing list add failed', e?.message); }
     }
     await release();
   } else if (FAILED.has(type) && !(await orders.get(ref))) await release();

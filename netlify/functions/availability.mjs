@@ -1,5 +1,5 @@
 import { getStore } from '@netlify/blobs';
-import { capacity, readHolds, liveHolds } from '../lib/catalog.mjs';
+import { capacity, readHolds, liveHolds, xmasCapacity } from '../lib/catalog.mjs';
 
 // { capacity, taken: { '2026-11-25_09': 2, ... } } = paid orders + checkouts still open.
 export default async () => {
@@ -11,5 +11,6 @@ export default async () => {
     const n = liveHolds(await readHolds(holdsStore, b.key));
     if (n) taken[b.key] = (taken[b.key] || 0) + n;
   }
-  return Response.json({ capacity: capacity(), taken }, { headers: { 'Cache-Control': 'no-store' } });
+  return Response.json({ capacity: capacity(), xmas: { window: xmasCapacity('w'), courier: xmasCapacity('_courier') }, taken },
+    { headers: { 'Cache-Control': 'no-store' } });
 };

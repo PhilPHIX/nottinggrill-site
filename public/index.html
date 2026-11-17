@@ -1046,11 +1046,76 @@ a.supplier:hover{ border-color:var(--orange); color:var(--orange); }
 .why>summary .chev-t::after{ content:"Read"; font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.7; }
 .why[open]>summary .chev-t::after{ content:"Close"; }
 
+/* Christmas: nav link + seasonal band (added Nov 2026) */
+.nav a.nav-xm{ color:var(--sage); }
+.nav a.nav-xm:hover{ color:var(--cream); }
+.xm-band .tg-band__grid{ grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); }
+.xm-band .tg-band__lede{ color:color-mix(in oklch,var(--cream) 88%, transparent); }
+.xm-band .tg-band__cta .mono{ color:var(--sage); }
+.xm-band .tg-band__img img{ object-position:center 55%; }
+@media (max-width:760px){ .xm-band .tg-band__grid{ grid-template-columns:1fr; } .xm-band .tg-band__img{ order:2; } }
+
 /* mobile fit fixes */
 .tg-band__img{ min-height:0; width:100%; }
 @media (max-width:680px){ .signup{ grid-template-columns:minmax(0,1fr); } .contact-card{ min-width:0; } .contact-card a, .contact-row{ overflow-wrap:anywhere; } }
 </style>
 
+<style id="ng-holidays">
+/* Holidays dropdown in the main menu (Christmas / Thanksgiving) */
+.hol{ position:relative; }
+.hol__btn{ appearance:none; background:none; border:0; padding:0; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--label); font-weight:600; font-size:14px; letter-spacing:.06em; text-transform:uppercase;
+  color:color-mix(in oklch,var(--bone) 78%, transparent); transition:color .2s; }
+.hol__btn:hover, .hol.open .hol__btn, .hol--current .hol__btn{ color:var(--orange); }
+.hol__chev{ width:0; height:0; border-left:4px solid transparent; border-right:4px solid transparent; border-top:5px solid currentColor; transition:transform .2s; }
+.hol.open .hol__chev{ transform:rotate(180deg); }
+.hol__menu{ display:none; position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%); min-width:330px; z-index:130;
+  background:var(--ink); border:1px solid var(--soot); border-top:3px solid var(--orange); border-radius:2px; padding:6px;
+  box-shadow:0 24px 48px -24px rgba(0,0,0,.8); gap:2px; }
+.hol__menu::before{ content:""; position:absolute; left:0; right:0; top:-19px; height:19px; }
+.hol.open .hol__menu{ display:grid; }
+@media (hover:hover) and (min-width:1001px){ .hol:hover .hol__menu{ display:grid; } .hol:hover .hol__chev{ transform:rotate(180deg); } }
+.nav .hol__menu a{ display:grid; gap:3px; padding:12px 14px; border-radius:2px; text-transform:none; letter-spacing:0; color:var(--bone); }
+.nav .hol__menu a:hover, .nav .hol__menu a:focus-visible{ background:var(--ink-2, #221b16); color:var(--bone); }
+.hol__menu b{ font-family:var(--label); font-weight:700; font-size:14px; letter-spacing:.08em; text-transform:uppercase; }
+.hol__menu a[data-season="christmas"] b{ color:var(--sage); }
+.hol__menu a[data-season="thanksgiving"] b{ color:var(--orange); }
+.hol__menu span{ font-family:var(--mono); font-size:12px; letter-spacing:.02em; color:#B3A89E; }
+.hol__menu a[aria-current="page"]{ background:var(--soot); }
+@media (max-width:1000px){
+  .hol{ width:100%; }
+  .hol__btn{ font-size:18px; padding:10px 0; }
+  .hol__menu{ position:static; transform:none; min-width:0; width:100%; border:0; border-left:2px solid var(--orange); box-shadow:none; padding:2px 0 6px 12px; margin:0 0 6px; background:transparent; }
+  .hol__menu::before{ display:none; }
+  .nav .hol__menu a{ padding:8px 0; }
+}
+</style>
+<style id="ng-holiday-band">
+/* Holidays: one seasonal band, two feasts (added Nov 2026) */
+.hb{ padding-top:clamp(64px,9vh,110px); padding-bottom:clamp(64px,9vh,110px); }
+.hb__head{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,4vw,64px); align-items:end; margin-bottom:clamp(32px,4vw,52px); }
+.hb__head .sectitle{ margin:14px 0 0; }
+.hb__lede{ font-size:clamp(17px,1.5vw,20px); margin:0; max-width:52ch; color:color-mix(in oklch,var(--ink) 84%, transparent); }
+.hb__lede + .hb__lede{ margin-top:14px; }
+.hb__cards{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(14px,2vw,24px); }
+.hb__card{ background:var(--ink); color:var(--bone); border-radius:4px; overflow:hidden; display:grid; grid-template-rows:auto 1fr; border-top:5px solid var(--pc); scroll-margin-top:100px; }
+.hb__img{ position:relative; display:block; aspect-ratio:16/9; min-height:0; overflow:hidden; background:var(--soot); }
+.hb__img img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.hb__card:hover .hb__img img{ transform:scale(1.04); }
+@media (prefers-reduced-motion:reduce){ .hb__img img{ transition:none; } }
+.hb__body{ padding:clamp(22px,2.4vw,32px); display:grid; gap:14px; align-content:start; }
+.hb__body .when{ font-family:var(--label); font-weight:700; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--pc); margin:0; }
+.hb__body h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; letter-spacing:-0.02em; line-height:.95; font-size:clamp(32px,3.4vw,46px); margin:0; }
+.hb__facts{ list-style:none; margin:0; padding:0; display:grid; gap:0; }
+.hb__facts li{ display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-top:1px solid var(--soot); font-family:var(--mono); font-size:13px; letter-spacing:.04em; color:color-mix(in oklch,var(--bone) 86%, transparent); }
+.hb__facts li b{ font-weight:500; color:var(--bone); text-align:right; }
+.hb__cta{ display:flex; flex-wrap:wrap; gap:12px 18px; align-items:center; margin-top:6px; }
+.btn--sage{ background:var(--sage); color:var(--ink); }
+.btn--sage:hover{ background:var(--cream); color:var(--ink); }
+.hb__cta .link{ font-family:var(--label); font-weight:700; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--sage); border-bottom:1px solid currentColor; padding-bottom:2px; }
+.hb__cta .link:hover{ color:var(--cream); }
+@media (max-width:860px){ .hb__head, .hb__cards{ grid-template-columns:1fr; } }
+</style>
 </head>
 <body>
 
@@ -1065,7 +1130,14 @@ a.supplier:hover{ border-color:var(--orange); color:var(--orange); }
       <a href="#story">Story</a>
       <a href="#studio">Studio</a>
       <a href="#ethos">Ethos</a>
-      <a class="nav-tg" href="/thanksgiving/">Thanksgiving</a>
+      <div class="hol" id="hol">
+        <button class="hol__btn" type="button" aria-expanded="false" aria-controls="holMenu">Holidays<span class="hol__chev" aria-hidden="true"></span></button>
+        <div class="hol__menu" id="holMenu">
+          <a href="/christmas/" data-season="christmas"><b>Christmas</b><span>Delivered 21–24 Dec · order by 18 Dec</span></a>
+          <a href="/christmas/#corporate" data-season="christmas"><b>Corporate Christmas</b><span>Volume pricing from 10 feasts</span></a>
+          <a href="/thanksgiving/" data-season="thanksgiving"><b>Thanksgiving</b><span>Delivered 25–28 Nov · order by 21 Nov</span></a>
+        </div>
+      </div>
       <a href="#partners">Contact</a>
       <a class="btn btn--orange" href="https://www.youtube.com/@nottinggrill" target="_blank" rel="noopener">Subscribe</a>
     </nav>
@@ -1090,21 +1162,48 @@ a.supplier:hover{ border-color:var(--orange); color:var(--orange); }
     <div class="hero__scroll">Scroll</div>
   </section>
 
-  <!-- ============ THANKSGIVING (seasonal, added Nov 2026) ============ -->
-  <section class="section on-orange reveal tg-band" id="thanksgiving">
+  <!-- ============ HOLIDAYS: Thanksgiving + Christmas (seasonal, added Nov 2026) ============ -->
+  <section class="section on-orange reveal hb" id="holidays">
     <div class="inner">
-      <div class="tg-band__grid">
+      <div class="hb__head">
         <div>
-          <p class="eyebrow">Thanksgiving at home · 25–28 November</p>
-          <h2 class="sectitle">relax.<br>thanksgiving's in&nbsp;hand.</h2>
-          <p class="lede tg-band__lede">This year we do the heavy lifting. You get to enjoy your time with friends and family. No timings to juggle, no 6am turkey, no last-minute dash for cranberries.</p>
-          <p class="lede tg-band__lede" style="margin-top:0">Justin and team cook the whole feast: free-range Cotswolds turkey brined for 24 hours, every side lovingly made from scratch and the pies. We deliver it to your door in Kensington, Notting Hill, St John's Wood &amp; beyond. You warm the bird and the sides then sit back and enjoy the day with the people you love. We've got the rest.</p>
-          <div class="tg-band__cta">
-            <a class="btn btn--ink" href="/thanksgiving/">Order your feast</a>
-            <span class="mono">Turkey for 8 from £600 · Wellington for 6 from £400</span>
-          </div>
+          <p class="eyebrow">Thanksgiving &amp; Christmas at home · 2026</p>
+          <h2 class="sectitle">relax.<br>the holidays are in&nbsp;hand.</h2>
         </div>
-        <a class="ph ph--zoom tg-band__img" href="/thanksgiving/" aria-label="Order Thanksgiving"><img src="/thanksgiving/img/hero.jpg" alt="A Thanksgiving table from above: roast turkey, cranberry sauce, mashed potatoes and pies." loading="lazy"></a>
+        <div>
+          <p class="lede hb__lede">This year we do the heavy lifting. No timings to juggle, no 6am turkey, no last-minute dash for cranberries.</p>
+          <p class="lede hb__lede">Justin and team cook the whole feast: free-range Cotswolds turkey brined for 24 hours and every side made from scratch. We deliver it to your door. You warm it through and sit down with the people you love.</p>
+        </div>
+      </div>
+      <div class="hb__cards">
+        <article class="hb__card" id="thanksgiving" style="--pc:var(--orange);">
+          <a class="hb__img" href="/thanksgiving/" aria-label="Order Thanksgiving"><img src="/thanksgiving/img/hero.jpg" alt="A Thanksgiving table from above: roast turkey, cranberry sauce, mashed potatoes and pies." loading="lazy" style="object-position:center 40%;"></a>
+          <div class="hb__body">
+            <p class="when">Thursday 26 November</p>
+            <h3>thanksgiving</h3>
+            <ul class="hb__facts">
+              <li><span>Delivered</span><b>25–28 November</b></li>
+              <li><span>Order by</span><b>Sat 21 November</b></li>
+              <li><span>Turkey for 8</span><b>from £600</b></li>
+              <li><span>Where</span><b>Kensington · Notting Hill · St John's Wood</b></li>
+            </ul>
+            <div class="hb__cta"><a class="btn btn--orange" href="/thanksgiving/">Order Thanksgiving</a></div>
+          </div>
+        </article>
+        <article class="hb__card" id="christmas" style="--pc:var(--sage);">
+          <a class="hb__img" href="/christmas/" aria-label="Order Christmas"><img src="/christmas/img/hero.jpg" alt="A candlelit Christmas table outdoors by a fire: roast turkey, cranberries and charred sprouts in cast-iron pans." loading="lazy" style="object-position:center 55%;"></a>
+          <div class="hb__body">
+            <p class="when">Christmas 2026</p>
+            <h3>christmas</h3>
+            <ul class="hb__facts">
+              <li><span>Delivered</span><b>21–24 December</b></li>
+              <li><span>Order by</span><b>Fri 18 December</b></li>
+              <li><span>Turkey for 8</span><b>from £660</b></li>
+              <li><span>Where</span><b>London · England by courier</b></li>
+            </ul>
+            <div class="hb__cta"><a class="btn btn--sage" href="/christmas/">Order Christmas</a><a class="link" href="/christmas/#corporate">Corporate orders</a></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1417,6 +1516,7 @@ follow our jourey.</h2>
             <a href="#studio">Studio</a>
             <a href="#ethos">Ethos</a>
             <a href="/thanksgiving/">Thanksgiving</a>
+            <a href="/christmas/">Christmas</a>
           </div>
           <div class="footer-col">
             <h4>Follow</h4>
@@ -1524,4 +1624,15 @@ follow our jourey.</h2>
 <style id="__om-edit-overrides">
 #contact .contact-card :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) >:is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,figcaption,label,span,a,em,strong,small,td,th,caption) { font-weight: 600 !important }
 </style>
+<script>
+(() => { // Holidays dropdown: click/tap to open, Escape or a click elsewhere closes it
+  const hol = document.getElementById('hol'); if (!hol) return;
+  const btn = hol.querySelector('.hol__btn');
+  const set = (open) => { hol.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+  btn.addEventListener('click', (e) => { e.stopPropagation(); set(!hol.classList.contains('open')); });
+  document.addEventListener('click', (e) => { if (!hol.contains(e.target)) set(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && hol.classList.contains('open')) { set(false); btn.focus(); } });
+  hol.addEventListener('focusout', (e) => { if (!hol.contains(e.relatedTarget)) set(false); });
+})();
+</script>
 </body></html>

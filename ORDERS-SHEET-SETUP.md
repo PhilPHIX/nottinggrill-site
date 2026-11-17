@@ -1,4 +1,6 @@
-# Thanksgiving orders → Google Sheet + email
+# Thanksgiving & Christmas orders → Google Sheet + email
+
+Both shops (/thanksgiving/ and /christmas/) send paid orders to the same sheet. Emails say "Thanksgiving order" or "Christmas order" depending on where it came from.
 
 Every paid order is added as a row to one Google Sheet on your Drive, and Justin and Phil each get an email with the order details and a link to the sheet. About 10 minutes to set up.
 
@@ -19,6 +21,7 @@ function doPost(e) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sh = ss.getSheetByName('Orders') || setup();
   var refs = sh.getRange(2, 14, Math.max(sh.getLastRow() - 1, 1), 1).getValues().map(function (r) { return r[0]; });
+  var label = d.season === 'christmas' ? 'Christmas' : 'Thanksgiving';   // which shop the order came from
   if (refs.indexOf(d.session) === -1) {   // never add the same order twice
     var row = [new Date(d.at), d.delivery_day, d.delivery_window, d.area, d.name, d.email, d.phone, d.address,
                (d.postcode || '').toUpperCase(), Number(d.guests) || '', d.order, d.notes || '', (d.total || 0) / 100, d.session, 'Paid'];
@@ -31,12 +34,12 @@ function doPost(e) {
              '</td><td style="padding:5px 0;font:15px Arial;color:#181210">' + (v === '' ? '—' : v) + '</td></tr>';
     }).join('');
     MailApp.sendEmail({ to: d.email, name: 'Notting Grill', replyTo: 'justin@nottinggrill.com',
-        subject: 'Your Notting Grill Thanksgiving order',
+        subject: 'Your Notting Grill ' + label + ' order',
         htmlBody: '<p style="font:15px Arial">Hi ' + d.name + ',</p><p style="font:15px Arial">Thank you, your order is booked for ' + d.delivery_day + ', ' + d.delivery_window + '.</p><p style="font:15px Arial">' + d.order + '</p><p style="font:15px Arial">Total paid: £' + ((d.total || 0) / 100).toFixed(2) + '<br>Reference: ' + d.session + '</p><p style="font:15px Arial">Justin &amp; the Notting Grill team</p>' });
     MailApp.sendEmail({
       to: RECIPIENTS, replyTo: d.email,
-      subject: 'Thanksgiving order: ' + d.name + ', ' + d.delivery_day + ' ' + d.delivery_window + ' (' + d.area + ')',
-      htmlBody: '<h2 style="font-family:Arial">New Thanksgiving order</h2><table>' + cells + '</table>' +
+      subject: label + ' order: ' + d.name + ', ' + d.delivery_day + ' ' + d.delivery_window + ' (' + d.area + ')',
+      htmlBody: '<h2 style="font-family:Arial">New ' + label + ' order</h2><table>' + cells + '</table>' +
                 '<p style="margin-top:20px"><a href="' + ss.getUrl() + '" style="background:#FF8300;color:#181210;padding:12px 20px;text-decoration:none;font:bold 14px Arial">Open the orders sheet</a></p>'
     });
   }

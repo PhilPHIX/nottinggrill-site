@@ -47,6 +47,68 @@ export const windowsFor = (day, area) => {
 };
 export const capacity = () => parseInt(process.env.SLOT_CAPACITY || '4', 10);
 
+// ============================================================
+// CHRISTMAS 2026 (from the Corporate Holiday Programme)
+// Keep the copies in public/christmas/index.html (FEASTS, PUDDING, PIES, EXTRAS, SAUCES, SERVEWARE, ZONES, DAYS) in sync.
+// ============================================================
+export const XMAS_ORDER_BY = '2026-12-18T23:59:59Z'; // London is on GMT in December
+export const xmasOpen = (now = Date.now()) => {
+  const t = process.env.NG_TEST_NOW ? Date.parse(process.env.NG_TEST_NOW) : now;
+  return t <= Date.parse(XMAS_ORDER_BY);
+};
+export const XMAS_CATALOG = {
+  'xmas-turkey-8':  { name: 'Christmas Turkey Feast for 8 (4.5–5.5 kg bird)', price: 66000, feast: 'turkey', guests: 8 },
+  'xmas-turkey-10': { name: 'Christmas Turkey Feast for 10 (5.5–7 kg bird)',  price: 77000, feast: 'turkey', guests: 10 },
+  'xmas-turkey-12': { name: 'Christmas Turkey Feast for 12 (7–8 kg bird)',    price: 88000, feast: 'turkey', guests: 12 },
+  'xmas-turkey-14': { name: 'Christmas Turkey Feast for 14 (8–10 kg bird)',   price: 99000, feast: 'turkey', guests: 14 },
+  'xmas-veg-6':     { name: 'Christmas Veggie Wellington Feast for 6',  price: 44000, feast: 'veg', guests: 6 },
+  'xmas-veg-8':     { name: 'Christmas Veggie Wellington Feast for 8',  price: 55000, feast: 'veg', guests: 8 },
+  'xmas-veg-10':    { name: 'Christmas Veggie Wellington Feast for 10', price: 66000, feast: 'veg', guests: 10 },
+  'xmas-wellington-gf': { name: 'Gluten-free Wellington (per head)', price: 500, perHeadOf: 'veg' },
+  'xmas-pudding':     { name: 'Christmas pudding & brandy cream', price: 4500 },
+  'xmas-pie-pecan':   { name: 'Pecan pie (serves 8)', price: 2900 },
+  'xmas-pie-apple':   { name: 'Apple pie (serves 8)', price: 2900 },
+  'xmas-pie-pumpkin': { name: 'Pumpkin pie (serves 8)', price: 2900 },
+  'xmas-ham':         { name: 'Honey-glazed ham (serves 6–8)', price: 6000 },
+  'xmas-roast-goose': { name: 'Roast potatoes in goose fat, 1 kg', price: 2000 },
+  'xmas-roast-olive': { name: 'Roast potatoes in olive oil, 1 kg', price: 2000 },
+  'xmas-mash':        { name: 'Buttery mashed potatoes, 1 kg', price: 2800 },
+  'xmas-bread-sauce': { name: 'Extra bread sauce', price: 2000 },
+  'xmas-gravy':       { name: 'Extra gravy', price: 2000 },
+  'xmas-cranberry':   { name: 'Extra cranberry sauce', price: 1000 },
+  'xmas-set-steel':   { name: 'Serving set, steel', price: 3000 },
+  'xmas-set-gold':    { name: 'Serving set, gold', price: 3000 },
+  'xmas-gravy-boat':  { name: 'Porcelain gravy boat', price: 3000 },
+  'xmas-dish-porcelain': { name: '35 cm oval dish, porcelain', price: 3000 },
+  'xmas-dish-steel':     { name: '35 cm oval dish, stainless', price: 2000 },
+};
+// Delivery is charged once per order. London zones book a 3-hour window; England goes by next-day courier (day only).
+export const XMAS_ZONES = {
+  'notting-hill': { name: 'Notting Hill',      fee: 1000 },
+  'kensington':   { name: 'Kensington',        fee: 1500 },
+  'central':      { name: 'Central London',    fee: 2000 },
+  'greater':      { name: 'Greater London',    fee: 3500 },
+  'england':      { name: 'England, next-day', fee: 4500, courier: true },
+};
+export const XMAS_DAYS = {
+  '2026-12-21': { label: 'Mon 21 Dec', courier: true },
+  '2026-12-22': { label: 'Tue 22 Dec', courier: true },
+  '2026-12-23': { label: 'Wed 23 Dec', courier: true },
+  '2026-12-24': { label: 'Thu 24 Dec (Christmas Eve)', courier: false },
+};
+export const XMAS_WINDOWS = [9, 12, 15]; // 09:00–12:00, 12:00–15:00, 15:00–18:00
+export const xmasWindowLabel = (h) => `${p2(h)}:00–${p2(h + 3)}:00`;
+export const XMAS_COURIER_LABEL = 'Courier, during the day';
+// Returns [{ label, key }] for that day and zone. Courier days have one "window" with its own daily limit.
+export const xmasWindowsFor = (day, zone) => {
+  const d = XMAS_DAYS[day], z = XMAS_ZONES[zone]; if (!d || !z) return [];
+  if (z.courier) return d.courier ? [{ label: XMAS_COURIER_LABEL, key: `${day}_courier` }] : [];
+  return XMAS_WINDOWS.map((h) => ({ label: xmasWindowLabel(h), key: `${day}_w${p2(h)}` }));
+};
+export const xmasCapacity = (key) => parseInt(
+  (key.endsWith('_courier') ? process.env.XMAS_COURIER_CAPACITY : process.env.XMAS_WINDOW_CAPACITY) || (key.endsWith('_courier') ? '15' : '12'), 10);
+// Corporate volume pricing is quoted by email (10–19 feasts 10% off, 20–39 15%, 40+ 20%); not sold through checkout.
+
 // A slot is "taken" by paid orders plus checkouts still open (held for up to 31 minutes).
 export const HOLD_MINUTES = 31;
 export const readHolds = async (store, key) => {

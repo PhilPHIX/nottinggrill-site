@@ -9,3 +9,8 @@
   from = "/thanksgiving"
   to = "/thanksgiving/"
   status = 301
+
+[[redirects]]
+  from = "/christmas"
+  to = "/christmas/"
+  status = 301

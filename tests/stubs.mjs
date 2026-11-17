@@ -13,7 +13,7 @@ export const getStore = (arg) => {
 export const __stores = stores;
 
 // Fake Worldpay Hosted Payment Pages + Google Sheet endpoints.
-export const __worldpay = { requests: [], sheet: [] };
+export const __worldpay = { requests: [], sheet: [], list: [] };
 globalThis.fetch = async (url, opts = {}) => {
   const u = String(url);
   if (u.endsWith('/payment_pages')) {
@@ -22,5 +22,6 @@ globalThis.fetch = async (url, opts = {}) => {
     return Response.json({ url: `https://payments.worldpay.test/hpp/${body.transactionReference}` });
   }
   if (u.startsWith('https://sheet.test')) { __worldpay.sheet.push(JSON.parse(opts.body)); return new Response('ok'); }
+  if (u.startsWith('https://list.test')) { __worldpay.list.push(JSON.parse(opts.body)); return new Response('ok'); }
   throw new Error(`unexpected fetch ${u}`);
 };
