@@ -681,8 +681,8 @@ button{ font:inherit; color:inherit; }
     {id:'xmas-dish-porcelain', name:'Oval dish, porcelain', meta:'35 cm / 14 in', price:3000, img:'/thanksgiving/img/platter.jpg'},
     {id:'xmas-dish-steel', name:'Oval dish, stainless', meta:'35 cm / 14 in', price:2000, img:'/thanksgiving/img/platter.jpg'},
     {id:'xmas-gravy-boat', name:'Porcelain gravy boat', meta:'For the table', price:3000},
-    {id:'xmas-set-steel', name:'Serving set, steel', meta:'Carving &amp; serving', price:3000},
-    {id:'xmas-set-gold', name:'Serving set, gold', meta:'Carving &amp; serving', price:3000},
+    {id:'xmas-set-steel', name:'Serving set, steel', meta:'Serving spoon &amp; tongs', price:3000},
+    {id:'xmas-set-gold', name:'Serving set, gold', meta:'Serving spoon &amp; tongs', price:3000},
   ];
   const ALL = {}; [...PIES,...EXTRAS,...SAUCES,...SERVEWARE].forEach(p => ALL[p.id] = p);
   Object.entries(FEASTS).forEach(([k,f]) => f.sizes.forEach(s => ALL[s.id] = {...s, name:`${f.name} for ${s.guests}`, feast:k}));
