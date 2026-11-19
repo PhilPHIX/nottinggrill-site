@@ -307,6 +307,17 @@ button{ font:inherit; color:inherit; }
 /* Corporate quote rows on narrow screens */
 .crow .qty{ justify-self:end; }
 </style>
+<style id="ng-basket-edit">
+/* Remove items / empty basket */
+.lines li > span:first-child{ min-width:0; }
+.lines li .amt{ display:inline-flex; align-items:baseline; gap:10px; white-space:nowrap; }
+.rm{ appearance:none; background:none; border:0; padding:2px 0; cursor:pointer; font-family:var(--label); font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ash); border-bottom:1px solid transparent; }
+.rm:hover, .rm:focus-visible{ color:var(--orange); border-bottom-color:currentColor; }
+.sum .rm{ color:color-mix(in oklch,var(--ink) 55%, transparent); }
+.sum .rm:hover, .sum .rm:focus-visible{ color:var(--orange-deep); }
+.clear{ appearance:none; background:none; border:0; padding:0; cursor:pointer; justify-self:start; font-family:var(--label); font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ash); border-bottom:1px solid currentColor; }
+.clear:hover, .clear:focus-visible{ color:var(--orange); }
+</style>
 </head>
 <body>
   <!-- ============ HEADER (same as nottinggrill.com) ============ -->
@@ -421,6 +432,7 @@ button{ font:inherit; color:inherit; }
           <ul class="lines" id="sheetLines"></ul>
           <p class="empty" id="sheetEmpty">Nothing yet. Start with your table size.</p>
           <div class="total"><span>Total</span><b id="sheetTotal">£0</b></div>
+          <button class="clear" type="button" id="clearOrder" hidden>Empty basket</button>
           <button class="btn btn--orange" type="button" data-checkout>Checkout</button>
           <small>Card, Apple Pay, Google Pay via Worldpay. Delivery slot chosen at checkout.</small>
         </aside>
@@ -633,7 +645,7 @@ button{ font:inherit; color:inherit; }
     const k = g.dataset.group, p = pickedSize(k);
     g.querySelectorAll('.size[data-id]').forEach(x => x.setAttribute('aria-pressed', String(!!p && x.dataset.id === p.id)));
     const n = $('#'+k+'Note');
-    n.textContent = p ? `In your order: table for ${p.guests}` : 'Tap your table size to add it.';
+    n.textContent = p ? `In your order: table for ${p.guests} · tap it again to remove` : 'Tap your table size to add it.';
     n.classList.toggle('on', !!p);
   });
   document.querySelectorAll('.sizes').forEach(g => {
@@ -716,9 +728,10 @@ button{ font:inherit; color:inherit; }
       if (p.feast) guests += p.guests;
       count += p.perHead ? 0 : q;
       const label = p.feast ? p.name : p.perHead ? `${p.name} (${q} at ${gbp(p.price)})` : (q > 1 ? `${p.name} (${q})` : p.name);
-      return `<li><span>${label}</span><span>${gbp(p.price*q)}</span></li>`; }).join('');
+      return `<li><span>${label}</span><span class="amt">${gbp(p.price*q)}<button class="rm" type="button" data-rm="${id}" aria-label="Remove ${label.replace(/<[^>]+>/g,'')}">Remove</button></span></li>`; }).join('');
     ['#sheetLines','#sumLines'].forEach(s => $(s).innerHTML = lines);
     $('#sheetEmpty').hidden = $('#sumEmpty').hidden = ids.length > 0;
+    $('#clearOrder').hidden = !ids.length;
     ['#sheetTotal','#sumTotal','#mTotal'].forEach(s => $(s).textContent = gbp(total));
     $('#navCount').textContent = count;
     $('#sheetGuests').textContent = guests ? `${guests} guests` : 'your table';
@@ -803,6 +816,17 @@ button{ font:inherit; color:inherit; }
     modal('Payment not completed', '<p>' + why + ' Your basket is saved. Choose your delivery hour again and pay when you\'re ready.</p>');
     history.replaceState(null, '', location.pathname + '#order');
   }
+
+  // Remove a line, or empty the whole basket
+  const removeLine = id => {
+    const p = ALL[id]; if (!p) return;
+    if (p.perHead) state.gf = false;
+    delete state.cart[id];
+    if (p.feast && state.gf && !pickedSize('veg')) state.gf = false;
+    toast(`${p.name.replace(/&amp;/g,'&')} removed`); render();
+  };
+  ['#sheetLines','#sumLines'].forEach(s => $(s).addEventListener('click', e => { const b = e.target.closest('[data-rm]'); if (b) removeLine(b.dataset.rm); }));
+  $('#clearOrder').addEventListener('click', () => { state.cart = {}; state.gf = false; render(); toast('Basket emptied'); });
 
   drawDays(); drawSlots(); render();
 })();
