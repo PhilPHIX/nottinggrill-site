@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Christmas at Home — Notting Grill | Christmas Feast Delivered in London &amp; England</title>
-<meta name="description" content="Christmas dinner from the Notting Grill kitchen, cooked by Justin Horne and delivered 21–24 December across London and England. Turkey for 8 from £660. Corporate volume pricing. Order by 18 December.">
+<meta name="description" content="Christmas dinner from the Notting Grill kitchen, cooked by Justin Horne and delivered 23 or 24 December across London and England. Turkey from £350. Corporate volume pricing. Order by 18 December.">
 <meta name="theme-color" content="#0c0907">
 <link rel="canonical" href="https://nottinggrill.com/christmas/">
 <meta property="og:type" content="website">
@@ -286,6 +286,7 @@ button{ font:inherit; color:inherit; }
 .tier.on{ background:var(--cream); color:var(--ink); }
 .tier.on b{ color:var(--orange-deep); }
 .corp-list{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.corp-photo{ display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; object-position:center 55%; border-radius:4px; margin-top:26px; box-shadow:0 30px 60px -30px rgba(0,0,0,.6); }
 .corp-list li{ font-family:var(--mono); font-size:13px; letter-spacing:.05em; text-transform:uppercase; padding-top:10px; border-top:1px solid color-mix(in oklch,var(--ink) 25%, transparent); }
 .calc{ background:var(--ink); color:var(--bone); border-radius:4px; padding:clamp(22px,2.6vw,32px); display:grid; gap:18px; border-top:5px solid var(--forest); }
 .calc h3{ font-family:var(--display); font-weight:400; text-transform:lowercase; font-size:clamp(26px,2.4vw,32px); line-height:1; margin:0; }
@@ -375,7 +376,7 @@ button{ font:inherit; color:inherit; }
       <div class="hol hol--current" id="hol">
         <button class="hol__btn" type="button" aria-expanded="false" aria-controls="holMenu">Holidays<span class="hol__chev" aria-hidden="true"></span></button>
         <div class="hol__menu" id="holMenu">
-          <a href="/christmas/" data-season="christmas" aria-current="page"><b>Christmas</b><span>Delivered 21–24 Dec · order by 18 Dec</span></a>
+          <a href="/christmas/" data-season="christmas" aria-current="page"><b>Christmas</b><span>Delivered 23 or 24 Dec · order by 18 Dec</span></a>
           <a href="/christmas/#corporate" data-season="christmas"><b>Corporate Christmas</b><span>Volume pricing from 10 feasts</span></a>
           <a href="/thanksgiving/" data-season="thanksgiving"><b>Thanksgiving</b><span>Delivered 25–28 Nov · order by 21 Nov</span></a>
         </div>
@@ -391,7 +392,7 @@ button{ font:inherit; color:inherit; }
   <section class="tg-hero xm on-ink">
     <div class="inner">
       <div>
-        <p class="eyebrow">Christmas at home · Delivered 21–24 December</p>
+        <p class="eyebrow">Christmas at home · Delivered 23 or 24 December</p>
         <h1><em>Notting Grill Christmas Feast</em> for your home table.</h1>
         <p class="lede">This year we do the heavy lifting. No 6am turkey, no timings to juggle, no last-minute dash for bread sauce. Justin and team cook the whole feast and deliver it to your door in London and across England. You warm it through and sit down with the people you love.</p>
         <ul class="ticks">
@@ -405,10 +406,10 @@ button{ font:inherit; color:inherit; }
           <a class="btn btn--orange" href="#order">Order your feast</a>
           <a class="btn btn--line" href="#corporate">Corporate orders</a>
         </div>
-        <p class="elsewhere">Turkey for 8 from £660 · Veggie Wellington for 6 from £440 · Ordering for your team? <a href="#corporate">Volume pricing from 10 feasts</a></p>
+        <p class="elsewhere">Turkey from £350 · Veggie Wellington from £320 · Ordering for your team? <a href="#corporate">Volume pricing from 10 feasts</a></p>
       </div>
       <figure>
-        <img src="img/hero.jpg" alt="A candlelit Christmas table outdoors by a fire: roast turkey, cranberries, roast vegetables and charred sprouts in cast-iron pans." width="830" height="1245">
+        <img src="img/hero.jpg" alt="A candlelit Christmas table: a roast turkey with rosemary and orange slices, roast potatoes and a squash, set for dinner." width="1000" height="1499">
         <div class="count"><b id="daysLeft">31</b><span>days to order</span></div>
         <div class="badge"><small>Cooked by Justin &amp; team</small><span>Roasted, rested and delivered ready for your oven.</span></div>
       </figure>
@@ -459,9 +460,9 @@ button{ font:inherit; color:inherit; }
 
           <div class="step">
             <div class="stephead"><div><p class="eyebrow">Step two</p><h3>pudding, pies &amp; extras.</h3></div><span class="note">All pies £29 · each serves 8</span></div>
+            <p class="sublabel" style="margin-top:0">More for the table</p>
             <div class="items" id="pies"></div>
-            <p class="sublabel">More for the table</p>
-            <div class="items two" id="extras"></div>
+            <div class="items" id="extras" style="margin-top:14px"></div>
             <p class="sublabel">Extra sauces</p>
             <div class="items" id="sauces"></div>
             <p class="sublabel">Serveware · yours to keep</p>
@@ -507,13 +508,14 @@ button{ font:inherit; color:inherit; }
             <li>Extras &amp; delivery at standard prices</li>
             <li>Order by 18 December</li>
           </ul>
+          <img class="corp-photo" src="img/fire-table.jpg" alt="A candlelit Christmas table outdoors by a fire, with a roast turkey at the centre." loading="lazy" width="830" height="1245">
         </div>
 
         <form class="calc" id="corpForm" novalidate>
           <h3>build your quote</h3>
           <div id="corpRows"></div>
           <ul class="lines" id="corpLines"></ul>
-          <div class="total"><span>Feasts total</span><b id="corpTotal">£0</b></div>
+          <div class="total"><span>Quote total</span><b id="corpTotal">£0</b></div>
           <p class="note" id="corpNote">Add 10 or more feasts to unlock volume pricing.</p>
           <div class="form">
             <div class="field"><label for="cCompany">Company</label><input id="cCompany" name="company" autocomplete="organization" required></div>
@@ -566,7 +568,7 @@ button{ font:inherit; color:inherit; }
       </div>
       <div class="faq-grid">
         <details><summary>When is the last day to order?</summary><p>Friday 18 December. Kitchen slots are limited, so earlier is better.</p></details>
-        <details><summary>Where and when do you deliver?</summary><p>London: Monday 21 to Thursday 24 December, in a three-hour window you choose at checkout. Notting Hill £10, Kensington £15, Central London £20, Greater London £35. Across England: next-day courier for £45, arriving on 21, 22 or 23 December. Someone needs to be home to receive it.</p></details>
+        <details><summary>Where and when do you deliver?</summary><p>London: delivered Wednesday 23 or Thursday 24 December, or earlier by request, in a three-hour window you choose at checkout. Notting Hill £10, Kensington £15, Central London £20, Greater London £35. Across England: tracked courier for £45, delivered 23 or 24 December, or earlier by request. Someone needs to be home to receive it.</p></details>
         <details><summary>How much cooking is there?</summary><p>Very little. Everything arrives fully cooked and just needs reheating: the turkey comes roasted and rested with Justin's card for warming it through, and the sides go in alongside it.</p></details>
         <details><summary>Allergies?</summary><p>The veggie Wellington can be made gluten free for £5 a head (tick the box under the Wellington sizes). Pie allergens are listed under each pie. Add any allergies at checkout and the team will be in touch.</p></details>
         <details><summary>How do I pay?</summary><p>In full when you book, securely through Worldpay. Your confirmation arrives by email.</p></details>
@@ -627,7 +629,8 @@ button{ font:inherit; color:inherit; }
     <form id="bookForm" novalidate style="display:grid;gap:24px">
       <div class="stage"><h4><span>01</span>where?</h4><div class="chips" role="group" aria-label="Delivery area" id="areas"></div></div>
       <div class="stage" id="whenStage"><h4><span>02</span>when?</h4><div class="days" role="group" aria-label="Delivery day" id="days"></div>
-        <div class="slots" role="group" aria-label="Delivery window" id="slots"></div><p class="hint" id="slotHint">Choose your area first.</p></div>
+        <div class="slots" role="group" aria-label="Delivery window" id="slots"></div><p class="hint" id="slotHint">Choose your area first.</p>
+        <p class="hint">Need it earlier? <a href="mailto:justin@nottinggrill.com?subject=Earlier%20Christmas%20delivery" style="color:var(--orange-deep);border-bottom:1px solid currentColor">Email Justin</a> and we'll arrange an earlier delivery.</p></div>
       <div class="stage"><h4><span>03</span>your details</h4>
         <div class="form">
           <div class="field"><label for="fName">Full name</label><input id="fName" name="name" autocomplete="name" required></div>
@@ -665,12 +668,14 @@ button{ font:inherit; color:inherit; }
 
   // Prices in pence. Keep in sync with XMAS_CATALOG in netlify/lib/catalog.mjs (the server re-checks every price).
   const FEASTS = {
-    turkey: { name:'Turkey Feast', sizes:[ {id:'xmas-turkey-8', guests:8, price:66000, bird:'4.5–5.5 kg bird'}, {id:'xmas-turkey-10', guests:10, price:77000, bird:'5.5–7 kg bird'}, {id:'xmas-turkey-12', guests:12, price:88000, bird:'7–8 kg bird'}, {id:'xmas-turkey-14', guests:14, price:99000, bird:'8–10 kg bird'} ], bigger:'16+' },
-    veg:    { name:'Veggie Wellington Feast', sizes:[ {id:'xmas-veg-6', guests:6, price:44000}, {id:'xmas-veg-8', guests:8, price:55000}, {id:'xmas-veg-10', guests:10, price:66000} ], bigger:'12+' },
+    turkey: { name:'Turkey Feast', sizes:[ {id:'xmas-turkey-4', guests:4, label:'2–4', price:35000, bird:'2–3 kg bird'}, {id:'xmas-turkey-8', guests:8, price:56000, bird:'4.5–5.5 kg bird'}, {id:'xmas-turkey-10', guests:10, price:66000, bird:'5.5–7 kg bird'}, {id:'xmas-turkey-12', guests:12, price:76000, bird:'7–8 kg bird'}, {id:'xmas-turkey-14', guests:14, price:86000, bird:'8–10 kg bird'} ], bigger:'16+' },
+    veg:    { name:'Veggie Wellington Feast', sizes:[ {id:'xmas-veg-4', guests:4, label:'2–4', price:32000}, {id:'xmas-veg-6', guests:6, price:42000}, {id:'xmas-veg-8', guests:8, price:52000} ], bigger:'10+' },
   };
   const GF = {id:'xmas-wellington-gf', name:'Gluten-free Wellington', price:500};
   const PIES = [
-    {id:'xmas-pudding', name:'Christmas pudding &amp; brandy cream', meta:'The finale', price:4500, desc:'Rich, dark pudding with brandy cream to pour over.'},
+    {id:'xmas-giftbox', name:'Christmas gift box', meta:'New · a ready-made present', price:12500, desc:'Honey-glazed smoked ham (1 kg), buttery mash (1 kg), turkey &amp; Chablis gravy (750 ml) and a porcelain gravy boat.'},
+    {id:'xmas-ham', name:'Honey-glazed smoked ham', meta:'Serves 6–8', price:6000, img:'/thanksgiving/img/ham.jpg', desc:'Smoked ham joint glazed with Kent honey.'},
+    {id:'xmas-pudding', name:'Christmas pudding with brandy cream', meta:'Serves 8', price:4500, desc:'Rich, dark pudding with brandy cream to pour over.'},
     {id:'xmas-pie-pecan', name:'Pecan pie', meta:'Serves 8', price:2900, img:'/thanksgiving/img/pecan.jpg',
      desc:'American organic pecans, Devon butter &amp; eggs, Doves Farm organic wheat flour, Norfolk sugar, Kent honey, Madagascan vanilla.', allergens:'Gluten, dairy, eggs &amp; nuts'},
     {id:'xmas-pie-apple', name:'Apple pie', meta:'Serves 8', price:2900, img:'/thanksgiving/img/apple.jpg',
@@ -679,40 +684,37 @@ button{ font:inherit; color:inherit; }
      desc:'British pumpkin &amp; squash, Devon butter &amp; eggs, Doves Farm organic wheat flour, Norfolk sugar, organic nutmeg &amp; cinnamon.', allergens:'Gluten, dairy &amp; eggs'},
   ];
   const EXTRAS = [
-    {id:'xmas-ham', name:'Honey-glazed ham', meta:'Serves 6–8', price:6000, img:'/thanksgiving/img/ham.jpg', desc:'Smoked ham joint glazed with Kent honey.'},
     {id:'xmas-roast-goose', name:'Roast potatoes in goose fat', meta:'1 kg · serves 4–5', price:2000, img:'/thanksgiving/img/potatoes-goose.jpg', desc:'Finished with rosemary salt.'},
     {id:'xmas-roast-olive', name:'Roast potatoes in olive oil', meta:'Vegetarian · 1 kg · serves 4–5', price:2000, img:'/thanksgiving/img/potatoes-olive.jpg', desc:'Finished with rosemary salt.'},
     {id:'xmas-mash', name:'Buttery mashed potatoes', meta:'Vegetarian · 1 kg · serves 4–5', price:2800, img:'/thanksgiving/img/mash.jpg', desc:'Organic potatoes, English butter, English cream, sea salt.', allergens:'Dairy'},
   ];
   const SAUCES = [
     {id:'xmas-bread-sauce', name:'Extra bread sauce', meta:'For seconds', price:2000},
-    {id:'xmas-gravy', name:'Extra gravy', meta:'Nobody ever has enough', price:2000},
+    {id:'xmas-gravy', name:'Extra turkey gravy', meta:'Nobody ever has enough', price:2500},
     {id:'xmas-cranberry', name:'Extra cranberry sauce', meta:'Vegetarian', price:1000},
   ];
   const SERVEWARE = [
-    {id:'xmas-dish-porcelain', name:'Oval dish, porcelain', meta:'35 cm / 14 in', price:3000, img:'/thanksgiving/img/platter.jpg'},
-    {id:'xmas-dish-steel', name:'Oval dish, stainless', meta:'35 cm / 14 in', price:2000, img:'/thanksgiving/img/platter.jpg'},
+    {id:'xmas-dish-porcelain', name:'35 cm oval dish, porcelain', meta:'35 cm / 14 in', price:3000, img:'/thanksgiving/img/platter.jpg'},
+    {id:'xmas-dish-steel', name:'35 cm oval dish, stainless steel', meta:'35 cm / 14 in', price:2000, img:'/thanksgiving/img/platter.jpg'},
     {id:'xmas-gravy-boat', name:'Porcelain gravy boat', meta:'For the table', price:3000},
-    {id:'xmas-set-steel', name:'Serving set, steel', meta:'Serving spoon &amp; tongs', price:3000},
-    {id:'xmas-set-gold', name:'Serving set, gold', meta:'Serving spoon &amp; tongs', price:3000},
+    {id:'xmas-set-steel', name:'Serving spoon &amp; tongs, stainless steel', meta:'For the table', price:3000},
+    {id:'xmas-set-gold', name:'Serving spoon &amp; tongs, gold', meta:'For the table', price:3000},
   ];
   const ALL = {}; [...PIES,...EXTRAS,...SAUCES,...SERVEWARE].forEach(p => ALL[p.id] = p);
-  Object.entries(FEASTS).forEach(([k,f]) => f.sizes.forEach(s => ALL[s.id] = {...s, name:`${f.name} for ${s.guests}`, feast:k}));
+  Object.entries(FEASTS).forEach(([k,f]) => f.sizes.forEach(s => ALL[s.id] = {...s, name:`${f.name} for ${s.label||s.guests}`, feast:k}));
   ALL[GF.id] = {...GF, perHead:true};
 
-  // Delivery zones (fee per order) and days. London books a 3-hour window; England is next-day courier, 21–23 Dec.
+  // Delivery zones (fee per order) and days. London books a 3-hour window; England goes by courier. 23 or 24 Dec (earlier by email).
   const ZONES = [
     {id:'notting-hill', name:'Notting Hill', pc:'W2 · W10 · W11', fee:1000},
     {id:'kensington', name:'Kensington', pc:'W8 · W14 · SW5 · SW7', fee:1500},
     {id:'central', name:'Central London', pc:'Zone 1 & 2', fee:2000},
     {id:'greater', name:'Greater London', pc:'Inside the M25', fee:3500},
-    {id:'england', name:'England, next day', pc:'Courier, mainland England', fee:4500, courier:true},
+    {id:'england', name:'England, by courier', pc:'Mainland England', fee:4500, courier:true},
   ];
   const DAYS = [
-    {id:'2026-12-21', dow:'Mon', d:21, lab:'Plenty of time', courier:true},
-    {id:'2026-12-22', dow:'Tue', d:22, lab:'Early in the week', courier:true},
     {id:'2026-12-23', dow:'Wed', d:23, lab:'Day before Christmas Eve', courier:true, feat:true},
-    {id:'2026-12-24', dow:'Thu', d:24, lab:'Christmas Eve', courier:false, feat:true},
+    {id:'2026-12-24', dow:'Thu', d:24, lab:'Christmas Eve', courier:true, feat:true},
   ];
   const WINDOWS = [9, 12, 15];
   const COURIER = 'Courier, during the day';
@@ -741,24 +743,24 @@ button{ font:inherit; color:inherit; }
     const v = pickedSize('veg');
     if (state.gf && v) state.cart[GF.id] = v.guests; else delete state.cart[GF.id];
     $('#vegGf').checked = state.gf;
-    $('#gfNote').textContent = v ? `+${gbp(GF.price * v.guests)} for ${v.guests}` : '+£5 a head';
+    $('#gfNote').textContent = v ? `+${gbp(GF.price * v.guests)} for ${v.label||v.guests}` : '+£5 a head';
   };
   const syncSizes = () => document.querySelectorAll('.sizes').forEach(g => {
     const k = g.dataset.group, p = pickedSize(k);
     g.querySelectorAll('.size[data-id]').forEach(x => x.setAttribute('aria-pressed', String(!!p && x.dataset.id === p.id)));
     const n = $('#'+k+'Note');
-    n.textContent = p ? `In your order: table for ${p.guests} · tap it again to remove` : 'Tap your table size to add it.';
+    n.textContent = p ? `In your order: table for ${p.label||p.guests} · tap it again to remove` : 'Tap your table size to add it.';
     n.classList.toggle('on', !!p);
   });
   document.querySelectorAll('.sizes').forEach(g => {
     const k = g.dataset.group, f = FEASTS[k];
     f.sizes.forEach(s => {
       const b = el('button', {type:'button', class:'size', 'aria-pressed':'false', 'data-id':s.id},
-        `<span class="ppl">${s.guests} guests</span><span class="pr">${gbp(s.price)}</span><span class="phd">${gbp(Math.round(s.price/s.guests/100)*100)} a head</span>${s.bird ? `<span class="kg">${s.bird}</span>` : ''}`);
+        `<span class="ppl">${s.label||s.guests} guests</span><span class="pr">${gbp(s.price)}</span><span class="phd">${gbp(Math.round(s.price/s.guests/100)*100)} a head</span>${s.bird ? `<span class="kg">${s.bird}</span>` : ''}`);
       b.addEventListener('click', () => {
         const had = !!state.cart[s.id];
         f.sizes.forEach(x => delete state.cart[x.id]);
-        if (!had) { state.cart[s.id] = 1; toast(`${f.name} for ${s.guests} added`); }
+        if (!had) { state.cart[s.id] = 1; toast(`${f.name} for ${s.label||s.guests} added`); }
         render();
       });
       g.appendChild(b);
@@ -813,7 +815,7 @@ button{ font:inherit; color:inherit; }
     const box = $('#slots'); box.innerHTML = '';
     const z = zone(), d = DAYS.find(x => x.id === state.day);
     if (!z) { $('#slotHint').textContent = 'Choose your area first.'; return; }
-    if (!d) { $('#slotHint').textContent = z.courier ? 'Choose the day it should arrive (21–23 December).' : 'Choose a day to see the delivery windows.'; return; }
+    if (!d) { $('#slotHint').textContent = z.courier ? 'Choose the day it should arrive (23 or 24 December).' : 'Choose a day to see the delivery windows.'; return; }
     windowsFor(d, z).forEach(w => {
       const cap = z.courier ? state.cap.courier : state.cap.window, left = Math.max(0, cap - (state.taken[w.key]||0));
       const b = el('button', {type:'button', class:'slot', 'aria-pressed': String(state.slot===w.label)}, `${w.label}${state.live && left > 0 && left <= 3 ? `<small>${left} left</small>` : ''}`);
@@ -823,7 +825,7 @@ button{ font:inherit; color:inherit; }
     });
     if (z.courier && !state.slot && box.firstChild && !box.firstChild.disabled) { state.slot = COURIER; box.firstChild.setAttribute('aria-pressed','true'); }
     $('#slotHint').textContent = z.courier
-      ? `${d.dow} ${d.d} December · tracked next-day courier. We dispatch the day before and email you the tracking link.`
+      ? `${d.dow} ${d.d} December · tracked courier. We email you the tracking link when it leaves our kitchen.`
       : `${d.dow} ${d.d} December · ${z.name}. Choose a three-hour window. Someone must be home to receive it.`;
   }
 
@@ -846,7 +848,8 @@ button{ font:inherit; color:inherit; }
     ['#sheetTotal','#mTotal'].forEach(s => $(s).textContent = gbp(total));
     $('#sumTotal').textContent = gbp(total + fee);
     $('#navCount').textContent = count;
-    $('#sheetGuests').textContent = guests ? `${guests} guests` : 'your table';
+    const range = ids.some(id => ALL[id] && ALL[id].label);
+    $('#sheetGuests').textContent = guests ? `${range ? 'up to ' : ''}${guests} guests` : 'your table';
     $('#fGuests').value = guests || '';
     $('#mbar').classList.toggle('show', count > 0);
     document.querySelectorAll('#order [data-qty]').forEach(o => o.textContent = state.cart[o.dataset.qty] || 0);
@@ -917,51 +920,56 @@ button{ font:inherit; color:inherit; }
   $('#dClose').onclick = closeDrawer; scrim.onclick = closeDrawer;
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('on')) closeDrawer(); });
 
-  // ---------- Corporate quote: volume pricing per feast ----------
-  const CORP = [FEASTS.turkey.sizes[0], FEASTS.turkey.sizes[2], FEASTS.veg.sizes[0], FEASTS.veg.sizes[2]];
+  // ---------- Corporate quote: volume pricing per feast (no VAT: sales go through Justin, not VAT registered) ----------
+  const CORP = [...FEASTS.turkey.sizes, ...FEASTS.veg.sizes];
+  const GIFT = PIES.find(p => p.id === 'xmas-giftbox');
   const TIERS = [{min:40, off:20}, {min:20, off:15}, {min:10, off:10}];
   const corpTier = n => TIERS.find(t => n >= t.min);
-  CORP.forEach(s => {
-    const f = s.id.includes('turkey') ? 'Turkey feast' : 'Veggie Wellington feast';
-    const row = el('div', {class:'crow'}, `<div><h5>${f} for ${s.guests}</h5><small>${gbp(s.price)} each before discount</small></div><span class="each" data-each="${s.id}">${gbp(s.price)}</span>`);
-    row.appendChild(qty('c-'+s.id, () => state.corp[s.id], v => { state.corp[s.id] = v; renderCorp(); }, 200));
+  const disc = (price, off) => Math.round(price * (100 - off) / 10000) * 100; // rounded to the nearest pound
+  const corpLabel = s => `${s.id.includes('turkey') ? 'Turkey' : 'Wellington'} for ${s.label || s.guests}`;
+  const corpRow = (key, title, sub, each) => {
+    const row = el('div', {class:'crow'}, `<div><h5>${title}</h5><small>${sub}</small></div><span class="each" data-each="${key}">${each}</span>`);
+    row.appendChild(qty('c-'+key, () => state.corp[key], v => { state.corp[key] = v; renderCorp(); }, 200));
     $('#corpRows').appendChild(row);
-  });
+  };
+  CORP.forEach(s => corpRow(s.id, `${s.id.includes('turkey') ? 'Turkey feast' : 'Veggie Wellington feast'} for ${s.label || s.guests}`, `${gbp(s.price)} each before discount`, gbp(s.price)));
+  corpRow(GIFT.id, 'Christmas gift box', `${gbp(GIFT.price)} each · not discounted`, gbp(GIFT.price));
   function renderCorp(){
     const n = CORP.reduce((a, s) => a + (state.corp[s.id]||0), 0), t = corpTier(n), off = t ? t.off : 0;
-    let sub = 0;
+    let sub = 0, total = 0;
     const lines = CORP.filter(s => state.corp[s.id]).map(s => {
-      const q = state.corp[s.id], each = Math.round(s.price * (100 - off) / 100); sub += s.price * q;
-      return `<li><span>${q} × ${s.id.includes('turkey') ? 'Turkey' : 'Wellington'} for ${s.guests}</span><span>${gbp(each * q)}</span></li>`;
+      const q = state.corp[s.id], each = disc(s.price, off); sub += s.price * q; total += each * q;
+      return `<li><span>${q} × ${corpLabel(s)}</span><span>${gbp(each * q)}</span></li>`;
     });
-    const total = CORP.reduce((a, s) => a + Math.round(s.price * (100 - off) / 100) * (state.corp[s.id]||0), 0);
-    if (off) lines.push(`<li class="disc"><span>Volume saving, ${off}% off ${n} feasts</span><span>−${gbp(sub - total)}</span></li>`);
+    if (off) lines.push(`<li class="disc"><span>Included: ${off}% off ${n} feasts, you save</span><span>${gbp(sub - total)}</span></li>`);
+    const g = state.corp[GIFT.id] || 0;
+    if (g) { total += GIFT.price * g; lines.push(`<li><span>${g} × Christmas gift box</span><span>${gbp(GIFT.price * g)}</span></li>`); }
     $('#corpLines').innerHTML = lines.join('');
     $('#corpTotal').textContent = gbp(total);
-    CORP.forEach(s => { const e = document.querySelector(`[data-each="${s.id}"]`); const each = Math.round(s.price * (100 - off) / 100);
-      e.innerHTML = off ? `<s>${gbp(s.price)}</s>${gbp(each)}` : gbp(s.price); });
+    CORP.forEach(s => { const e = document.querySelector(`[data-each="${s.id}"]`);
+      e.innerHTML = off ? `<s>${gbp(s.price)}</s>${gbp(disc(s.price, off))}` : gbp(s.price); });
     document.querySelectorAll('[data-qty^="c-"]').forEach(o => o.textContent = state.corp[o.dataset.qty.slice(2)] || 0);
     document.querySelectorAll('.tier').forEach(x => x.classList.toggle('on', !!t && +x.dataset.min === t.min));
     const next = TIERS.slice().reverse().find(x => n < x.min);
-    $('#corpNote').textContent = !n ? 'Add 10 or more feasts to unlock volume pricing.'
+    $('#corpNote').textContent = !n ? 'Add 10 or more feasts to unlock volume pricing. Gift boxes are not discounted.'
       : next ? `${n} feast${n>1?'s':''}. Add ${next.min - n} more for ${next.off}% off every feast.` : `${n} feasts at our best rate, 20% off.`;
-    return {n, off, total, lines};
+    return {n, g, off, total, lines};
   }
   renderCorp();
   $('#corpForm').addEventListener('submit', e => {
     e.preventDefault();
     const f = e.target, v = n => f.elements[n].value.trim(), err = $('#corpErr'); err.hidden = true;
     const q = renderCorp(), problems = [];
-    if (!q.n) problems.push('add at least one feast');
+    if (!q.n && !q.g) problems.push('add at least one feast or gift box');
     if (!v('company')) problems.push('add your company');
     if (!v('name')) problems.push('add your name');
     if (!/^\S+@\S+\.\S+$/.test(v('email'))) problems.push('add a valid email');
     if (problems.length) { err.textContent = 'Almost there. Please ' + problems.join(', ') + '.'; err.hidden = false; return; }
     const strip = s => s.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
     const body = [`Company: ${v('company')}`, `Contact: ${v('name')}`, `Email: ${v('email')}`, `Phone: ${v('phone') || '-'}`, '',
-      `Feasts (${q.n}${q.off ? `, ${q.off}% volume pricing` : ''}):`, ...q.lines.map(strip), `Feasts total: ${gbp(q.total)}`, '(Extras and delivery at standard prices)', '',
+      `Quote (${q.n} feasts${q.off ? `, ${q.off}% volume pricing` : ''}${q.g ? `, ${q.g} gift boxes` : ''}):`, ...q.lines.map(strip), `Total: ${gbp(q.total)}`, '(Extras and delivery at standard prices)', '',
       `Delivery & notes: ${v('notes') || '-'}`].join('\n');
-    location.href = `mailto:${ORDERS_EMAIL}?cc=phil@nottinggrill.com&subject=${encodeURIComponent(`Corporate Christmas quote: ${v('company')}, ${q.n} feasts`)}&body=${encodeURIComponent(body)}`;
+    location.href = `mailto:${ORDERS_EMAIL}?cc=phil@nottinggrill.com&subject=${encodeURIComponent(`Corporate Christmas quote: ${v('company')}, ${q.n} feasts${q.g ? ` + ${q.g} gift boxes` : ''}`)}&body=${encodeURIComponent(body)}`;
     toast('Opening your email…');
   });
 

@@ -334,7 +334,7 @@ button{ font:inherit; color:inherit; }
       <div class="hol hol--current" id="hol">
         <button class="hol__btn" type="button" aria-expanded="false" aria-controls="holMenu">Holidays<span class="hol__chev" aria-hidden="true"></span></button>
         <div class="hol__menu" id="holMenu">
-          <a href="/christmas/" data-season="christmas"><b>Christmas</b><span>Delivered 21–24 Dec · order by 18 Dec</span></a>
+          <a href="/christmas/" data-season="christmas"><b>Christmas</b><span>Delivered 23 or 24 Dec · order by 18 Dec</span></a>
           <a href="/christmas/#corporate" data-season="christmas"><b>Corporate Christmas</b><span>Volume pricing from 10 feasts</span></a>
           <a href="/thanksgiving/" data-season="thanksgiving" aria-current="page"><b>Thanksgiving</b><span>Delivered 25–28 Nov · order by 21 Nov</span></a>
         </div>
@@ -362,7 +362,7 @@ button{ font:inherit; color:inherit; }
         </ul>
         <div class="cta-row">
           <a class="btn btn--orange" href="#order">Order your feast</a>
-          <span class="cta-note">Turkey for 8 from £600 · Kensington · Notting Hill · St John's Wood</span>
+          <span class="cta-note">Turkey from £350 · Wellington from £320 · Kensington · Notting Hill · St John's Wood</span>
         </div>
         <p class="elsewhere">Anywhere else? Please <a href="mailto:justin@nottinggrill.com?subject=Thanksgiving%20delivery">reach out</a> and we'll see how we can help.</p>
       </div>
@@ -420,8 +420,10 @@ button{ font:inherit; color:inherit; }
             <div class="items" id="pies"></div>
             <p class="sublabel">Extras</p>
             <div class="items two" id="extras"></div>
-            <p class="sublabel">Serving platters · 35 cm oval, yours to keep</p>
-            <div class="items two" id="platters"></div>
+            <p class="sublabel">Extra sauces</p>
+            <div class="items" id="sauces"></div>
+            <p class="sublabel">Serveware · yours to keep</p>
+            <div class="items" id="platters"></div>
                       </div>
 
         </div>
@@ -434,7 +436,7 @@ button{ font:inherit; color:inherit; }
           <div class="total"><span>Total</span><b id="sheetTotal">£0</b></div>
           <button class="clear" type="button" id="clearOrder" hidden>Empty basket</button>
           <button class="btn btn--orange" type="button" data-checkout>Checkout</button>
-          <small>Card, Apple Pay, Google Pay via Worldpay. Delivery slot chosen at checkout.</small>
+          <small>Card, Apple Pay, Google Pay via Worldpay. Delivery from £10, added at checkout with your delivery slot.</small>
         </aside>
       </div>
     </div>
@@ -475,7 +477,7 @@ button{ font:inherit; color:inherit; }
         </div>
       </div>
       <div class="faq-grid">
-        <details><summary>Where and when do you deliver?</summary><p>Wednesday 25 to Saturday 28 November, in a one-hour slot: Kensington 9am–12pm, Notting Hill from 12pm, St John's Wood in the afternoon until 6pm (7pm on Wednesday and Friday). If you're anywhere else, please reach out and we'll see how we can help: <a href="mailto:justin@nottinggrill.com" style="color:var(--orange)">justin@nottinggrill.com</a>.</p></details>
+        <details><summary>Where and when do you deliver?</summary><p>Wednesday 25 to Saturday 28 November, in a one-hour slot: Kensington 9am–12pm (£15 delivery), Notting Hill from 12pm (£10), St John's Wood in the afternoon until 6pm, 7pm on Wednesday and Friday (£20). If you're anywhere else, please reach out and we'll see how we can help: <a href="mailto:justin@nottinggrill.com" style="color:var(--orange)">justin@nottinggrill.com</a>.</p></details>
         <details><summary>How much cooking is there?</summary><p>Very little. Everything arrives fully cooked, so it just needs reheating: the turkey comes roasted and rested with Justin's card for reheating it in your oven, and the sides warm through alongside it. Pies are ready to serve.</p></details>
         <details><summary>Allergies?</summary><p>The veggie Wellington can be made gluten free for £5 a head (tick the box under the Wellington sizes). Pie ingredients and allergens are listed under each pie; sides marked V are vegetarian. Add any allergies at checkout and the team will be in touch.</p></details>
         <details><summary>How do I pay?</summary><p>In full when you book, securely through Worldpay. Your confirmation arrives by email.</p></details>
@@ -572,8 +574,8 @@ button{ font:inherit; color:inherit; }
 
   // Prices in pence. Keep in sync with netlify/lib/catalog.mjs (the server re-checks every price).
   const FEASTS = {
-    turkey: { name:'Turkey Feast', sizes:[ {id:'turkey-8', guests:8, price:60000, bird:'4.5–5.5 kg bird'}, {id:'turkey-10', guests:10, price:70000, bird:'5.5–7 kg bird'}, {id:'turkey-12', guests:12, price:80000, bird:'7–8 kg bird'}, {id:'turkey-14', guests:14, price:90000, bird:'8–10 kg bird'} ], bigger:'16+' },
-    veg:    { name:'Veggie Wellington Feast', sizes:[ {id:'veg-6', guests:6, price:40000}, {id:'veg-8', guests:8, price:50000}, {id:'veg-10', guests:10, price:60000} ], bigger:'12+' },
+    turkey: { name:'Turkey Feast', sizes:[ {id:'turkey-4', guests:4, label:'2–4', price:35000, bird:'2–3 kg bird'}, {id:'turkey-8', guests:8, price:56000, bird:'4.5–5.5 kg bird'}, {id:'turkey-10', guests:10, price:66000, bird:'5.5–7 kg bird'}, {id:'turkey-12', guests:12, price:76000, bird:'7–8 kg bird'}, {id:'turkey-14', guests:14, price:86000, bird:'8–10 kg bird'} ], bigger:'16+' },
+    veg:    { name:'Veggie Wellington Feast', sizes:[ {id:'veg-4', guests:4, label:'2–4', price:32000}, {id:'veg-6', guests:6, price:42000}, {id:'veg-8', guests:8, price:52000} ], bigger:'10+' },
   };
   const GF = {id:'wellington-gf', name:'Gluten-free Wellington', price:500}; // per head, follows the Wellington size
   const PIES = [
@@ -590,19 +592,26 @@ button{ font:inherit; color:inherit; }
     {id:'mash-1kg', name:'Buttery mashed potatoes', meta:'Vegetarian · 1 kg · serves 4–5', price:2800, img:'img/mash.jpg', desc:'Organic potatoes, English butter, English cream, sea salt.', allergens:'Dairy'},
     {id:'roast-olive-1kg', name:'Roast potatoes in olive oil', meta:'Vegetarian · 1 kg · serves 4–5', price:2000, img:'img/potatoes-olive.jpg', desc:'Finished with rosemary salt.'},
   ];
-  const PLATTERS = [
-    {id:'platter-steel', name:'Serving platter, steel', meta:'Oval · 35 cm / 14 in', price:2000, img:'img/platter.jpg'},
-    {id:'platter-porcelain', name:'Serving platter, porcelain', meta:'Oval · 35 cm / 14 in', price:3000, img:'img/platter.jpg'},
+  const SAUCES = [
+    {id:'gravy-turkey', name:'Extra turkey gravy', meta:'Nobody ever has enough', price:2500},
+    {id:'cranberry', name:'Extra cranberry sauce', meta:'Vegetarian', price:1000},
   ];
-  const ALL = {}; [...PIES,...EXTRAS,...PLATTERS].forEach(p => ALL[p.id] = p);
-  Object.entries(FEASTS).forEach(([k,f]) => f.sizes.forEach(s => ALL[s.id] = {...s, name:`${f.name} for ${s.guests}`, feast:k}));
+  const PLATTERS = [
+    {id:'platter-porcelain', name:'35 cm oval dish, porcelain', meta:'35 cm / 14 in', price:3000, img:'img/platter.jpg'},
+    {id:'platter-steel', name:'35 cm oval dish, stainless steel', meta:'35 cm / 14 in', price:2000, img:'img/platter.jpg'},
+    {id:'gravy-boat', name:'Porcelain gravy boat', meta:'For the table', price:3000},
+    {id:'set-steel', name:'Serving spoon &amp; tongs, stainless steel', meta:'For the table', price:3000},
+    {id:'set-gold', name:'Serving spoon &amp; tongs, gold', meta:'For the table', price:3000},
+  ];
+  const ALL = {}; [...PIES,...EXTRAS,...SAUCES,...PLATTERS].forEach(p => ALL[p.id] = p);
+  Object.entries(FEASTS).forEach(([k,f]) => f.sizes.forEach(s => ALL[s.id] = {...s, name:`${f.name} for ${s.label||s.guests}`, feast:k}));
   ALL[GF.id] = {...GF, perHead:true};
 
   // Delivery: each area has its own part of the day; 4 deliveries per hour (SLOT_CAPACITY on the server).
   const AREAS = [
-    {id:'kensington', name:'Kensington', pc:'W8 · W14 · SW5 · SW7', when:'Mornings'},
-    {id:'notting-hill', name:'Notting Hill', pc:'W2 · W10 · W11', when:'Midday'},
-    {id:'st-johns-wood', name:"St John's Wood", pc:'NW8', when:'Afternoons'},
+    {id:'kensington', name:'Kensington', pc:'W8 · W14 · SW5 · SW7', when:'Mornings', fee:1500},
+    {id:'notting-hill', name:'Notting Hill', pc:'W2 · W10 · W11', when:'Midday', fee:1000},
+    {id:'st-johns-wood', name:"St John's Wood", pc:'NW8', when:'Afternoons', fee:2000},
     {id:'elsewhere', name:'Anywhere else', pc:'Reach out and we will help', when:''},
   ];
   const DAYS = [
@@ -639,24 +648,24 @@ button{ font:inherit; color:inherit; }
     const v = pickedSize('veg');
     if (state.gf && v) state.cart[GF.id] = v.guests; else delete state.cart[GF.id];
     $('#vegGf').checked = state.gf;
-    $('#gfNote').textContent = v ? `+${gbp(GF.price * v.guests)} for ${v.guests}` : '+£5 a head';
+    $('#gfNote').textContent = v ? `+${gbp(GF.price * v.guests)} for ${v.label||v.guests}` : '+£5 a head';
   };
   const syncSizes = () => document.querySelectorAll('.sizes').forEach(g => {
     const k = g.dataset.group, p = pickedSize(k);
     g.querySelectorAll('.size[data-id]').forEach(x => x.setAttribute('aria-pressed', String(!!p && x.dataset.id === p.id)));
     const n = $('#'+k+'Note');
-    n.textContent = p ? `In your order: table for ${p.guests} · tap it again to remove` : 'Tap your table size to add it.';
+    n.textContent = p ? `In your order: table for ${p.label||p.guests} · tap it again to remove` : 'Tap your table size to add it.';
     n.classList.toggle('on', !!p);
   });
   document.querySelectorAll('.sizes').forEach(g => {
     const k = g.dataset.group, f = FEASTS[k];
     f.sizes.forEach(s => {
       const b = el('button', {type:'button', class:'size', 'aria-pressed':'false', 'data-id':s.id},
-        `<span class="ppl">${s.guests} guests</span><span class="pr">${gbp(s.price)}</span><span class="phd">${gbp(Math.round(s.price/s.guests/100)*100)} a head</span>${s.bird ? `<span class="kg">${s.bird}</span>` : ''}`);
+        `<span class="ppl">${s.label||s.guests} guests</span><span class="pr">${gbp(s.price)}</span><span class="phd">${gbp(Math.round(s.price/s.guests/100)*100)} a head</span>${s.bird ? `<span class="kg">${s.bird}</span>` : ''}`);
       b.addEventListener('click', () => {
         const had = !!state.cart[s.id];
         f.sizes.forEach(x => delete state.cart[x.id]);
-        if (!had) { state.cart[s.id] = 1; toast(`${f.name} for ${s.guests} added`); }
+        if (!had) { state.cart[s.id] = 1; toast(`${f.name} for ${s.label||s.guests} added`); }
         render();
       });
       g.appendChild(b);
@@ -682,12 +691,13 @@ button{ font:inherit; color:inherit; }
   };
   PIES.forEach(p => $('#pies').appendChild(card(p)));
   EXTRAS.forEach(p => $('#extras').appendChild(card(p)));
+  SAUCES.forEach(p => $('#sauces').appendChild(card(p)));
   PLATTERS.forEach(p => $('#platters').appendChild(card(p)));
 
   // Delivery area, day, hour
   AREAS.forEach(a => {
     const b = el('button', {type:'button', class:'chip'+(a.id==='elsewhere'?' chip--else':''), 'aria-pressed': String(state.area===a.id), 'data-area':a.id},
-      `<b>${a.name}</b><span>${a.pc}</span>${a.when ? `<em>${a.when}</em>` : ''}`);
+      `<b>${a.name}</b><span>${a.pc}</span>${a.when ? `<em>${a.when}${a.fee ? ` · Delivery ${gbp(a.fee)}` : ''}</em>` : ''}`);
     b.onclick = () => { state.area = a.id; state.slot = null; document.querySelectorAll('#areas .chip').forEach(x=>x.setAttribute('aria-pressed', String(x===b))); drawDays(); drawSlots(); render(); };
     $('#areas').appendChild(b);
   });
@@ -729,12 +739,16 @@ button{ font:inherit; color:inherit; }
       count += p.perHead ? 0 : q;
       const label = p.feast ? p.name : p.perHead ? `${p.name} (${q} at ${gbp(p.price)})` : (q > 1 ? `${p.name} (${q})` : p.name);
       return `<li><span>${label}</span><span class="amt">${gbp(p.price*q)}<button class="rm" type="button" data-rm="${id}" aria-label="Remove ${label.replace(/<[^>]+>/g,'')}">Remove</button></span></li>`; }).join('');
-    ['#sheetLines','#sumLines'].forEach(s => $(s).innerHTML = lines);
+    const area0 = AREAS.find(a=>a.id===state.area), fee = area0 && area0.fee && ids.length ? area0.fee : 0;
+    $('#sheetLines').innerHTML = lines;
+    $('#sumLines').innerHTML = lines + (fee ? `<li><span>Delivery, ${area0.name}</span><span>${gbp(fee)}</span></li>` : '');
     $('#sheetEmpty').hidden = $('#sumEmpty').hidden = ids.length > 0;
     $('#clearOrder').hidden = !ids.length;
-    ['#sheetTotal','#sumTotal','#mTotal'].forEach(s => $(s).textContent = gbp(total));
+    ['#sheetTotal','#mTotal'].forEach(s => $(s).textContent = gbp(total));
+    $('#sumTotal').textContent = gbp(total + fee);
     $('#navCount').textContent = count;
-    $('#sheetGuests').textContent = guests ? `${guests} guests` : 'your table';
+    const range = ids.some(id => ALL[id] && ALL[id].label);
+    $('#sheetGuests').textContent = guests ? `${range ? 'up to ' : ''}${guests} guests` : 'your table';
     $('#fGuests').value = guests || '';
     $('#mbar').classList.toggle('show', count > 0);
     document.querySelectorAll('[data-qty]').forEach(o => o.textContent = state.cart[o.dataset.qty] || 0);
@@ -745,7 +759,7 @@ button{ font:inherit; color:inherit; }
     $('#payBtn').disabled = state.area === 'elsewhere';
     syncSizes();
     persist();
-    return {ids, total};
+    return {ids, total: total + fee};
   }
 
   // Live slot availability (on the deployed site only)

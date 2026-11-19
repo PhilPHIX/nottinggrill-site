@@ -2,14 +2,16 @@
 // Keep the copies in public/thanksgiving/index.html (FEASTS, PIES, EXTRAS, PLATTERS, hoursFor) in sync with this file.
 
 export const CATALOG = {
-  // Feasts are priced per table. One size per feast per order.
-  'turkey-8':   { name: 'Turkey Feast for 8 (4.5–5.5 kg bird)',  price: 60000, feast: 'turkey', guests: 8 },
-  'turkey-10':  { name: 'Turkey Feast for 10 (5.5–7 kg bird)', price: 70000, feast: 'turkey', guests: 10 },
-  'turkey-12':  { name: 'Turkey Feast for 12 (7–8 kg bird)', price: 80000, feast: 'turkey', guests: 12 },
-  'turkey-14':  { name: 'Turkey Feast for 14 (8–10 kg bird)', price: 90000, feast: 'turkey', guests: 14 },
-  'veg-6':      { name: 'Veggie Wellington Feast for 6',  price: 40000, feast: 'veg', guests: 6 },
-  'veg-8':      { name: 'Veggie Wellington Feast for 8',  price: 50000, feast: 'veg', guests: 8 },
-  'veg-10':     { name: 'Veggie Wellington Feast for 10', price: 60000, feast: 'veg', guests: 10 },
+  // Feasts are priced per table. One size per feast per order. Prices updated 19 Nov 2026 (same as Christmas).
+  // The 2–4 tables count as 4 guests (gluten-free and per-head maths).
+  'turkey-4':   { name: 'Turkey Feast for 2–4 (2–3 kg bird)',  price: 35000, feast: 'turkey', guests: 4 },
+  'turkey-8':   { name: 'Turkey Feast for 8 (4.5–5.5 kg bird)',  price: 56000, feast: 'turkey', guests: 8 },
+  'turkey-10':  { name: 'Turkey Feast for 10 (5.5–7 kg bird)', price: 66000, feast: 'turkey', guests: 10 },
+  'turkey-12':  { name: 'Turkey Feast for 12 (7–8 kg bird)', price: 76000, feast: 'turkey', guests: 12 },
+  'turkey-14':  { name: 'Turkey Feast for 14 (8–10 kg bird)', price: 86000, feast: 'turkey', guests: 14 },
+  'veg-4':      { name: 'Veggie Wellington Feast for 2–4', price: 32000, feast: 'veg', guests: 4 },
+  'veg-6':      { name: 'Veggie Wellington Feast for 6',  price: 42000, feast: 'veg', guests: 6 },
+  'veg-8':      { name: 'Veggie Wellington Feast for 8',  price: 52000, feast: 'veg', guests: 8 },
   // Gluten-free Wellington: +£5 a head, quantity must equal the Wellington table size.
   'wellington-gf': { name: 'Gluten-free Wellington (per head)', price: 500, perHeadOf: 'veg' },
   'pie-pecan':     { name: 'Pecan pie (serves 8)', price: 2900 },
@@ -19,12 +21,19 @@ export const CATALOG = {
   'mash-1kg':      { name: 'Buttery mashed potatoes, 1 kg (serves 4–5)', price: 2800 },
   'roast-goose-1kg': { name: 'Roast potatoes in goose fat, 1 kg (serves 4–5)', price: 2000 },
   'roast-olive-1kg': { name: 'Roast potatoes in olive oil, 1 kg (serves 4–5)', price: 2000 },
-  'platter-steel':     { name: 'Oval serving platter 35 cm, steel', price: 2000 },
-  'platter-porcelain': { name: 'Oval serving platter 35 cm, porcelain', price: 3000 },
+  'gravy-turkey':  { name: 'Extra turkey gravy', price: 2500 },
+  'cranberry':     { name: 'Extra cranberry sauce', price: 1000 },
+  'set-steel':     { name: 'Serving spoon & tongs, stainless steel', price: 3000 },
+  'set-gold':      { name: 'Serving spoon & tongs, gold', price: 3000 },
+  'gravy-boat':    { name: 'Porcelain gravy boat', price: 3000 },
+  'platter-steel':     { name: '35 cm oval dish, stainless steel', price: 2000 },
+  'platter-porcelain': { name: '35 cm oval dish, porcelain', price: 3000 },
 };
 export const MAX_QTY = 20;
 
 export const AREAS = { 'kensington': 'Kensington', 'notting-hill': 'Notting Hill', 'st-johns-wood': "St John's Wood" };
+// Thanksgiving delivery, charged once per order (confirmed 19 Nov 2026).
+export const AREA_FEES = { 'notting-hill': 1000, 'kensington': 1500, 'st-johns-wood': 2000 };
 // Wed & Fri deliveries run to 19:00, Thu & Sat to 18:00.
 export const DAYS = {
   '2026-11-25': { label: 'Wed 25 Nov', end: 19 },
@@ -57,32 +66,34 @@ export const xmasOpen = (now = Date.now()) => {
   return t <= Date.parse(XMAS_ORDER_BY);
 };
 export const XMAS_CATALOG = {
-  'xmas-turkey-8':  { name: 'Christmas Turkey Feast for 8 (4.5–5.5 kg bird)', price: 66000, feast: 'turkey', guests: 8 },
-  'xmas-turkey-10': { name: 'Christmas Turkey Feast for 10 (5.5–7 kg bird)',  price: 77000, feast: 'turkey', guests: 10 },
-  'xmas-turkey-12': { name: 'Christmas Turkey Feast for 12 (7–8 kg bird)',    price: 88000, feast: 'turkey', guests: 12 },
-  'xmas-turkey-14': { name: 'Christmas Turkey Feast for 14 (8–10 kg bird)',   price: 99000, feast: 'turkey', guests: 14 },
-  'xmas-veg-6':     { name: 'Christmas Veggie Wellington Feast for 6',  price: 44000, feast: 'veg', guests: 6 },
-  'xmas-veg-8':     { name: 'Christmas Veggie Wellington Feast for 8',  price: 55000, feast: 'veg', guests: 8 },
-  'xmas-veg-10':    { name: 'Christmas Veggie Wellington Feast for 10', price: 66000, feast: 'veg', guests: 10 },
+  'xmas-turkey-4':  { name: 'Christmas Turkey Feast for 2–4 (2–3 kg bird)',   price: 35000, feast: 'turkey', guests: 4 },
+  'xmas-turkey-8':  { name: 'Christmas Turkey Feast for 8 (4.5–5.5 kg bird)', price: 56000, feast: 'turkey', guests: 8 },
+  'xmas-turkey-10': { name: 'Christmas Turkey Feast for 10 (5.5–7 kg bird)',  price: 66000, feast: 'turkey', guests: 10 },
+  'xmas-turkey-12': { name: 'Christmas Turkey Feast for 12 (7–8 kg bird)',    price: 76000, feast: 'turkey', guests: 12 },
+  'xmas-turkey-14': { name: 'Christmas Turkey Feast for 14 (8–10 kg bird)',   price: 86000, feast: 'turkey', guests: 14 },
+  'xmas-veg-4':     { name: 'Christmas Veggie Wellington Feast for 2–4', price: 32000, feast: 'veg', guests: 4 },
+  'xmas-veg-6':     { name: 'Christmas Veggie Wellington Feast for 6',   price: 42000, feast: 'veg', guests: 6 },
+  'xmas-veg-8':     { name: 'Christmas Veggie Wellington Feast for 8',   price: 52000, feast: 'veg', guests: 8 },
   'xmas-wellington-gf': { name: 'Gluten-free Wellington (per head)', price: 500, perHeadOf: 'veg' },
-  'xmas-pudding':     { name: 'Christmas pudding & brandy cream', price: 4500 },
+  'xmas-giftbox':     { name: 'Christmas gift box (ham, mash, turkey & Chablis gravy, gravy boat)', price: 12500 },
+  'xmas-ham':         { name: 'Honey-glazed smoked ham (serves 6–8)', price: 6000 },
+  'xmas-pudding':     { name: 'Christmas pudding with brandy cream (serves 8)', price: 4500 },
   'xmas-pie-pecan':   { name: 'Pecan pie (serves 8)', price: 2900 },
   'xmas-pie-apple':   { name: 'Apple pie (serves 8)', price: 2900 },
   'xmas-pie-pumpkin': { name: 'Pumpkin pie (serves 8)', price: 2900 },
-  'xmas-ham':         { name: 'Honey-glazed ham (serves 6–8)', price: 6000 },
   'xmas-roast-goose': { name: 'Roast potatoes in goose fat, 1 kg', price: 2000 },
   'xmas-roast-olive': { name: 'Roast potatoes in olive oil, 1 kg', price: 2000 },
   'xmas-mash':        { name: 'Buttery mashed potatoes, 1 kg', price: 2800 },
   'xmas-bread-sauce': { name: 'Extra bread sauce', price: 2000 },
-  'xmas-gravy':       { name: 'Extra gravy', price: 2000 },
+  'xmas-gravy':       { name: 'Extra turkey gravy', price: 2500 },
   'xmas-cranberry':   { name: 'Extra cranberry sauce', price: 1000 },
-  'xmas-set-steel':   { name: 'Serving set, steel', price: 3000 },
-  'xmas-set-gold':    { name: 'Serving set, gold', price: 3000 },
+  'xmas-set-steel':   { name: 'Serving spoon & tongs, stainless steel', price: 3000 },
+  'xmas-set-gold':    { name: 'Serving spoon & tongs, gold', price: 3000 },
   'xmas-gravy-boat':  { name: 'Porcelain gravy boat', price: 3000 },
   'xmas-dish-porcelain': { name: '35 cm oval dish, porcelain', price: 3000 },
-  'xmas-dish-steel':     { name: '35 cm oval dish, stainless', price: 2000 },
+  'xmas-dish-steel':     { name: '35 cm oval dish, stainless steel', price: 2000 },
 };
-// Delivery is charged once per order. London zones book a 3-hour window; England goes by next-day courier (day only).
+// Delivery is charged once per order. London zones book a 3-hour window; England goes by courier (day only).
 export const XMAS_ZONES = {
   'notting-hill': { name: 'Notting Hill',      fee: 1000 },
   'kensington':   { name: 'Kensington',        fee: 1500 },
@@ -90,11 +101,10 @@ export const XMAS_ZONES = {
   'greater':      { name: 'Greater London',    fee: 3500 },
   'england':      { name: 'England, next-day', fee: 4500, courier: true },
 };
+// Delivered 23 or 24 December (earlier by request, arranged by email). England courier both days.
 export const XMAS_DAYS = {
-  '2026-12-21': { label: 'Mon 21 Dec', courier: true },
-  '2026-12-22': { label: 'Tue 22 Dec', courier: true },
   '2026-12-23': { label: 'Wed 23 Dec', courier: true },
-  '2026-12-24': { label: 'Thu 24 Dec (Christmas Eve)', courier: false },
+  '2026-12-24': { label: 'Thu 24 Dec (Christmas Eve)', courier: true },
 };
 export const XMAS_WINDOWS = [9, 12, 15]; // 09:00–12:00, 12:00–15:00, 15:00–18:00
 export const xmasWindowLabel = (h) => `${p2(h)}:00–${p2(h + 3)}:00`;

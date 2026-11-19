@@ -1,5 +1,5 @@
 import { getStore } from '@netlify/blobs';
-import { CATALOG, MAX_QTY, AREAS, DAYS, windowsFor, capacity, HOLD_MINUTES, readHolds, liveHolds,
+import { CATALOG, MAX_QTY, AREAS, AREA_FEES, DAYS, windowsFor, capacity, HOLD_MINUTES, readHolds, liveHolds,
   XMAS_CATALOG, XMAS_ZONES, XMAS_DAYS, xmasWindowsFor, xmasCapacity, xmasOpen } from '../lib/catalog.mjs';
 
 const bad = (error, status = 400) => Response.json({ error }, { status });
@@ -16,7 +16,7 @@ const SEASONS = {
       if (!AREAS[area]) return 'Please choose a delivery area.';
       const win = windowsFor(day, area).find((w) => w.label === slot);
       if (!DAYS[day] || !win) return 'Please choose a delivery day and hour.';
-      return { win, cap: capacity(), dayLabel: DAYS[day].label, areaLabel: AREAS[area], fee: 0 };
+      return { win, cap: capacity(), dayLabel: DAYS[day].label, areaLabel: AREAS[area], fee: AREA_FEES[area] || 0 };
     },
   },
   christmas: {
@@ -26,7 +26,7 @@ const SEASONS = {
       const z = XMAS_ZONES[zone];
       if (!z) return 'Please choose a delivery area.';
       const win = xmasWindowsFor(day, zone).find((w) => w.label === slot);
-      if (!XMAS_DAYS[day] || !win) return z.courier ? 'Please choose a courier delivery day (21–23 December).' : 'Please choose a delivery day and time.';
+      if (!XMAS_DAYS[day] || !win) return z.courier ? 'Please choose a delivery day (23 or 24 December).' : 'Please choose a delivery day and time.';
       return { win, cap: xmasCapacity(win.key), dayLabel: XMAS_DAYS[day].label, areaLabel: z.name, fee: z.fee };
     },
   },

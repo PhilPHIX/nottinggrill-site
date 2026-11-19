@@ -28,7 +28,7 @@ ok('area delivery hours (Kensington 9–12, Notting Hill 12–15/16, St John\'s 
 let r = await post(order()); assert.equal(r.status, 200);
 assert.match((await r.json()).url, /^https:\/\/payments\.worldpay\.test\//);
 const wp = __worldpay.requests.at(-1);
-const total = 70000 + 40000 + 6 * 500 + 2 * 2900;
+const total = 66000 + 42000 + 6 * 500 + 2 * 2900 + 1500; // incl. £15 Kensington delivery
 assert.equal(wp.url, 'https://try.access.worldpay.com/payment_pages');
 assert.equal(wp.headers.Authorization, 'Basic ' + Buffer.from('user:pass').toString('base64'));
 assert.equal(wp.headers.Accept, 'application/vnd.worldpay.payment_pages-v1.hal+json');
@@ -52,6 +52,7 @@ const rejects = [
 ];
 for (const [patch, name] of rejects) { r = await post(order(patch)); assert.equal(r.status, 400, name); }
 ok(`rejects ${rejects.length} invalid orders`);
+
 
 // 4 per hour: 1 hold already, 3 more fit, the 5th is refused
 for (let i = 0; i < 3; i++) assert.equal((await post(order())).status, 200);
@@ -78,32 +79,38 @@ ok('webhook: forged token + unknown IP refused, paid order counted once and sent
 assert.equal((await post(order())).status, 200);
 ok('freed slot can be booked again');
 
+// New sizes: 2–4 tables, gluten-free follows 4 heads; old Wellington for 10 is gone
+r = await post(order({ items: [{ id: 'turkey-4', qty: 1 }, { id: 'veg-4', qty: 1 }, { id: 'wellington-gf', qty: 4 }], window: '10:00–11:00' })); assert.equal(r.status, 200);
+assert.equal(__worldpay.requests.at(-1).body.value.amount, 35000 + 32000 + 2000 + 1500);
+assert.equal((await post(order({ items: [{ id: 'veg-10', qty: 1 }] }))).status, 400);
+ok('2–4 tables priced (£350 turkey, £320 Wellington, GF +£20); Wellington for 10 withdrawn');
+
 // ---------- Christmas ----------
 process.env.NG_TEST_NOW = '2026-12-01T12:00:00Z';
 const { xmasWindowsFor } = await import('../netlify/lib/catalog.mjs');
 assert.deepEqual(xmasWindowsFor('2026-12-23', 'central').map((w) => w.label), ['09:00–12:00', '12:00–15:00', '15:00–18:00']);
-assert.deepEqual(xmasWindowsFor('2026-12-22', 'england').map((w) => w.label), ['Courier, during the day']);
-assert.deepEqual(xmasWindowsFor('2026-12-24', 'england'), []);
-ok('Christmas windows: London 3-hour windows 21–24 Dec, England courier 21–23 Dec only');
+assert.deepEqual(xmasWindowsFor('2026-12-24', 'england').map((w) => w.label), ['Courier, during the day']);
+assert.deepEqual(xmasWindowsFor('2026-12-22', 'central'), []);
+ok('Christmas windows: London 3-hour windows and England courier on 23 & 24 Dec only');
 
 const xorder = (extra = {}) => ({ season: 'christmas', items: [{ id: 'xmas-turkey-12', qty: 1 }, { id: 'xmas-veg-6', qty: 1 }, { id: 'xmas-wellington-gf', qty: 6 }, { id: 'xmas-pudding', qty: 1 }],
   area: 'kensington', day: '2026-12-23', window: '09:00–12:00', customer, ...extra });
 r = await post(xorder()); assert.equal(r.status, 200);
 let xwp = __worldpay.requests.at(-1);
-const xtotal = 88000 + 44000 + 6 * 500 + 4500 + 1500;
+const xtotal = 76000 + 42000 + 6 * 500 + 4500 + 1500;
 assert.deepEqual(xwp.body.value, { currency: 'GBP', amount: xtotal });
 assert.match(xwp.body.resultURLs.successURL, /\/christmas\/\?pay=done/);
 let xp = JSON.parse(await __stores.get('thanksgiving-pending').get(xwp.body.transactionReference));
 assert.equal(xp.season, 'christmas'); assert.equal(xp.slot_key, '2026-12-23_w09'); assert.match(xp.order, /Delivery, Kensington/);
 ok(`Christmas order £${xtotal / 100} incl. £15 Kensington delivery, returns to /christmas/`);
 
-r = await post(xorder({ area: 'england', day: '2026-12-22', window: 'Courier, during the day' })); assert.equal(r.status, 200);
+r = await post(xorder({ area: 'england', day: '2026-12-24', window: 'Courier, during the day' })); assert.equal(r.status, 200);
 xwp = __worldpay.requests.at(-1); assert.equal(xwp.body.value.amount, xtotal - 1500 + 4500);
-ok('England next-day courier charged £45');
+ok('England courier charged £45');
 
 const xrejects = [
   [{ items: [{ id: 'turkey-8', qty: 1 }] }, 'Thanksgiving item in a Christmas order'],
-  [{ area: 'england', day: '2026-12-24', window: 'Courier, during the day' }, 'courier on Christmas Eve'],
+  [{ day: '2026-12-21' }, 'delivery day no longer offered'],
   [{ window: '10:00–11:00' }, 'not a Christmas window'],
   [{ area: 'st-johns-wood' }, 'unknown Christmas zone'],
   [{ items: [{ id: 'xmas-veg-8', qty: 1 }, { id: 'xmas-wellington-gf', qty: 6 }] }, 'gluten-free count not matching'],
